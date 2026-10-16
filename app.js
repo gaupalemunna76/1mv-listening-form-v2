@@ -1,17 +1,15 @@
 // 1MV Listening Form — one question per screen (Youth Voice look), with follow-ups, conditions,
 // optional 🔊 listen and 🎤 speak, three languages, offline save and Google Sheet sync.
-import { TOOLS } from "./questions.js?v=20261018-1228";
-import { LANGS, UI, t } from "./i18n.js?v=20261018-1228";
-import { assess, isDistress } from "./probe.js?v=20261018-1228";
-import { SHEET_URL as CONFIG_SHEET_URL } from "./config.js?v=20261018-1228";
-import { canSpeak, canListen, loadVoices, pickVoice, speak, stopSpeaking, unlockSpeech, listen, isMobile } from "./speech.js?v=20261018-1228";
+import { TOOLS } from "./questions.js?v=20261017-0029";
+import { LANGS, UI, t } from "./i18n.js?v=20261017-0029";
+import { assess, isDistress } from "./probe.js?v=20261017-0029";
+import { SHEET_URL as CONFIG_SHEET_URL } from "./config.js?v=20261017-0029";
+import { canSpeak, canListen, loadVoices, pickVoice, speak, stopSpeaking, unlockSpeech, listen, isMobile, browserName } from "./speech.js?v=20261017-0029";
 
 const params0 = new URLSearchParams(location.search);
 // Local test copies (localhost) never send to the real Sheet unless ?sync is added.
-// On localhost, ?sheet=<url> points at a test receiver (used by tests/queue test); nothing reaches the real Sheet.
-const LOCAL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
-const SHEET_URL = LOCAL ? (params0.get("sheet") || (params0.has("sync") ? CONFIG_SHEET_URL : "")) : CONFIG_SHEET_URL;
-const VERSION = "20261018-1228";
+const SHEET_URL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) && !params0.has("sync") ? "" : CONFIG_SHEET_URL;
+const VERSION = "20261017-0029";
 const DRAFT = "lf.draft.v2";
 const STORE = "lf.responses.v1";
 const TOOL_NAME = "1MV Listening Form";
@@ -333,9 +331,10 @@ function onMic(btn) {
       S.V[id] = S.V[id] && S.V[id] !== part ? "both" : part; saveDraft();
       checkDistress(field.value);
     }
-    const errMsg = { "not-allowed": UI.micDenied, network: UI.micNoNet, "no-mic": UI.micNoMic, "start-failed": UI.micDenied }[r.error];
+    const errMsg = { "not-allowed": UI.micDenied, network: UI.micNoNet, lang: UI.micNoLang, "no-mic": UI.micNoMic, "start-failed": UI.micDenied }[r.error];
     if (!msg.isConnected) return;
-    msg.textContent = errMsg ? t(errMsg, S.lang) : r.text ? t(UI.micAgain, S.lang) : r.cancelled ? "" : t(UI.micNothing, S.lang);
+    // The small technical note (error · browser) helps when someone reports a problem.
+    msg.textContent = errMsg ? `${t(errMsg, S.lang)} (${r.error} · ${browserName()})` : r.text ? t(UI.micAgain, S.lang) : r.cancelled ? "" : t(UI.micNothing, S.lang);
     msg.hidden = !msg.textContent;
   });
 }

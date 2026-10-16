@@ -7,7 +7,14 @@
 const synth = window.speechSynthesis;
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 export const canSpeak = !!synth;
-export const canListen = !!SR;
+// Brave and Opera expose the speech API but their speech service always fails with "network", so hide the mic there.
+const noSpeechService = !!(navigator.brave) || /OPR\/|Opera/.test(navigator.userAgent || "");
+export const canListen = !!SR && !noSpeechService;
+export function browserName() {
+  const ua = navigator.userAgent || "";
+  return navigator.brave ? "Brave" : /Edg\//.test(ua) ? "Edge" : /OPR\//.test(ua) ? "Opera" : /SamsungBrowser/.test(ua) ? "Samsung Internet"
+    : /Chrome\//.test(ua) ? "Chrome" : /Firefox\//.test(ua) ? "Firefox" : /Safari\//.test(ua) ? "Safari" : "this browser";
+}
 
 let voices = [];
 export function loadVoices() {
@@ -146,7 +153,7 @@ export function listen({ lang = "en-IN", silenceMs = 2200, maxMs = 60000, noSpee
   const promise = new Promise(resolve => {
     if (!SR) return resolve({ error: "unsupported" });
     let prior = "", sessionFinal = "", sessionInterim = "";
-    let done = false, rec = null, restarts = 0, heard = false, silenceTimer = null;
+    let done = false, rec = null, restarts = 0, heard = false, silenceTimer = null, netRetries = 0, netRetryPending = false;
     const started = Date.now();
     const text = () => mergeText([prior, sessionFinal, sessionInterim], isMobile);
     const finish = r => {
@@ -181,12 +188,18 @@ export function listen({ lang = "en-IN", silenceMs = 2200, maxMs = 60000, noSpee
       };
       rec.onerror = e => {
         if (e.error === "not-allowed" || e.error === "service-not-allowed") return finish({ error: "not-allowed" });
-        if (e.error === "network") return finish({ error: "network", text: text() });
+        // Laptop browsers sometimes fail to reach the speech service on the first try: retry twice before giving up.
+        if (e.error === "network") {
+          if (netRetries < 2 && navigator.onLine) { netRetries++; netRetryPending = true; return; }
+          return finish({ error: "network", text: text() });
+        }
+        if (e.error === "language-not-supported") return finish({ error: "lang", text: text() });
         if (e.error === "audio-capture") return finish({ error: "no-mic" });
         // "no-speech" and "aborted" are handled by onend / timers
       };
       rec.onend = () => {
         if (done) return;
+        if (netRetryPending) { netRetryPending = false; prior = text(); setTimeout(() => { if (!done) { try { start(); } catch { finish({ error: "network", text: text() }); } } }, 500); return; }
         prior = text(); sessionFinal = ""; sessionInterim = "";
         if (isMobile) {
           // The phone decided the person stopped talking: take the answer (no restart = no extra beep).

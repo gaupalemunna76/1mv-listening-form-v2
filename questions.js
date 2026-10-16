@@ -16,7 +16,7 @@
 //             Asked once, when the answer is empty, a non-answer ("yes", "ok", "pata nahi"),
 //             shorter than minWords, or only vague words.
 
-import { STATES } from "./states.js?v=20261018-1228";
+import { STATES } from "./states.js?v=20261017-0029";
 
 const L = (en, hi, mr) => ({ en, hi, mr });
 const opt = (v, en, hi, mr) => ({ v, en, hi, mr });

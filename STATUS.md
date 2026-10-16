@@ -48,7 +48,7 @@ Hindi/Marathi-only wording changes don't touch the Sheet.
 ## Run and test
 ```
 node tests/probe.test.mjs                       # follow-up rules, EN/HI/MR (94)
-node tests/transcript.test.mjs && node tests/phone_speech.test.mjs   # speech clean-up (16)
+node tests/transcript.test.mjs && node tests/phone_speech.test.mjs && node tests/speech_retry.test.mjs   # speech clean-up + laptop retry
 python -m http.server 8790   +   node tests/e2e_edge.mjs             # whole Youth form in headless Edge (38)
 python set_version.py && git add -A && git commit && git push        # publish (Pages updates in ~1 min)
 ```
