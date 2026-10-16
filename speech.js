@@ -7,9 +7,10 @@
 const synth = window.speechSynthesis;
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 export const canSpeak = !!synth;
-// Brave and Opera expose the speech API but their speech service always fails with "network", so hide the mic there.
-const noSpeechService = !!(navigator.brave) || /OPR\/|Opera/.test(navigator.userAgent || "");
-export const canListen = !!SR && !noSpeechService;
+// Brave and Opera expose the speech API but their speech service always fails with "network".
+// The mic still shows there; tapping it explains that speaking needs Chrome or Edge.
+export const speechBlocked = !!(navigator.brave) || /OPR\/|Opera/.test(navigator.userAgent || "");
+export const canListen = !!SR;
 export function browserName() {
   const ua = navigator.userAgent || "";
   return navigator.brave ? "Brave" : /Edg\//.test(ua) ? "Edge" : /OPR\//.test(ua) ? "Opera" : /SamsungBrowser/.test(ua) ? "Samsung Internet"

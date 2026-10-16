@@ -1,15 +1,15 @@
 // 1MV Listening Form — one question per screen (Youth Voice look), with follow-ups, conditions,
 // optional 🔊 listen and 🎤 speak, three languages, offline save and Google Sheet sync.
-import { TOOLS } from "./questions.js?v=20261017-0029";
-import { LANGS, UI, t } from "./i18n.js?v=20261017-0029";
-import { assess, isDistress } from "./probe.js?v=20261017-0029";
-import { SHEET_URL as CONFIG_SHEET_URL } from "./config.js?v=20261017-0029";
-import { canSpeak, canListen, loadVoices, pickVoice, speak, stopSpeaking, unlockSpeech, listen, isMobile, browserName } from "./speech.js?v=20261017-0029";
+import { TOOLS } from "./questions.js?v=20261017-0041";
+import { LANGS, UI, t } from "./i18n.js?v=20261017-0041";
+import { assess, isDistress } from "./probe.js?v=20261017-0041";
+import { SHEET_URL as CONFIG_SHEET_URL } from "./config.js?v=20261017-0041";
+import { canSpeak, canListen, loadVoices, pickVoice, speak, stopSpeaking, unlockSpeech, listen, isMobile, browserName, speechBlocked } from "./speech.js?v=20261017-0041";
 
 const params0 = new URLSearchParams(location.search);
 // Local test copies (localhost) never send to the real Sheet unless ?sync is added.
 const SHEET_URL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) && !params0.has("sync") ? "" : CONFIG_SHEET_URL;
-const VERSION = "20261017-0029";
+const VERSION = "20261017-0041";
 const DRAFT = "lf.draft.v2";
 const STORE = "lf.responses.v1";
 const TOOL_NAME = "1MV Listening Form";
@@ -316,6 +316,7 @@ function onMic(btn) {
   if (saying) { stopSpeaking(); saying.classList.remove("on"); saying = null; }
   const field = document.getElementById(btn.dataset.mic);
   const msg = document.getElementById("m_" + btn.dataset.mic);
+  if (speechBlocked) { msg.hidden = false; msg.textContent = t(UI.micBrowser, S.lang, { browser: browserName() }); return; }
   const base = field.value.trim();
   const put = text => { field.value = (base && text ? base + " " : base) + (text || ""); field.dispatchEvent(new Event("input", { bubbles: true })); autoGrow(field); };
   btn.classList.add("listening"); btn.setAttribute("aria-label", t(UI.micStop, S.lang)); btn.title = t(UI.micStop, S.lang);
