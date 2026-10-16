@@ -149,7 +149,7 @@ export function collapseRepeats(s) {
 }
 
 // One listening turn. Resolves with { text } (possibly ""), or { error }.
-export function listen({ lang = "en-IN", silenceMs = 2200, maxMs = 60000, noSpeechMs = 9000, onInterim } = {}) {
+export function listen({ lang = "en-IN", silenceMs = 2200, maxMs = 60000, noSpeechMs = 9000, onInterim, onEvent } = {}) {
   let cancel = () => {};
   const promise = new Promise(resolve => {
     if (!SR) return resolve({ error: "unsupported" });
@@ -171,6 +171,9 @@ export function listen({ lang = "en-IN", silenceMs = 2200, maxMs = 60000, noSpee
       sessionFinal = ""; sessionInterim = "";
       rec = new SR();
       rec.lang = lang; rec.continuous = !isMobile; rec.interimResults = true; rec.maxAlternatives = 1;
+      // Diagnostics (only used in ?debug): report each step the browser goes through.
+      if (onEvent) for (const ev of ["start", "audiostart", "soundstart", "speechstart", "speechend", "soundend", "audioend", "nomatch"]) rec.addEventListener(ev, () => onEvent(ev));
+      if (onEvent) { rec.addEventListener("result", () => onEvent("result")); rec.addEventListener("error", e => onEvent("error:" + e.error)); rec.addEventListener("end", () => onEvent("end")); }
       rec.onresult = e => {
         heard = true;
         // Rebuild this session's text from ALL results each time (works for both piecewise and cumulative results).

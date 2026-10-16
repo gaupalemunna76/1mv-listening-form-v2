@@ -109,3 +109,5 @@ th{font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mu
 [hidden]{display:none!important}
 @media (max-width:560px){ .qtext{font-size:1.3rem} h1{font-size:1.45rem} .card{padding:18px 16px 14px} .controls .row{width:100%;justify-content:space-between} }
 .followup .mic{background:var(--panel);border:1px solid var(--rule)}
+
+.micdebug{white-space:pre-wrap;font:12px/1.45 ui-monospace,Consolas,monospace;background:var(--soft);border:1px dashed var(--rule);border-radius:8px;padding:8px 10px;margin:0;max-height:240px;overflow:auto}

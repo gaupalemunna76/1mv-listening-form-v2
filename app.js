@@ -1,15 +1,15 @@
 // 1MV Listening Form — one question per screen (Youth Voice look), with follow-ups, conditions,
 // optional 🔊 listen and 🎤 speak, three languages, offline save and Google Sheet sync.
-import { TOOLS } from "./questions.js?v=20261017-0041";
-import { LANGS, UI, t } from "./i18n.js?v=20261017-0041";
-import { assess, isDistress } from "./probe.js?v=20261017-0041";
-import { SHEET_URL as CONFIG_SHEET_URL } from "./config.js?v=20261017-0041";
-import { canSpeak, canListen, loadVoices, pickVoice, speak, stopSpeaking, unlockSpeech, listen, isMobile, browserName, speechBlocked } from "./speech.js?v=20261017-0041";
+import { TOOLS } from "./questions.js?v=20261017-0050";
+import { LANGS, UI, t } from "./i18n.js?v=20261017-0050";
+import { assess, isDistress } from "./probe.js?v=20261017-0050";
+import { SHEET_URL as CONFIG_SHEET_URL } from "./config.js?v=20261017-0050";
+import { canSpeak, canListen, loadVoices, pickVoice, speak, stopSpeaking, unlockSpeech, listen, isMobile, browserName, speechBlocked } from "./speech.js?v=20261017-0050";
 
 const params0 = new URLSearchParams(location.search);
 // Local test copies (localhost) never send to the real Sheet unless ?sync is added.
 const SHEET_URL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) && !params0.has("sync") ? "" : CONFIG_SHEET_URL;
-const VERSION = "20261017-0041";
+const VERSION = "20261017-0050";
 const DRAFT = "lf.draft.v2";
 const STORE = "lf.responses.v1";
 const TOOL_NAME = "1MV Listening Form";
@@ -321,7 +321,9 @@ function onMic(btn) {
   const put = text => { field.value = (base && text ? base + " " : base) + (text || ""); field.dispatchEvent(new Event("input", { bubbles: true })); autoGrow(field); };
   btn.classList.add("listening"); btn.setAttribute("aria-label", t(UI.micStop, S.lang)); btn.title = t(UI.micStop, S.lang);
   msg.hidden = false; msg.textContent = t(UI.micStop, S.lang);
-  const handle = listen({ lang: speechLang(), silenceMs: 5000, maxMs: 180000, noSpeechMs: 9000, onInterim: put });
+  const dbg = params.has("debug") ? micDebug(msg) : null;
+  const handle = listen({ lang: speechLang(), silenceMs: 5000, maxMs: 180000, noSpeechMs: 9000, onInterim: put, onEvent: dbg?.log });
+  if (dbg) handle.promise.then(r => dbg.stop(r));
   mic = { btn, field, handle };
   handle.promise.then(r => {
     if (mic && mic.handle === handle) mic = null;
@@ -338,6 +340,29 @@ function onMic(btn) {
     msg.textContent = errMsg ? `${t(errMsg, S.lang)} (${r.error} · ${browserName()})` : r.text ? t(UI.micAgain, S.lang) : r.cancelled ? "" : t(UI.micNothing, S.lang);
     msg.hidden = !msg.textContent;
   });
+}
+
+// ?debug: show what the browser's speech service is doing, and a live microphone level meter.
+function micDebug(msg) {
+  const box = document.createElement("pre");
+  box.className = "micdebug";
+  msg.after(box);
+  const steps = [], t0 = Date.now();
+  const show = () => { box.textContent = `Browser: ${browserName()} · language ${speechLang()} · online ${navigator.onLine}\nMic level: ${"█".repeat(Math.round(level / 4)) || "·"} (${Math.round(level)})\n` + steps.join("\n"); };
+  let level = 0, stream = null, ctx = null, raf = 0, peak = 0;
+  navigator.mediaDevices?.getUserMedia({ audio: true }).then(s => {
+    stream = s;
+    const track = s.getAudioTracks()[0];
+    steps.push(`mic device: ${track?.label || "(unknown)"}${track?.muted ? " (MUTED)" : ""}`);
+    ctx = new AudioContext(); const an = ctx.createAnalyser(); an.fftSize = 512; ctx.createMediaStreamSource(s).connect(an);
+    const buf = new Uint8Array(an.fftSize);
+    const tick = () => { an.getByteTimeDomainData(buf); let m = 0; for (const v of buf) m = Math.max(m, Math.abs(v - 128)); level = m; peak = Math.max(peak, m); show(); raf = requestAnimationFrame(tick); };
+    tick();
+  }).catch(e => { steps.push("getUserMedia failed: " + e.name); show(); });
+  return {
+    log: ev => { steps.push(`${((Date.now() - t0) / 1000).toFixed(1)}s  ${ev}`); show(); },
+    stop: r => { cancelAnimationFrame(raf); stream?.getTracks().forEach(x => x.stop()); ctx?.close(); steps.push(`DONE → text: "${r.text || ""}"  error: ${r.error || "none"}  loudest mic level: ${Math.round(peak)} (under 5 = no sound reached the browser)`); show(); },
+  };
 }
 
 function autoGrow(el) { if (el.classList.contains("grow")) { el.style.height = "auto"; el.style.height = el.scrollHeight + 2 + "px"; } }
