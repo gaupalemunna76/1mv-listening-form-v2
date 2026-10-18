@@ -1,13 +1,17 @@
 /**
- * 1MV Listening Form -> Google Sheet receiver.
- * Paste into Extensions -> Apps Script of the Google Sheet that should collect responses, then
- * Deploy -> New deployment -> Web app (Execute as: Me, Who has access: Anyone). Copy the /exec URL into config.js.
- * Each response becomes one row on its form's tab (Youth / Parents / General Public). Sending the same response again updates its row.
- * Locks: responses submitted before LOCK_AFTER are rejected, and a tab's columns never change after it is created.
+ * 1MV Listening Form VERSION 2 -> Google Sheet receiver (use a NEW Sheet, not Version 1's).
+ * Paste into Extensions -> Apps Script of the V2 responses Sheet, then
+ * Deploy -> New deployment -> Web app (Execute as: Me, Who has access: Anyone). Put the /exec URL in config.js.
+ *
+ * Each form has its own tab (Youth / Parents / General Public). Two header rows:
+ *   row 1 = column IDs (stable, e.g. Y11a_work, Y11a_work_fup) — you can hide this row, but don't edit it
+ *   row 2 = readable labels (the English question; "Fups: <question>" for follow-ups)
+ * Rewording a question only updates its label in row 2. A new question gets a new column at the end.
+ * Sending the same response again updates its row (matched by session_id).
+ * Lock: responses submitted before LOCK_AFTER are rejected.
  */
 const TABS = { youth: "Youth", parent: "Parents", public: "General Public" };
-const MAX_COLS = 300;
-// Lock: responses submitted before this time are rejected (the tabs were created after it).
+const MAX_COLS = 400;
 const LOCK_AFTER = "2026-10-16T18:12:00Z";
 
 function doPost(e) {
@@ -15,39 +19,53 @@ function doPost(e) {
   lock.waitLock(20000);
   try {
     const data = JSON.parse(e.postData.contents);
-    if (data.tool !== "1MV Listening Form" || !TABS[data.persona] || !Array.isArray(data.columns) || !Array.isArray(data.values)
-        || data.columns.length !== data.values.length || data.columns.length > MAX_COLS
-        || data.columns[0] !== "session_id" || !/^LF-\d{8}-[A-Z0-9]{4,10}$/.test(String(data.values[0]))) {
+    const cols = data.columns, labels = data.labels, values = data.values;
+    if (data.tool !== "1MV Listening Form V2" || !TABS[data.persona] || !Array.isArray(cols) || !Array.isArray(values) || !Array.isArray(labels)
+        || cols.length !== values.length || labels.length !== cols.length || cols.length > MAX_COLS
+        || cols[0] !== "session_id" || !/^LF-\d{8}-[A-Z0-9]{4,10}$/.test(String(values[0]))
+        || cols.some(c => !/^[A-Za-z][A-Za-z0-9_]*$/.test(String(c)))) {
       return text_("rejected");
     }
-    const sub = data.columns.indexOf("Submitted at");
-    if (sub === -1 || String(data.values[sub]) < LOCK_AFTER) return text_("rejected: before lock");
+    const sub = cols.indexOf("submitted_at");
+    if (sub === -1 || String(values[sub]) < LOCK_AFTER) return text_("rejected: before lock");
+
     const ss = SpreadsheetApp.getActiveSpreadsheet();
     const name = TABS[data.persona];
     const sh = ss.getSheetByName(name) || ss.insertSheet(name);
 
-    // Header row: received_at + the form's columns. New columns are added at the end, never reordered.
     if (sh.getLastRow() === 0) {
-      sh.appendRow(["received_at"].concat(data.columns));
-      sh.setFrozenRows(1);
+      sh.getRange(1, 1, 2, cols.length + 1).setValues([["received_at"].concat(cols), ["Received at"].concat(labels)]);
+      sh.setFrozenRows(2);
+      sh.getRange(2, 1, 1, cols.length + 1).setFontWeight("bold");
     }
-    let headers = sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0];
-    // Lock the columns: once a tab exists, a response with any column the tab doesn't have is rejected
-    // (no new columns are ever added). To change questions, rename the old tab and let a new one be created.
-    const missing = data.columns.filter(c => headers.indexOf(c) === -1);
-    if (missing.length) return text_("rejected: columns differ");
-    const row = headers.map(h => {
-      if (h === "received_at") return new Date();
-      const i = data.columns.indexOf(h);
-      return i === -1 ? "" : clean_(data.values[i]);
+    const width = sh.getLastColumn();
+    let ids = sh.getRange(1, 1, 1, width).getValues()[0].map(String);
+    let heads = sh.getRange(2, 1, 1, width).getValues()[0].map(String);
+
+    // New questions: add their columns at the end (never reorder). Changed wording: update the label.
+    const missing = cols.filter(c => ids.indexOf(c) === -1);
+    if (missing.length) {
+      sh.getRange(1, ids.length + 1, 2, missing.length).setValues([missing, missing.map(c => labels[cols.indexOf(c)])]);
+      sh.getRange(2, ids.length + 1, 1, missing.length).setFontWeight("bold");
+      ids = ids.concat(missing); heads = heads.concat(missing.map(c => labels[cols.indexOf(c)]));
+    }
+    cols.forEach((c, i) => {
+      const k = ids.indexOf(c);
+      if (labels[i] && heads[k] !== labels[i]) { sh.getRange(2, k + 1).setValue(clean_(labels[i])); heads[k] = labels[i]; }
     });
 
-    const idCol = headers.indexOf("session_id") + 1;
+    const row = ids.map(id => {
+      if (id === "received_at") return new Date();
+      const i = cols.indexOf(id);
+      return i === -1 ? "" : clean_(values[i]);
+    });
+
+    const idCol = ids.indexOf("session_id") + 1;
     const last = sh.getLastRow();
     let target = -1;
-    if (last > 1) {
-      const ids = sh.getRange(2, idCol, last - 1, 1).getValues();
-      for (let r = 0; r < ids.length; r++) if (ids[r][0] === data.values[0]) { target = r + 2; break; }
+    if (last > 2) {
+      const found = sh.getRange(3, idCol, last - 2, 1).createTextFinder(String(values[0])).matchEntireCell(true).findNext();
+      if (found) target = found.getRow();
     }
     if (target > 0) sh.getRange(target, 1, 1, row.length).setValues([row]);
     else sh.appendRow(row);
@@ -60,7 +78,7 @@ function doPost(e) {
 }
 
 function doGet() {
-  return text_("1MV Listening Form endpoint is running.");
+  return text_("1MV Listening Form V2 endpoint is running.");
 }
 
 // Store everything as plain text so an answer can never run as a spreadsheet formula.

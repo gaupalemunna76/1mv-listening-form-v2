@@ -129,14 +129,16 @@ ok(await ev(`!!document.querySelector('.thanks')`) === true, "thank-you screen s
 const rec = JSON.parse(await ev(`localStorage.getItem('lf2.responses')`))[0];
 const v = c => rec.values[rec.cols.indexOf(c)];
 ok(rec && rec.tool === "youth" && /^LF-\d{8}-/.test(rec.sid), "record saved with a session id");
-ok(v("Which class or course are you in?") === "Class 11–12" && v("Do you have a disability? Tick any that apply.") === "No" && v("What are you doing right now?") === "In school", "columns are named by the question; choices saved as English labels");
+const lab = c => rec.labels[rec.cols.indexOf(c)];
+ok(v("Y6_class") === "Class 11–12" && v("Y9_disability") === "No" && v("Y5") === "In school", "columns use question IDs; choices saved as English labels");
+ok(lab("Y11a_work") === "When you are 30, what work do you want to be doing?" && lab("Y11a_work_fup") === "Fups: When you are 30, what work do you want to be doing?", "each ID carries the English question as its label");
 ok(rec.cols.length === 9 + 21 + 10, "one column per question + one Fups column per follow-up question (40 for Youth)");
-ok(v("When you are 30, what work do you want to be doing?") === "Teacher" && v("Fups: When you are 30, what work do you want to be doing?") === "Science teacher in a government school in Patna", "follow-up answer in its own Fups: column");
-ok(v("Fups: What is the main reason you feel this way?") === "", "blank follow-up saved blank");
-ok(v("Fups: asked & why") === "Y11a_work: short; Y12_reason: nonanswer", "Fups: asked & why lists where and why");
-ok(v("Where or how are you learning them?") === "" && v("What is stopping you from learning them now?").startsWith("No coaching"), "skipped question saved blank");
-ok(v("Safety flag") === "YES" && v("Language") === "hi" && v("Spoken answers") === "", "safety flag, language and spoken saved");
-ok(rec.cols[0] === "session_id" && new Set(rec.cols).size === rec.cols.length, "session_id first, no duplicate column names");
+ok(v("Y11a_work") === "Teacher" && v("Y11a_work_fup") === "Science teacher in a government school in Patna", "follow-up answer in its own _fup column");
+ok(v("Y12_reason_fup") === "", "blank follow-up saved blank");
+ok(v("fups_asked") === "Y11a_work: short; Y12_reason: nonanswer", "fups_asked lists where and why");
+ok(v("Y14_where") === "" && v("Y14_stop").startsWith("No coaching"), "skipped question saved blank");
+ok(v("safety_flag") === "YES" && v("language") === "hi" && v("spoken") === "", "safety flag, language and spoken saved");
+ok(rec.cols[0] === "session_id" && new Set(rec.cols).size === rec.cols.length && rec.content, "session_id first, no duplicate IDs, content version saved");
 ok(await ev(`localStorage.getItem('lf2.draft')`) === null, "draft cleared after submit");
 
 ws.close(); p.kill();

@@ -1,21 +1,28 @@
 // 1MV Listening Form — one question per screen (Youth Voice look), with follow-ups, conditions,
 // optional 🔊 listen and 🎤 speak, three languages, offline save and Google Sheet sync.
-import { TOOLS } from "./questions.js?v=20261018-1529";
-import { LANGS, UI, t } from "./i18n.js?v=20261018-1529";
-import { assess, isDistress } from "./probe.js?v=20261018-1529";
-import { SHEET_URL as CONFIG_SHEET_URL } from "./config.js?v=20261018-1529";
-import { canSpeak, canListen, loadVoices, pickVoice, speak, stopSpeaking, unlockSpeech, listen, isMobile, browserName, speechBlocked } from "./speech.js?v=20261018-1529";
+import { loadContent, toTools } from "./content.js?v=20261018-1557";
+import { LANGS, UI, t } from "./i18n.js?v=20261018-1557";
+import { assess, isDistress, configureChecks } from "./probe.js?v=20261018-1557";
+import { SHEET_URL as CONFIG_SHEET_URL } from "./config.js?v=20261018-1557";
+import { canSpeak, canListen, loadVoices, pickVoice, speak, stopSpeaking, unlockSpeech, listen, isMobile, browserName, speechBlocked } from "./speech.js?v=20261018-1557";
+
+// Questions, languages, screen text and answer checks come from the published Questions Sheet (content/questions.json).
+const CONTENT = await loadContent(new URL(import.meta.url).searchParams.get("v"));
+const TOOLS = toTools(CONTENT);
+LANGS.splice(0, LANGS.length, ...CONTENT.languages);
+for (const [k, v] of Object.entries(CONTENT.ui || {})) UI[k] = { ...(UI[k] || {}), ...v };
+configureChecks(CONTENT.checks);
 
 const params0 = new URLSearchParams(location.search);
 // Local test copies (localhost) never send to the real Sheet unless ?sync is added; ?sheet=<url> points at a test receiver.
 const LOCAL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
 const SHEET_URL = LOCAL ? (params0.get("sheet") || (params0.has("sync") ? CONFIG_SHEET_URL : "")) : CONFIG_SHEET_URL;
-const VERSION = "20261018-1529";
+const VERSION = "20261018-1557";
 // Version 2 lives on the same domain as Version 1 (gaupalemunna76.github.io), and browser storage is shared per
 // domain, so V2 uses its own storage names. Otherwise each version would pick up and send the other's responses.
 const DRAFT = "lf2.draft";
 const STORE = "lf2.responses";
-const TOOL_NAME = "1MV Listening Form";
+const TOOL_NAME = "1MV Listening Form V2";
 const STAGE_COLORS = ["--about", "--dream", "--path", "--support", "--voice"];
 const $ = sel => document.querySelector(sel);
 const app = $("#app");
@@ -379,12 +386,15 @@ app.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey && e
 // A question that can get a follow-up has a second column "Fups: <question>" with the follow-up answer.
 // "Fups: asked & why" lists which follow-ups were asked and why; "Spoken answers" lists mic answers.
 // (session_id must stay the first column: the Sheet script uses it to find and update a response.)
-const META = ["session_id", "Form", "Language", "Source", "Submitted at", "Time taken (sec)", "Safety flag", "Fups: asked & why", "Spoken answers"];
-const head = q => q.label.en;
-const fupHead = q => "Fups: " + q.label.en;
-function columns(tool) {
-  return [...META, ...allItems(tool).flatMap(q => q.probe ? [head(q), fupHead(q)] : [head(q)])];
+// V2 Sheet columns are tied to stable IDs (row 1 of the Sheet), with the English question as a readable label
+// (row 2). Rewording a question in the Questions Sheet only updates its label; it never makes a new column.
+// A follow-up answer has its own column "<id>_fup", labelled "Fups: <question>".
+const META = [["session_id", "Session ID"], ["form", "Form"], ["language", "Language"], ["source", "Source"], ["submitted_at", "Submitted at"],
+  ["duration_sec", "Time taken (sec)"], ["safety_flag", "Safety flag"], ["fups_asked", "Fups: asked & why"], ["spoken", "Spoken answers"]];
+function columnPairs(tool) {
+  return [...META, ...allItems(tool).flatMap(q => q.probe ? [[q.id, q.label.en], [q.id + "_fup", "Fups: " + q.label.en]] : [[q.id, q.label.en]])];
 }
+const columns = tool => columnPairs(tool).map(c => c[0]);
 
 function valueOf(q) {
   const v = S.A[q.id];
@@ -398,18 +408,19 @@ function buildRecord() {
   const now = new Date();
   const shown = allItems(S.tool).filter(visible);
   const row = {
-    session_id: S.sid, "Form": S.tool.key, "Language": S.lang, "Source": S.source, "Submitted at": now.toISOString(),
-    "Time taken (sec)": Math.round((now - new Date(S.started)) / 1000), "Safety flag": S.flag ? "YES" : "",
-    "Fups: asked & why": shown.filter(q => S.P[q.id]).map(q => `${q.id}: ${S.P[q.id].reason}`).join("; "),
-    "Spoken answers": shown.filter(q => S.V[q.id]).map(q => S.V[q.id] === "answer" ? q.id : `${q.id} (${S.V[q.id]})`).join("; "),
+    session_id: S.sid, form: S.tool.key, language: S.lang, source: S.source, submitted_at: now.toISOString(),
+    duration_sec: Math.round((now - new Date(S.started)) / 1000), safety_flag: S.flag ? "YES" : "",
+    fups_asked: shown.filter(q => S.P[q.id]).map(q => `${q.id}: ${S.P[q.id].reason}`).join("; "),
+    spoken: shown.filter(q => S.V[q.id]).map(q => S.V[q.id] === "answer" ? q.id : `${q.id} (${S.V[q.id]})`).join("; "),
   };
   for (const q of allItems(S.tool)) {
     const show = visible(q);
-    row[head(q)] = show ? valueOf(q) : "";
-    if (q.probe) row[fupHead(q)] = show && S.P[q.id] ? String(S.P[q.id].answer || "").trim() : "";
+    row[q.id] = show ? valueOf(q) : "";
+    if (q.probe) row[q.id + "_fup"] = show && S.P[q.id] ? String(S.P[q.id].answer || "").trim() : "";
   }
-  const cols = columns(S.tool);
-  return { sid: S.sid, tool: S.tool.key, cols, values: cols.map(c => row[c] ?? ""), sent: false, saved: now.toISOString() };
+  const pairs = columnPairs(S.tool);
+  return { sid: S.sid, tool: S.tool.key, cols: pairs.map(c => c[0]), labels: pairs.map(c => c[1]), values: pairs.map(c => row[c[0]] ?? ""),
+    content: CONTENT.version, sent: false, saved: now.toISOString() };
 }
 
 async function submit() {
@@ -425,7 +436,8 @@ async function submit() {
 // Sheet lock: only responses submitted after the tabs were created (CUTOFF) and in today's column format
 // are sent. Older or old-format responses stay on the device (see ?admin) and never reach the Sheet.
 const CUTOFF = "2026-10-16T18:12:00Z";
-const sendable = r => r.saved >= CUTOFF && TOOLS[r.tool] && r.cols.join("") === columns(TOOLS[r.tool]).join("");
+// The V2 Sheet matches columns by ID, so a response saved before a question change can still be sent.
+const sendable = r => r.saved >= CUTOFF && !!TOOLS[r.tool] && Array.isArray(r.labels) && r.cols[0] === "session_id";
 
 // Queue: every response stays on the phone until the Sheet replies "ok". If the Sheet is busy (Google allows
 // 30 at the same moment), offline, or errors, the response is retried later with a growing, random delay
@@ -448,7 +460,7 @@ async function syncWaiting() {
       let reply = "";
       try {
         const res = await fetch(SHEET_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify({ tool: TOOL_NAME, persona: r.tool, columns: r.cols, values: r.values }) });
+          body: JSON.stringify({ tool: TOOL_NAME, persona: r.tool, columns: r.cols, labels: r.labels, values: r.values }) });
         reply = res.ok ? (await res.text()).trim() : "http " + res.status;
       } catch { reply = "network"; }
       const all = load(STORE, []);
@@ -488,9 +500,9 @@ function renderThanks() {
 // ---------------- device admin: ?admin ----------------
 function csvOf(recs) {
   if (!recs.length) return "";
-  const cols = recs[recs.length - 1].cols;
+  const last = recs[recs.length - 1], cols = last.cols, labels = last.labels || last.cols;
   const cell = v => { let s = String(v ?? ""); if (/^[=+\-@]/.test(s)) s = "'" + s; return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
-  return "﻿" + [cols.map(cell).join(","), ...recs.map(r => cols.map(c => cell(r.values[r.cols.indexOf(c)])).join(","))].join("\n");
+  return "﻿" + [labels.map(cell).join(","), ...recs.map(r => cols.map(c => cell(r.values[r.cols.indexOf(c)])).join(","))].join("\n");
 }
 function renderAdmin() {
   const all = load(STORE, []);

@@ -1,8 +1,14 @@
 // Run: node tests/probe.test.mjs
 // Cases are real answer shapes from the 1MV pilot (Form + Mitra), Oct 2026.
 import assert from "node:assert/strict";
-import { assess, isDistress } from "../probe.js";
-import { TOOLS } from "../questions.js";
+import { readFileSync } from "node:fs";
+import { assess, isDistress, configureChecks } from "../probe.js";
+import { toTools } from "../content.js";
+
+// Questions and answer-check words come from the published Questions Sheet (content/questions.json).
+const CONTENT = JSON.parse(readFileSync(new URL("../content/questions.json", import.meta.url), "utf-8"));
+configureChecks(CONTENT.checks);
+const TOOLS = toTools(CONTENT);
 
 const item = id => Object.values(TOOLS).flatMap(t => t.sections.flatMap(s => s.items)).find(q => q.id === id);
 let n = 0;

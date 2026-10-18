@@ -14,7 +14,7 @@ def stamp(path, pattern, repl):
         raise SystemExit(f"nothing to stamp in {path}: {pattern}")
     p.write_text(s2, encoding="utf-8")
 
-for f in ["app.js", "questions.js"]:
+for f in ["app.js"]:
     stamp(f, r'"\./([a-z0-9-]+)\.js(\?v=[\w-]+)?"', rf'"./\1.js?v={ver}"')
 stamp("index.html", r'(app\.js|styles\.css)(\?v=[\w-]+)?"', rf'\1?v={ver}"')
 stamp("app.js", r'const VERSION = "[^"]*";', f'const VERSION = "{ver}";')
