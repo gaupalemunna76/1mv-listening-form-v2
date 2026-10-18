@@ -8,14 +8,12 @@ let NON_ANSWERS = new Set([
   "theek", "thik", "theek hai", "thik hai", "sahi", "achha", "accha",
   "हाँ", "हां", "जी", "जी हाँ", "नहीं", "ना", "पता नहीं", "मालूम नहीं", "कुछ नहीं", "ठीक", "ठीक है", "सही", "अच्छा",
   "हो", "होय", "नाही", "माहीत नाही", "माहिती नाही", "काही नाही", "काहीच नाही", "ठीक आहे", "बरं", "बरोबर", "चांगले", "चांगलं", "हो हो",
-  "হ্যাঁ", "হ্যা", "হাঁ", "না", "জানি না", "জানিনা", "কিছু না", "কিছুই না", "ঠিক আছে", "ভালো", "ভাল", "আচ্ছা", "হুম",
 ]);
 
 // Short answers that are a real answer for questions that allow them (allowNoOne / allowChoice).
 let NO_ONE = [/\bno ?one\b/, /\bnobody\b/, /\bnot anyone\b/, /\bmyself\b/, /\bkisi se nahi/, /\bkoi nahi/, /किसी से नहीं/, /कोई नहीं/, /खुद से/, /\bnothing this week\b/, /इस हफ़्ते कुछ नहीं/,
-  /कोणालाच नाही/, /कोणालाही नाही/, /कोणी नाही/, /कोणीच नाही/, /स्वतःच/, /या आठवड्यात काही नाही/,
-  /কেউ না/, /কাউকে না/, /কারো সাথে না/, /নিজে নিজে/, /এই সপ্তাহে কিছু না/];
-let CHILD_CHOICE = [/whatever (my|the) child/, /child chooses/, /(his|her|their) choice/, /jo (bachcha|baccha|bacha) (chahe|chune)/, /जो बच्चा/, /बच्चा खुद चुने/, /उसकी मर्ज़ी/, /मूल स्वतः ठरवेल/, /त्याला हवे ते/, /तिला हवे ते/, /मुलाला हवे ते/, /त्याची इच्छा/, /तिची इच्छा/, /সন্তান যা চায়/, /ও যা চায়/, /যা ইচ্ছা/, /ওর ইচ্ছা/, /নিজে বেছে নেবে/];
+  /कोणालाच नाही/, /कोणालाही नाही/, /कोणी नाही/, /कोणीच नाही/, /स्वतःच/, /या आठवड्यात काही नाही/];
+let CHILD_CHOICE = [/whatever (my|the) child/, /child chooses/, /(his|her|their) choice/, /jo (bachcha|baccha|bacha) (chahe|chune)/, /जो बच्चा/, /बच्चा खुद चुने/, /उसकी मर्ज़ी/, /मूल स्वतः ठरवेल/, /त्याला हवे ते/, /तिला हवे ते/, /मुलाला हवे ते/, /त्याची इच्छा/, /तिची इच्छा/];
 
 // Words that carry no content on their own.
 let STOP = new Set(("a an the and or but to of in on at for with my me i we our you your it is am are be will would should can could " +
@@ -24,15 +22,13 @@ let STOP = new Set(("a an the and or but to of in on at for with my me i we our 
   "dena karna chahiye hona dena देना करना चाहिए होना " +
   "aur ya ki ka ke ko se mein me main hum mai hai hain ho tha thi bhi to toh ek koi apna apni apne " +
   "और या की का के को से में मैं हम है हैं हो था थी भी तो एक कोई अपना अपनी अपने वह ये यह " +
-  "आणि किंवा मी आम्ही माझा माझी माझे आहे आहेत ला ने चा ची चे च्या मध्ये तर पण हे ते ती तो एक काही आपला आपली आपले करणे पाहिजे असावे " +
-  "এবং আর বা আমি আমার আমরা হয় আছে করে এই সেই একটি একটা যে কি কে তে থেকে").split(" "));
+  "आणि किंवा मी आम्ही माझा माझी माझे आहे आहेत ला ने चा ची चे च्या मध्ये तर पण हे ते ती तो एक काही आपला आपली आपले करणे पाहिजे असावे").split(" "));
 
 // Words that suggest a person may be at risk. If seen, the form shows a support line (Tele-MANAS) and flags the response.
 let DISTRESS = [/suicid/, /kill (my ?self|myself)/, /end (my|this) life/, /want to die/, /self ?harm/, /no reason to live/,
   /aatmhatya/, /atmhatya/, /khudkushi/, /marna chahta/, /marna chahti/, /jeena nahi chahta/, /jeena nahi chahti/,
   /आत्महत्या/, /ख़ुदकुशी/, /खुदकुशी/, /मरना चाहता/, /मरना चाहती/, /जीना नहीं चाहता/, /जीना नहीं चाहती/,
-  /मरायचे आहे/, /मरायचं आहे/, /जगायचे नाही/, /जगायचं नाही/, /जीव द्यायचा/,
-  /আত্মহত্যা/, /মরে যেতে চাই/, /মরতে চাই/, /বাঁচতে চাই না/, /নিজেকে শেষ করে/];
+  /मरायचे आहे/, /मरायचं आहे/, /जगायचे नाही/, /जगायचं नाही/, /जीव द्यायचा/];
 
 export function normalize(text) {
   return String(text ?? "")

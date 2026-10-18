@@ -1,10 +1,10 @@
 // 1MV Listening Form — one question per screen (Youth Voice look), with follow-ups, conditions,
 // optional 🔊 listen and 🎤 speak, three languages, offline save and Google Sheet sync.
-import { loadContent, toTools } from "./content.js?v=20261018-1718";
-import { LANGS, UI, t } from "./i18n.js?v=20261018-1718";
-import { assess, isDistress, configureChecks } from "./probe.js?v=20261018-1718";
-import { SHEET_URL as CONFIG_SHEET_URL } from "./config.js?v=20261018-1718";
-import { canSpeak, canListen, loadVoices, pickVoice, speak, stopSpeaking, unlockSpeech, listen, isMobile, browserName, speechBlocked } from "./speech.js?v=20261018-1718";
+import { loadContent, toTools } from "./content.js?v=20261018-1722";
+import { LANGS, UI, t } from "./i18n.js?v=20261018-1722";
+import { assess, isDistress, configureChecks } from "./probe.js?v=20261018-1722";
+import { SHEET_URL as CONFIG_SHEET_URL } from "./config.js?v=20261018-1722";
+import { canSpeak, canListen, loadVoices, pickVoice, speak, stopSpeaking, unlockSpeech, listen, isMobile, browserName, speechBlocked } from "./speech.js?v=20261018-1722";
 
 // Questions, languages, screen text and answer checks come from the published Questions Sheet (content/questions.json).
 const CONTENT = await loadContent(new URL(import.meta.url).searchParams.get("v"));
@@ -17,7 +17,7 @@ const params0 = new URLSearchParams(location.search);
 // Local test copies (localhost) never send to the real Sheet unless ?sync is added; ?sheet=<url> points at a test receiver.
 const LOCAL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
 const SHEET_URL = LOCAL ? (params0.get("sheet") || (params0.has("sync") ? CONFIG_SHEET_URL : "")) : CONFIG_SHEET_URL;
-const VERSION = "20261018-1718";
+const VERSION = "20261018-1722";
 // Version 2 lives on the same domain as Version 1 (gaupalemunna76.github.io), and browser storage is shared per
 // domain, so V2 uses its own storage names. Otherwise each version would pick up and send the other's responses.
 const DRAFT = "lf2.draft";
