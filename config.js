@@ -1,3 +1,3 @@
-// Paste the Google Apps Script web-app URL here (it ends in /exec) to send every response to your Google Sheet.
+// VERSION 2: its own Google Sheet (not V1's). Paste that Sheet's Apps Script web-app URL here (it ends in /exec) to send every response to your Google Sheet.
 // Leave it empty to keep responses on the device only (download them from ?admin).
-export const SHEET_URL = "https://script.google.com/macros/s/AKfycbx65bk80tzHirTbyqoPEbjDVk-TOfx4655lk4VDzTOGLENDcSsI5_d1jpcyepfhZCWTRQ/exec";
+export const SHEET_URL = "";

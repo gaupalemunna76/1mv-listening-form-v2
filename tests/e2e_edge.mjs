@@ -126,7 +126,7 @@ ok(await ev(`document.getElementById('supportSlot').textContent.includes('14416'
 await step(`T.next()`, 900);
 ok(await ev(`!!document.querySelector('.thanks')`) === true, "thank-you screen shown");
 
-const rec = JSON.parse(await ev(`localStorage.getItem('lf.responses.v1')`))[0];
+const rec = JSON.parse(await ev(`localStorage.getItem('lf2.responses')`))[0];
 const v = c => rec.values[rec.cols.indexOf(c)];
 ok(rec && rec.tool === "youth" && /^LF-\d{8}-/.test(rec.sid), "record saved with a session id");
 ok(v("Which class or course are you in?") === "Class 11–12" && v("Do you have a disability? Tick any that apply.") === "No" && v("What are you doing right now?") === "In school", "columns are named by the question; choices saved as English labels");
@@ -137,7 +137,7 @@ ok(v("Fups: asked & why") === "Y11a_work: short; Y12_reason: nonanswer", "Fups: 
 ok(v("Where or how are you learning them?") === "" && v("What is stopping you from learning them now?").startsWith("No coaching"), "skipped question saved blank");
 ok(v("Safety flag") === "YES" && v("Language") === "hi" && v("Spoken answers") === "", "safety flag, language and spoken saved");
 ok(rec.cols[0] === "session_id" && new Set(rec.cols).size === rec.cols.length, "session_id first, no duplicate column names");
-ok(await ev(`localStorage.getItem('lf.draft.v2')`) === null, "draft cleared after submit");
+ok(await ev(`localStorage.getItem('lf2.draft')`) === null, "draft cleared after submit");
 
 ws.close(); p.kill();
 console.log(fails ? `${fails} FAILED` : "all passed");

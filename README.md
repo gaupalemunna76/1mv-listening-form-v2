@@ -1,3 +1,5 @@
+> **This is VERSION 2** of the 1MV Listening Form, a separate copy for new features. See STATUS.md. Version 1 (live data collection) is at https://github.com/gaupalemunna76/1mv-listening-form.
+
 # 1MV Listening Form
 
 A web form for the **1 Million Voices** listening tools (Short Answer Focused version, 16 Oct 2026). It has the look of the Youth Voice tool (github.com/gaupalemunna76/youth-voice): one question per screen, section chips and a progress bar, tap-to-choose option chips, a big round 🎤 next to every answer box, and dark mode. It works like a Google Form (choices, dropdowns, short answers) and adds what Google Forms cannot do:
@@ -16,7 +18,7 @@ A web form for the **1 Million Voices** listening tools (Short Answer Focused ve
 See STATUS.md for the current state, Sheet locks and how to change questions safely.
 
 ## Links
-- **Live form:** https://gaupalemunna76.github.io/1mv-listening-form/
+- **Live form:** https://gaupalemunna76.github.io/1mv-listening-form-v2/
 - Straight to one form: `?t=youth`, `?t=parent`, `?t=public` (e.g. `…/1mv-listening-form/?t=parent&lang=mr`). The link opens the start screen with that form already chosen.
 - Track a partner or channel: add `&src=<code>` (saved in the `source` column)
 - Responses saved on this device and CSV download: `?admin`

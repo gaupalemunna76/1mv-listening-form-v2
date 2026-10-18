@@ -42,7 +42,7 @@ const fillPublic = `(async()=>{ const W=ms=>new Promise(r=>setTimeout(r,ms));
     document.getElementById('next').click(); await W(250);
   }
   return !!document.querySelector('.thanks'); })()`;
-const rec = () => ev(`JSON.stringify(JSON.parse(localStorage.getItem('lf.responses.v1')||'[]').map(r=>({sent:!!r.sent,skipped:!!r.skipped,tries:r.tries||0,reply:r.reply||''})))`).then(JSON.parse);
+const rec = () => ev(`JSON.stringify(JSON.parse(localStorage.getItem('lf2.responses')||'[]').map(r=>({sent:!!r.sent,skipped:!!r.skipped,tries:r.tries||0,reply:r.reply||''})))`).then(JSON.parse);
 
 await sleep(2000);
 ok(await ev(fillPublic), "form submitted");

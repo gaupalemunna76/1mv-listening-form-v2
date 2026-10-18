@@ -1,3 +1,24 @@
+# 1MV Listening Form — VERSION 2 (development line)
+
+**Version 2 is a separate copy for new features.** Version 1 (the original, collecting real data) stays untouched at
+https://gaupalemunna76.github.io/1mv-listening-form/ (repo gaupalemunna76/1mv-listening-form).
+
+- **V2 live:** https://gaupalemunna76.github.io/1mv-listening-form-v2/ — repo https://github.com/gaupalemunna76/1mv-listening-form-v2
+- **V2 data:** its own Google Sheet (to be created). Until its /exec URL is in `config.js`, V2 keeps responses on the
+  device (`?admin` for CSV).
+- **Own browser storage names** (`lf2.draft`, `lf2.responses`): V1 and V2 share the domain gaupalemunna76.github.io, so
+  separate names stop either version from picking up and sending the other's responses.
+- **New in V2 (not in V1):**
+  - Queue: a response stays on the phone until the Sheet replies "ok"; busy/offline/error → retried with growing,
+    random delays (5–10 s … up to 10 min); "rejected" is final. Random 0–2 s pause after Submit spreads out crowds.
+  - Mic on laptops: speech-service "network" errors retried twice; clearer message with (error · browser); mic always
+    visible; in Brave/Opera tapping it explains that speaking needs Chrome or Edge.
+  - `?debug`: live mic level and speech-service steps under the mic, for diagnosing mic problems.
+- **Try locally:** double-click `START_LOCAL.bat` (http://localhost:8798, debug on, sends nothing).
+- Promote a V2 feature to V1 only when Munna approves.
+
+---
+
 # 1MV Listening Form — status and handover (17 Oct 2026)
 
 ## What it is

@@ -111,3 +111,4 @@ th{font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mu
 .followup .mic{background:var(--panel);border:1px solid var(--rule)}
 
 .micdebug{white-space:pre-wrap;font:12px/1.45 ui-monospace,Consolas,monospace;background:var(--soft);border:1px dashed var(--rule);border-radius:8px;padding:8px 10px;margin:0;max-height:240px;overflow:auto}
+.v2tag{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.06em;background:var(--voice);color:#fff;border-radius:6px;padding:2px 7px;margin-left:2px}
