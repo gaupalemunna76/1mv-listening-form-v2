@@ -14,22 +14,28 @@ https://gaupalemunna76.github.io/1mv-listening-form/ (repo gaupalemunna76/1mv-li
   - Mic on laptops: speech-service "network" errors retried twice; clearer message with (error · browser); mic always
     visible; in Brave/Opera tapping it explains that speaking needs Chrome or Edge.
   - `?debug`: live mic level and speech-service steps under the mic, for diagnosing mic problems.
-- **Questions come from a Google Sheet** ("1MV Listening Form V2 – Questions"; tabs Languages, Forms, Sections, Questions,
-  Options, General words, Answer checks, Screen text). Team and translators edit the Sheet; Munna presses
-  **GitHub → Actions → Publish questions → Run workflow**. The workflow (`.github/workflows/publish.yml`):
-  1. `tools/build_questions.py --sheet-id …` reads every tab as CSV (Sheet must be "Anyone with the link: Viewer"),
-     checks it, and writes `content/questions.json`. Any problem → run stops with a list; live form unchanged.
-  2. `tools/make_audio.py` makes 🔊 MP3s for new/changed text with edge-tts (free; female voices: hi-IN-SwaraNeural,
-     mr-IN-AarohiNeural, en-IN-NeerjaNeural; set per language in the Languages tab). Optional: AZURE_SPEECH_KEY secret +
-     AZURE_SPEECH_REGION variable switch to Azure's free tier. Missing audio → phone voice.
-  3. Stamps a version, commits, pushes; GitHub Pages updates in ~1 minute.
-  Repo variable needed: `QUESTIONS_SHEET_ID`.
-- **Never change a question ID or an option code** in the Sheet; wording, examples, follow-ups, languages can change.
-- **V2 responses Sheet**: row 1 = column IDs (e.g. `Y11a_work`, `Y11a_work_fup`), row 2 = English labels. Rewording
-  updates row 2; a new question adds a column. Use V2's own `google_sheet/Code.gs` (tool name "1MV Listening Form V2").
-- Seed workbook: `tools/1MV_Listening_Form_V2_Questions.xlsx` (today's questions, 3 languages). Regenerate with
-  `node tools/export_to_sheet.mjs && python tools/make_seed_xlsx.py`.
-- Tests: `python tests/build_check.py` (Publish refuses a broken Sheet) plus the earlier ones.
+- **Questions come from a simple Google Sheet** ("1MV Listening Form V2 – Questions"), set up by pasting
+  `google_sheet/QuestionsSheet.gs` into a blank Sheet → menu **1MV → Set up (first time)** (reads `seed/questions_seed.json`).
+  - **Master (English)** — admin only: one row per question with every detail (answer type, required, show only if,
+    question, example, options as `code: label | code: label`, ask follow-up?, follow-up if fewer than N words,
+    follow-up question, also accept "no one"/"child's choice").
+  - **Translation tabs** — Questions, Examples, Follow-ups, Options, Form text (form titles, intros, section names),
+    Screen text (buttons and messages): `ID · English (base) · one column per language · Needs update`.
+  - **Tracker** — one row per language; green ✅ when every tab is complete, otherwise "Check: Options, Follow-ups…".
+    Updates on every edit. Yellow = empty translation; orange = English changed after it was translated.
+  - Admin flow: edit Master → menu **1MV → Update translation tabs from Master** (only changed/new rows go to
+    translators) → when ready, **GitHub → Actions → Publish questions → Run workflow**.
+  - **Add a language:** menu **1MV → Add a language** (adds a column everywhere and a Tracker row).
+  - Follow-up rule = **word count only** (fewer words than the Master setting → one follow-up). Built-in, not in the
+    Sheet: non-answers (yes/ok/pata nahi…), "no one"/child's-choice phrases, safety (distress) words.
+- **Publish** (`.github/workflows/publish.yml`, repo variable `QUESTIONS_SHEET_ID`): downloads the Sheet as .xlsx
+  (exact values), `tools/build_questions.py` checks it and writes `content/questions.json` (any problem → stops, live
+  form unchanged), `tools/make_audio.py` makes MP3s for new/changed text (edge-tts, female voices Swara/Aarohi/Neerja;
+  optional Azure free key), then stamps a version and pushes.
+- **Never change a question ID or an option code** (the part before ":"). Wording can change freely.
+- **V2 responses Sheet**: row 1 = column IDs, row 2 = English labels (`google_sheet/Code.gs`, tool "1MV Listening Form V2").
+- Tests: `node tests/questions_sheet.test.mjs` (Sheet script on a fake Sheet: set-up, sync, Needs update, Tracker,
+  add language), `python tests/build_check.py` (Publish accepts good / refuses broken Sheets), plus the earlier ones.
 - **Try locally:** double-click `START_LOCAL.bat` (http://localhost:8798, debug on, sends nothing).
 - Promote a V2 feature to V1 only when Munna approves.
 

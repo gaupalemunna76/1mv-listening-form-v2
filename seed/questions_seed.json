@@ -1,0 +1,2990 @@
+{
+ "made": "2026-10-18T11:29:22.437Z",
+ "languages": [
+  {
+   "Language": "English",
+   "Code": "en",
+   "Name shown in form": "English",
+   "Voice": "en-IN-NeerjaNeural",
+   "On?": "Yes"
+  },
+  {
+   "Language": "Hindi",
+   "Code": "hi",
+   "Name shown in form": "हिन्दी",
+   "Voice": "hi-IN-SwaraNeural",
+   "On?": "Yes"
+  },
+  {
+   "Language": "Marathi",
+   "Code": "mr",
+   "Name shown in form": "मराठी",
+   "Voice": "mr-IN-AarohiNeural",
+   "On?": "Yes"
+  }
+ ],
+ "master": [
+  {
+   "Form": "youth",
+   "ID": "Y1_age",
+   "Section": "about",
+   "Order": 1,
+   "Answer type": "Dropdown",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "How old are you?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "12: 12 | 13: 13 | 14: 14 | 15: 15 | 16: 16 | 17: 17 | 18: 18 | 19: 19 | 20: 20 | 21: 21 | 22: 22 | 23: 23 | 24: 24 | 25: 25 | 26plus: 26 or older",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y2_gender",
+   "Section": "about",
+   "Order": 2,
+   "Answer type": "One choice",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "What is your gender?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "female: Female | male: Male | other: Other | pnts: Prefer not to say",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y3_state",
+   "Section": "about",
+   "Order": 3,
+   "Answer type": "Dropdown",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "Which state do you live in?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "@states",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y4_district",
+   "Section": "about",
+   "Order": 4,
+   "Answer type": "Short text",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "Which district do you live in?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y5",
+   "Section": "about",
+   "Order": 5,
+   "Answer type": "One choice",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "What are you doing right now?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "school: In school | college: In college | exam: Preparing for a competitive exam (e.g. government jobs) | working: Working | both: Studying and working | looking: Looking for work | none: None of these right now",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y6_class",
+   "Section": "about",
+   "Order": 6,
+   "Answer type": "Dropdown",
+   "Required?": "Yes",
+   "Show only if": "Y5 in school, college",
+   "Question (English)": "Which class or course are you in?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "c6_8: Class 6–8 | c9_10: Class 9–10 | c11_12: Class 11–12 | arts: College: Arts | science: College: Science | commerce: College: Commerce | engg: College: Engineering | iti: ITI or vocational | pg: Postgraduate | other: Other",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y7_institution",
+   "Section": "about",
+   "Order": 7,
+   "Answer type": "One choice",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "What type of school or college are you in now, or were you in last?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "govt: Government | aided: Government-aided | private: Private | nios: Open school (NIOS) | notsure: Not sure",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y8_income",
+   "Section": "about",
+   "Order": 8,
+   "Answer type": "One choice",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "What is your family's total income in a year?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "lt3: Less than ₹3 lakh | 3to8: ₹3–8 lakh | 8to10: ₹8–10 lakh | gt10: More than ₹10 lakh | dk: I don't know",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y9_disability",
+   "Section": "about",
+   "Order": 9,
+   "Answer type": "Many choices",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "Do you have a disability? Tick any that apply.",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "no: No | moving: Difficulty walking or moving | seeing: Difficulty seeing | hearing: Difficulty hearing or speaking | learning: Difficulty learning or remembering | other: Other | pnts: Prefer not to say",
+   "Unticks the others": "no, pnts",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y11a_work",
+   "Section": "future",
+   "Order": 10,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "When you are 30, what work do you want to be doing?",
+   "Example (English)": "Example: Running my own tailoring shop with two helpers.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 4,
+   "Follow-up question (English)": "Tell us a little more: what exactly would you do, and where?",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y11b_life",
+   "Section": "future",
+   "Order": 11,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "When you are 30, where and how do you want to live?",
+   "Example (English)": "Example: In my own house in Gaya, near my parents, with enough money to travel once a year.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 5,
+   "Follow-up question (English)": "Can you describe it a bit more? For example: which place, who lives with you, what your home is like.",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y12_sure",
+   "Section": "future",
+   "Order": 12,
+   "Answer type": "One choice",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "How sure are you that you will reach this future?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "very: Very sure | quite: Quite sure | unsure: A little unsure | notsure: Not sure at all",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y12_reason",
+   "Section": "future",
+   "Order": 13,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "What is the main reason you feel this way?",
+   "Example (English)": "Example: My family supports my studies, but I worry about paying college fees.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 4,
+   "Follow-up question (English)": "What makes you feel this way? Even one reason helps.",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y13_skills",
+   "Section": "future",
+   "Order": 14,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "Name 2 skills you need to learn to reach this future.",
+   "Example (English)": "Example: Spoken English and using Excel on a computer.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 3,
+   "Follow-up question (English)": "Which specific skills? For example: typing, spoken English, driving, tailoring, coding.",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y14_now",
+   "Section": "learning",
+   "Order": 15,
+   "Answer type": "One choice",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "Are you able to learn these skills right now?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "yes: Yes, regularly | sometimes: Sometimes | notyet: Not yet",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y14_where",
+   "Section": "learning",
+   "Order": 16,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "Y14_now in yes, sometimes",
+   "Question (English)": "Where or how are you learning them?",
+   "Example (English)": "Example: At my ITI, and from YouTube videos at home.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 3,
+   "Follow-up question (English)": "Please name the place, person or app where you learn.",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y14_stop",
+   "Section": "learning",
+   "Order": 17,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "Y14_now = notyet",
+   "Question (English)": "What is stopping you from learning them now?",
+   "Example (English)": "Example: There is no coaching centre near my village.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 3,
+   "Follow-up question (English)": "What gets in the way? For example: money, distance, time, no one to teach.",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y15_helped",
+   "Section": "learning",
+   "Order": 18,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "Who or what has helped you most to learn these skills, and how?",
+   "Example (English)": "Example: My senior in college showed me how to prepare for interviews.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 4,
+   "Follow-up question (English)": "Who was it, and what did they do for you?",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y16_onething",
+   "Section": "learning",
+   "Order": 19,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "If your school, college or family could do ONE new thing to help you, what should it be?",
+   "Example (English)": "Example: Invite people from different jobs to talk to us about their work.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 4,
+   "Follow-up question (English)": "What exactly should they do? Try to describe one concrete thing.",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "youth",
+   "ID": "Y17_asked",
+   "Section": "learning",
+   "Order": 20,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "Who did you last ask about your future, and what did you ask them? (If no one, write \"no one\".)",
+   "Example (English)": "Example: My cousin – which course to take after Class 12.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 3,
+   "Follow-up question (English)": "Who was it (for example a parent, teacher, friend) and what was it about?",
+   "Also accept as a full answer": "no one"
+  },
+  {
+   "Form": "youth",
+   "ID": "Y18_mydo",
+   "Section": "learning",
+   "Order": 21,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "What is one thing YOU would like to do to help other young people learn?",
+   "Example (English)": "Example: Teach English to children in my village on Sundays.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 4,
+   "Follow-up question (English)": "What would you actually do, and for whom?",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "parent",
+   "ID": "P1_state",
+   "Section": "about",
+   "Order": 1,
+   "Answer type": "Dropdown",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "Which state do you live in?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "@states",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "parent",
+   "ID": "P2_district",
+   "Section": "about",
+   "Order": 2,
+   "Answer type": "Short text",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "In which district is your child's school?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "parent",
+   "ID": "P3_relation",
+   "Section": "about",
+   "Order": 3,
+   "Answer type": "One choice",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "You are the child's:",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "mother: Mother | father: Father | grandparent: Grandparent | guardian: Other guardian",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "parent",
+   "ID": "P4_school",
+   "Section": "about",
+   "Order": 4,
+   "Answer type": "One choice",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "Your child's school or college is:",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "govt: Government | aided: Government-aided | private: Private | notsure: Not sure",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "parent",
+   "ID": "P5_class",
+   "Section": "about",
+   "Order": 5,
+   "Answer type": "Dropdown",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "Which class is your child in?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "pre: Nursery–UKG | c1_5: Class 1–5 | c6_8: Class 6–8 | c9_10: Class 9–10 | c11_12: Class 11–12 | college: College | done: Finished studies",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "parent",
+   "ID": "P6_ownedu",
+   "Section": "about",
+   "Order": 6,
+   "Answer type": "One choice",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "Up to which level did you study?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "none: Did not go to school | c1_5: Class 1–5 | c6_8: Class 6–8 | c9_10: Class 9–10 | c11_12: Class 11–12 | grad: Graduate | pg: Postgraduate or more",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "parent",
+   "ID": "P7_visits",
+   "Section": "school",
+   "Order": 7,
+   "Answer type": "One choice",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "In the last 6 months, how many times did you go to your child's school?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "0: Not at all | 1_2: 1–2 times | 3_5: 3–5 times | 6plus: 6 times or more",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "parent",
+   "ID": "P8_reason",
+   "Section": "school",
+   "Order": 8,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "P7_visits not 0",
+   "Question (English)": "What was the main reason for your last visit to the school?",
+   "Example (English)": "Example: A parent-teacher meeting about her half-yearly results.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 3,
+   "Follow-up question (English)": "What was the meeting or visit about?",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "parent",
+   "ID": "P8_notvisit",
+   "Section": "school",
+   "Order": 9,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "P7_visits = 0",
+   "Question (English)": "What makes it hard to visit your child's school?",
+   "Example (English)": "Example: I work on daily wages and the meetings are during work hours.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 3,
+   "Follow-up question (English)": "Even one reason helps: time, distance, not invited, or something else?",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "parent",
+   "ID": "P9_happy",
+   "Section": "school",
+   "Order": 10,
+   "Answer type": "One choice",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "How happy are you with your child's learning?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "very: Very happy | happy: Happy | notvery: Not very happy | not: Not happy",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "parent",
+   "ID": "P9_reason",
+   "Section": "school",
+   "Order": 11,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "What is one reason you feel this way?",
+   "Example (English)": "Example: She now reads Hindi storybooks on her own.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 4,
+   "Follow-up question (English)": "What have you noticed about your child's learning that makes you feel this way?",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "parent",
+   "ID": "P11_change",
+   "Section": "school",
+   "Order": 12,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "Name 2 things you would change first in your child's school.",
+   "Example (English)": "Example: More regular teachers and a computer class.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 4,
+   "Follow-up question (English)": "Which exact things? For example: teachers, toilets, water, books, computers, sports.",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "parent",
+   "ID": "P12_safe",
+   "Section": "school",
+   "Order": 13,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "What one thing would make your child feel safer at school?",
+   "Example (English)": "Example: A boundary wall and a lady teacher in every class.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 3,
+   "Follow-up question (English)": "What would help most: the building, teachers, other children, or the way to school?",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "parent",
+   "ID": "P13_lastweek",
+   "Section": "home",
+   "Order": 14,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "What did you do last week to help your child with studies?",
+   "Example (English)": "Example: Checked his homework each evening and asked what he learned.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 3,
+   "Follow-up question (English)": "Anything at all counts, even asking about school. If nothing, you can write \"nothing this week\".",
+   "Also accept as a full answer": "no one"
+  },
+  {
+   "Form": "parent",
+   "ID": "P14_ease",
+   "Section": "home",
+   "Order": 15,
+   "Answer type": "One choice",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "Helping my child with studies at home is:",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "easy: Easy | sometimes: Sometimes hard | hard: Hard",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "parent",
+   "ID": "P14_why",
+   "Section": "home",
+   "Order": 16,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "What makes it easy or hard for you?",
+   "Example (English)": "Example: I studied only till Class 5, so maths homework is hard for me.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 4,
+   "Follow-up question (English)": "Could you share the main reason? For example: time, your own schooling, cost, or the syllabus.",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "parent",
+   "ID": "P10_work",
+   "Section": "home",
+   "Order": 17,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "What work do you hope your child will do when they grow up? (You can also write \"whatever my child chooses\".)",
+   "Example (English)": "Example: A government job as a nurse.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 3,
+   "Follow-up question (English)": "Which kind of work? For example: teacher, police, own business, farming, nurse.",
+   "Also accept as a full answer": "child's choice"
+  },
+  {
+   "Form": "parent",
+   "ID": "P10_life",
+   "Section": "home",
+   "Order": 18,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "What kind of life do you wish for your child?",
+   "Example (English)": "Example: A settled life near the family, with no money worries.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 4,
+   "Follow-up question (English)": "What would that life look like? For example: where they live, what they can afford.",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "parent",
+   "ID": "P15_onething",
+   "Section": "home",
+   "Order": 19,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "What ONE thing would help your child most to reach their future?",
+   "Example (English)": "Example: A computer course after Class 10.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 3,
+   "Follow-up question (English)": "What exactly? For example: tuition, a phone or laptop, a good school nearby, money for fees, career guidance.",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "public",
+   "ID": "G1_age",
+   "Section": "about",
+   "Order": 1,
+   "Answer type": "Number",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "How old are you?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": 18,
+   "Number max": 100,
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "public",
+   "ID": "G2_gender",
+   "Section": "about",
+   "Order": 2,
+   "Answer type": "One choice",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "What is your gender?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "female: Female | male: Male | other: Other | pnts: Prefer not to say",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "public",
+   "ID": "G3_state",
+   "Section": "about",
+   "Order": 3,
+   "Answer type": "Dropdown",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "Which state do you live in?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "@states",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "public",
+   "ID": "G4_district",
+   "Section": "about",
+   "Order": 4,
+   "Answer type": "Short text",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "Which district do you live in?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "public",
+   "ID": "G5_work",
+   "Section": "about",
+   "Order": 5,
+   "Answer type": "Dropdown",
+   "Required?": "Yes",
+   "Show only if": "",
+   "Question (English)": "What is your main work?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "teacher: Teacher or education | govt: Government job | private: Private job | business: Own business or shop | farmer: Farmer | daily: Daily wage work | ngo: NGO or social work | home: Homemaker | student: Student | retired: Retired | notworking: Not working",
+   "Unticks the others": "",
+   "Other box?": "Yes",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "",
+   "Follow-up if fewer than (words)": "",
+   "Follow-up question (English)": "",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "public",
+   "ID": "G6_better",
+   "Section": "views",
+   "Order": 6,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "What is one thing that is BETTER for young people today than when you were young?",
+   "Example (English)": "Example: They can learn anything online.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 4,
+   "Follow-up question (English)": "Could you say a little more about what has improved?",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "public",
+   "ID": "G6_harder",
+   "Section": "views",
+   "Order": 7,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "What is one thing that is HARDER for them today?",
+   "Example (English)": "Example: Much more competition for jobs.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 4,
+   "Follow-up question (English)": "Could you say a little more about what has become harder?",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "public",
+   "ID": "G7_learn",
+   "Section": "views",
+   "Order": 8,
+   "Answer type": "Long text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "What do young people need to learn or experience to do well in the future?",
+   "Example (English)": "",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 5,
+   "Follow-up question (English)": "Which skills or experiences, specifically?",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "public",
+   "ID": "G8_where",
+   "Section": "views",
+   "Order": 9,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "Where can young people best get these skills? Name 1–2 places or people.",
+   "Example (English)": "Example: Internships in local shops, and NSS camps in college.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 3,
+   "Follow-up question (English)": "Please name a place or a person.",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "public",
+   "ID": "G9_hope",
+   "Section": "views",
+   "Order": 10,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "What is your one biggest hope for young people around you?",
+   "Example (English)": "Example: That girls in my village finish college and get jobs.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 4,
+   "Follow-up question (English)": "Which young people, and what do you hope for them?",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "public",
+   "ID": "G10_worry",
+   "Section": "views",
+   "Order": 11,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "What is your one biggest worry for young people around you?",
+   "Example (English)": "Example: Boys leave school early to work in cities.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 4,
+   "Follow-up question (English)": "Could you say who is affected and how?",
+   "Also accept as a full answer": ""
+  },
+  {
+   "Form": "public",
+   "ID": "G11_mydo",
+   "Section": "views",
+   "Order": 12,
+   "Answer type": "Short text",
+   "Required?": "",
+   "Show only if": "",
+   "Question (English)": "What is one thing YOU can do in the next 6 months for a young person you know?",
+   "Example (English)": "Example: Help my neighbour's son prepare for his bank interview.",
+   "Options (English)  code: label | code: label": "",
+   "Unticks the others": "",
+   "Other box?": "",
+   "Number min": "",
+   "Number max": "",
+   "Ask follow-up?": "Yes",
+   "Follow-up if fewer than (words)": 4,
+   "Follow-up question (English)": "What would you actually do, and for whom?",
+   "Also accept as a full answer": ""
+  }
+ ],
+ "translations": {
+  "Questions": [
+   {
+    "id": "Y1_age",
+    "en": "How old are you?",
+    "Hindi": "आपकी उम्र कितनी है?",
+    "Marathi": "तुमचे वय किती आहे?"
+   },
+   {
+    "id": "Y2_gender",
+    "en": "What is your gender?",
+    "Hindi": "आपका लिंग क्या है?",
+    "Marathi": "तुमचे लिंग कोणते?"
+   },
+   {
+    "id": "Y3_state",
+    "en": "Which state do you live in?",
+    "Hindi": "आप किस राज्य में रहते हैं?",
+    "Marathi": "तुम्ही कोणत्या राज्यात राहता?"
+   },
+   {
+    "id": "Y4_district",
+    "en": "Which district do you live in?",
+    "Hindi": "आप किस ज़िले में रहते हैं?",
+    "Marathi": "तुम्ही कोणत्या जिल्ह्यात राहता?"
+   },
+   {
+    "id": "Y5",
+    "en": "What are you doing right now?",
+    "Hindi": "अभी आप क्या कर रहे हैं?",
+    "Marathi": "सध्या तुम्ही काय करत आहात?"
+   },
+   {
+    "id": "Y6_class",
+    "en": "Which class or course are you in?",
+    "Hindi": "आप किस कक्षा या कोर्स में हैं?",
+    "Marathi": "तुम्ही कितवीत आहात / कोणता कोर्स करत आहात?"
+   },
+   {
+    "id": "Y7_institution",
+    "en": "What type of school or college are you in now, or were you in last?",
+    "Hindi": "आप अभी किस तरह के स्कूल या कॉलेज में हैं, या आखिरी बार किसमें थे?",
+    "Marathi": "तुम्ही सध्या कोणत्या प्रकारच्या शाळेत/कॉलेजमध्ये आहात, किंवा शेवटी कोणत्या होतात?"
+   },
+   {
+    "id": "Y8_income",
+    "en": "What is your family's total income in a year?",
+    "Hindi": "आपके परिवार की साल भर की कुल आमदनी कितनी है?",
+    "Marathi": "तुमच्या कुटुंबाचे वर्षाचे एकूण उत्पन्न किती आहे?"
+   },
+   {
+    "id": "Y9_disability",
+    "en": "Do you have a disability? Tick any that apply.",
+    "Hindi": "क्या आपको कोई दिव्यांगता है? जो लागू हों, उन पर निशान लगाएँ।",
+    "Marathi": "तुम्हाला कोणते अपंगत्व आहे का? लागू असतील ते सर्व निवडा."
+   },
+   {
+    "id": "Y11a_work",
+    "en": "When you are 30, what work do you want to be doing?",
+    "Hindi": "जब आप 30 साल के होंगे, तब आप क्या काम करना चाहेंगे?",
+    "Marathi": "तुम्ही ३० वर्षांचे असाल तेव्हा तुम्हाला कोणते काम करायला आवडेल?"
+   },
+   {
+    "id": "Y11b_life",
+    "en": "When you are 30, where and how do you want to live?",
+    "Hindi": "जब आप 30 साल के होंगे, तब आप कहाँ और कैसे रहना चाहेंगे?",
+    "Marathi": "तुम्ही ३० वर्षांचे असाल तेव्हा तुम्हाला कुठे आणि कसे राहायला आवडेल?"
+   },
+   {
+    "id": "Y12_sure",
+    "en": "How sure are you that you will reach this future?",
+    "Hindi": "आपको कितना भरोसा है कि आप यह भविष्य पा लेंगे?",
+    "Marathi": "हे भविष्य तुम्ही गाठू शकाल, याची तुम्हाला किती खात्री आहे?"
+   },
+   {
+    "id": "Y12_reason",
+    "en": "What is the main reason you feel this way?",
+    "Hindi": "आप ऐसा क्यों महसूस करते हैं? मुख्य कारण क्या है?",
+    "Marathi": "तुम्हाला असे का वाटते? मुख्य कारण कोणते?"
+   },
+   {
+    "id": "Y13_skills",
+    "en": "Name 2 skills you need to learn to reach this future.",
+    "Hindi": "इस भविष्य तक पहुँचने के लिए आपको कौन से 2 हुनर सीखने होंगे? उनके नाम लिखिए।",
+    "Marathi": "हे भविष्य गाठण्यासाठी तुम्हाला कोणती २ कौशल्ये शिकावी लागतील? त्यांची नावे सांगा."
+   },
+   {
+    "id": "Y14_now",
+    "en": "Are you able to learn these skills right now?",
+    "Hindi": "क्या आप ये हुनर अभी सीख पा रहे हैं?",
+    "Marathi": "ही कौशल्ये तुम्ही सध्या शिकू शकत आहात का?"
+   },
+   {
+    "id": "Y14_where",
+    "en": "Where or how are you learning them?",
+    "Hindi": "आप इन्हें कहाँ या कैसे सीख रहे हैं?",
+    "Marathi": "तुम्ही ती कुठे किंवा कशी शिकत आहात?"
+   },
+   {
+    "id": "Y14_stop",
+    "en": "What is stopping you from learning them now?",
+    "Hindi": "आपको अभी इन्हें सीखने से क्या रोक रहा है?",
+    "Marathi": "ती आत्ता शिकण्यात तुम्हाला काय अडचण येत आहे?"
+   },
+   {
+    "id": "Y15_helped",
+    "en": "Who or what has helped you most to learn these skills, and how?",
+    "Hindi": "इन हुनरों को सीखने में किसने या किस चीज़ ने आपकी सबसे ज़्यादा मदद की, और कैसे?",
+    "Marathi": "ही कौशल्ये शिकायला तुम्हाला सर्वात जास्त मदत कोणी किंवा कशाने केली, आणि कशी?"
+   },
+   {
+    "id": "Y16_onething",
+    "en": "If your school, college or family could do ONE new thing to help you, what should it be?",
+    "Hindi": "अगर आपका स्कूल, कॉलेज या परिवार आपकी मदद के लिए एक नई चीज़ कर सके, तो वह क्या होनी चाहिए?",
+    "Marathi": "तुमची शाळा, कॉलेज किंवा कुटुंब तुमच्या मदतीसाठी एक नवी गोष्ट करू शकले, तर ती कोणती असावी?"
+   },
+   {
+    "id": "Y17_asked",
+    "en": "Who did you last ask about your future, and what did you ask them? (If no one, write \"no one\".)",
+    "Hindi": "अपने भविष्य के बारे में आपने आखिरी बार किससे पूछा था, और क्या पूछा था? (अगर किसी से नहीं, तो \"किसी से नहीं\" लिखें।)",
+    "Marathi": "तुमच्या भविष्याबद्दल तुम्ही शेवटचे कोणाला विचारले होते, आणि काय विचारले होते? (कोणालाच नसेल, तर \"कोणालाच नाही\" लिहा.)"
+   },
+   {
+    "id": "Y18_mydo",
+    "en": "What is one thing YOU would like to do to help other young people learn?",
+    "Hindi": "दूसरे युवाओं को सीखने में मदद के लिए आप खुद कौन सी एक चीज़ करना चाहेंगे?",
+    "Marathi": "इतर तरुणांना शिकायला मदत करण्यासाठी तुम्ही स्वतः कोणती एक गोष्ट करायला आवडेल?"
+   },
+   {
+    "id": "P1_state",
+    "en": "Which state do you live in?",
+    "Hindi": "आप किस राज्य में रहते हैं?",
+    "Marathi": "तुम्ही कोणत्या राज्यात राहता?"
+   },
+   {
+    "id": "P2_district",
+    "en": "In which district is your child's school?",
+    "Hindi": "आपके बच्चे का स्कूल किस ज़िले में है?",
+    "Marathi": "तुमच्या मुलाची शाळा कोणत्या जिल्ह्यात आहे?"
+   },
+   {
+    "id": "P3_relation",
+    "en": "You are the child's:",
+    "Hindi": "आप बच्चे के क्या लगते हैं?",
+    "Marathi": "तुम्ही मुलाचे कोण आहात?"
+   },
+   {
+    "id": "P4_school",
+    "en": "Your child's school or college is:",
+    "Hindi": "आपके बच्चे का स्कूल या कॉलेज:",
+    "Marathi": "तुमच्या मुलाची शाळा किंवा कॉलेज:"
+   },
+   {
+    "id": "P5_class",
+    "en": "Which class is your child in?",
+    "Hindi": "आपका बच्चा किस कक्षा में है?",
+    "Marathi": "तुमचे मूल कितवीत आहे?"
+   },
+   {
+    "id": "P6_ownedu",
+    "en": "Up to which level did you study?",
+    "Hindi": "आपने कहाँ तक पढ़ाई की है?",
+    "Marathi": "तुम्ही कितवीपर्यंत शिकलात?"
+   },
+   {
+    "id": "P7_visits",
+    "en": "In the last 6 months, how many times did you go to your child's school?",
+    "Hindi": "पिछले 6 महीनों में आप अपने बच्चे के स्कूल कितनी बार गए?",
+    "Marathi": "गेल्या ६ महिन्यांत तुम्ही मुलाच्या शाळेत किती वेळा गेलात?"
+   },
+   {
+    "id": "P8_reason",
+    "en": "What was the main reason for your last visit to the school?",
+    "Hindi": "पिछली बार स्कूल जाने का मुख्य कारण क्या था?",
+    "Marathi": "मागच्या वेळी शाळेत जाण्याचे मुख्य कारण काय होते?"
+   },
+   {
+    "id": "P8_notvisit",
+    "en": "What makes it hard to visit your child's school?",
+    "Hindi": "बच्चे के स्कूल जाने में क्या मुश्किल आती है?",
+    "Marathi": "मुलाच्या शाळेत जाण्यात काय अडचण येते?"
+   },
+   {
+    "id": "P9_happy",
+    "en": "How happy are you with your child's learning?",
+    "Hindi": "आप अपने बच्चे की पढ़ाई से कितने संतुष्ट हैं?",
+    "Marathi": "मुलाच्या शिक्षणाबद्दल तुम्ही किती समाधानी आहात?"
+   },
+   {
+    "id": "P9_reason",
+    "en": "What is one reason you feel this way?",
+    "Hindi": "आप ऐसा क्यों महसूस करते हैं? एक कारण बताइए।",
+    "Marathi": "तुम्हाला असे का वाटते? एक कारण सांगा."
+   },
+   {
+    "id": "P11_change",
+    "en": "Name 2 things you would change first in your child's school.",
+    "Hindi": "अपने बच्चे के स्कूल में आप सबसे पहले कौन सी 2 चीज़ें बदलना चाहेंगे?",
+    "Marathi": "मुलाच्या शाळेत तुम्ही सर्वात आधी कोणत्या २ गोष्टी बदलाल?"
+   },
+   {
+    "id": "P12_safe",
+    "en": "What one thing would make your child feel safer at school?",
+    "Hindi": "कौन सी एक चीज़ आपके बच्चे को स्कूल में ज़्यादा सुरक्षित महसूस कराएगी?",
+    "Marathi": "कोणत्या एका गोष्टीमुळे तुमच्या मुलाला शाळेत अधिक सुरक्षित वाटेल?"
+   },
+   {
+    "id": "P13_lastweek",
+    "en": "What did you do last week to help your child with studies?",
+    "Hindi": "पिछले हफ़्ते आपने बच्चे की पढ़ाई में मदद के लिए क्या किया?",
+    "Marathi": "मागच्या आठवड्यात मुलाच्या अभ्यासात मदत करण्यासाठी तुम्ही काय केले?"
+   },
+   {
+    "id": "P14_ease",
+    "en": "Helping my child with studies at home is:",
+    "Hindi": "घर पर बच्चे की पढ़ाई में मदद करना मेरे लिए:",
+    "Marathi": "घरी मुलाच्या अभ्यासात मदत करणे माझ्यासाठी:"
+   },
+   {
+    "id": "P14_why",
+    "en": "What makes it easy or hard for you?",
+    "Hindi": "आपके लिए यह आसान या मुश्किल क्यों है?",
+    "Marathi": "तुमच्यासाठी ते सोपे किंवा अवघड का आहे?"
+   },
+   {
+    "id": "P10_work",
+    "en": "What work do you hope your child will do when they grow up? (You can also write \"whatever my child chooses\".)",
+    "Hindi": "बड़े होकर आपका बच्चा कौन सा काम करे, ऐसी आपकी उम्मीद है? (आप \"जो बच्चा खुद चुने\" भी लिख सकते हैं।)",
+    "Marathi": "मोठे झाल्यावर तुमच्या मुलाने कोणते काम करावे, असे तुम्हाला वाटते? (\"मूल स्वतः ठरवेल ते\" असेही लिहू शकता.)"
+   },
+   {
+    "id": "P10_life",
+    "en": "What kind of life do you wish for your child?",
+    "Hindi": "आप अपने बच्चे के लिए कैसी ज़िंदगी चाहते हैं?",
+    "Marathi": "तुम्हाला तुमच्या मुलासाठी कसे आयुष्य हवे आहे?"
+   },
+   {
+    "id": "P15_onething",
+    "en": "What ONE thing would help your child most to reach their future?",
+    "Hindi": "बच्चे को उसके भविष्य तक पहुँचाने में सबसे ज़्यादा कौन सी एक चीज़ मदद करेगी?",
+    "Marathi": "मुलाला त्याचे भविष्य गाठण्यासाठी सर्वात जास्त मदत कोणत्या एका गोष्टीची होईल?"
+   },
+   {
+    "id": "G1_age",
+    "en": "How old are you?",
+    "Hindi": "आपकी उम्र कितनी है?",
+    "Marathi": "तुमचे वय किती आहे?"
+   },
+   {
+    "id": "G2_gender",
+    "en": "What is your gender?",
+    "Hindi": "आपका लिंग क्या है?",
+    "Marathi": "तुमचे लिंग कोणते?"
+   },
+   {
+    "id": "G3_state",
+    "en": "Which state do you live in?",
+    "Hindi": "आप किस राज्य में रहते हैं?",
+    "Marathi": "तुम्ही कोणत्या राज्यात राहता?"
+   },
+   {
+    "id": "G4_district",
+    "en": "Which district do you live in?",
+    "Hindi": "आप किस ज़िले में रहते हैं?",
+    "Marathi": "तुम्ही कोणत्या जिल्ह्यात राहता?"
+   },
+   {
+    "id": "G5_work",
+    "en": "What is your main work?",
+    "Hindi": "आपका मुख्य काम क्या है?",
+    "Marathi": "तुमचे मुख्य काम कोणते?"
+   },
+   {
+    "id": "G6_better",
+    "en": "What is one thing that is BETTER for young people today than when you were young?",
+    "Hindi": "आपके समय की तुलना में आज के युवाओं के लिए कौन सी एक चीज़ बेहतर है?",
+    "Marathi": "तुमच्या लहानपणापेक्षा आजच्या तरुणांसाठी कोणती एक गोष्ट अधिक चांगली आहे?"
+   },
+   {
+    "id": "G6_harder",
+    "en": "What is one thing that is HARDER for them today?",
+    "Hindi": "आज उनके लिए कौन सी एक चीज़ ज़्यादा मुश्किल है?",
+    "Marathi": "आज त्यांच्यासाठी कोणती एक गोष्ट अधिक अवघड आहे?"
+   },
+   {
+    "id": "G7_learn",
+    "en": "What do young people need to learn or experience to do well in the future?",
+    "Hindi": "भविष्य में अच्छा करने के लिए युवाओं को क्या सीखना या अनुभव करना चाहिए?",
+    "Marathi": "भविष्यात चांगली प्रगती करण्यासाठी तरुणांनी काय शिकले किंवा अनुभवले पाहिजे?"
+   },
+   {
+    "id": "G8_where",
+    "en": "Where can young people best get these skills? Name 1–2 places or people.",
+    "Hindi": "युवा ये हुनर सबसे अच्छी तरह कहाँ से सीख सकते हैं? 1–2 जगहें या लोग बताइए।",
+    "Marathi": "तरुणांना ही कौशल्ये सर्वात चांगल्या प्रकारे कुठे मिळू शकतील? १–२ ठिकाणे किंवा व्यक्ती सांगा."
+   },
+   {
+    "id": "G9_hope",
+    "en": "What is your one biggest hope for young people around you?",
+    "Hindi": "अपने आसपास के युवाओं के लिए आपकी सबसे बड़ी उम्मीद क्या है?",
+    "Marathi": "तुमच्या आजूबाजूच्या तरुणांबद्दल तुमची सर्वात मोठी आशा कोणती?"
+   },
+   {
+    "id": "G10_worry",
+    "en": "What is your one biggest worry for young people around you?",
+    "Hindi": "अपने आसपास के युवाओं को लेकर आपकी सबसे बड़ी चिंता क्या है?",
+    "Marathi": "तुमच्या आजूबाजूच्या तरुणांबद्दल तुमची सर्वात मोठी काळजी कोणती?"
+   },
+   {
+    "id": "G11_mydo",
+    "en": "What is one thing YOU can do in the next 6 months for a young person you know?",
+    "Hindi": "अगले 6 महीनों में आप अपने जान-पहचान के किसी युवा के लिए खुद कौन सी एक चीज़ कर सकते हैं?",
+    "Marathi": "पुढच्या ६ महिन्यांत तुमच्या ओळखीच्या एखाद्या तरुणासाठी तुम्ही स्वतः कोणती एक गोष्ट करू शकता?"
+   }
+  ],
+  "Examples": [
+   {
+    "id": "Y11a_work",
+    "en": "Example: Running my own tailoring shop with two helpers.",
+    "Hindi": "उदाहरण: दो सहायकों के साथ अपनी सिलाई की दुकान चलाना।",
+    "Marathi": "उदाहरण: दोन मदतनिसांसोबत माझे स्वतःचे शिलाईचे दुकान चालवणे."
+   },
+   {
+    "id": "Y11b_life",
+    "en": "Example: In my own house in Gaya, near my parents, with enough money to travel once a year.",
+    "Hindi": "उदाहरण: गया में अपने घर में, माता-पिता के पास, और इतने पैसे हों कि साल में एक बार घूमने जा सकूँ।",
+    "Marathi": "उदाहरण: पुण्यात माझ्या स्वतःच्या घरात, आई-वडिलांच्या जवळ, आणि वर्षातून एकदा फिरायला जाता येईल इतके पैसे असावेत."
+   },
+   {
+    "id": "Y12_reason",
+    "en": "Example: My family supports my studies, but I worry about paying college fees.",
+    "Hindi": "उदाहरण: मेरा परिवार मेरी पढ़ाई में साथ देता है, लेकिन मुझे कॉलेज की फ़ीस की चिंता है।",
+    "Marathi": "उदाहरण: माझे कुटुंब माझ्या शिक्षणाला पाठिंबा देते, पण कॉलेजच्या फीची मला काळजी वाटते."
+   },
+   {
+    "id": "Y13_skills",
+    "en": "Example: Spoken English and using Excel on a computer.",
+    "Hindi": "उदाहरण: अंग्रेज़ी बोलना और कंप्यूटर पर एक्सेल चलाना।",
+    "Marathi": "उदाहरण: इंग्रजी बोलणे आणि संगणकावर एक्सेल वापरणे."
+   },
+   {
+    "id": "Y14_where",
+    "en": "Example: At my ITI, and from YouTube videos at home.",
+    "Hindi": "उदाहरण: अपने आईटीआई में, और घर पर यूट्यूब वीडियो से।",
+    "Marathi": "उदाहरण: माझ्या आयटीआयमध्ये, आणि घरी यूट्यूब व्हिडिओंमधून."
+   },
+   {
+    "id": "Y14_stop",
+    "en": "Example: There is no coaching centre near my village.",
+    "Hindi": "उदाहरण: मेरे गाँव के पास कोई कोचिंग सेंटर नहीं है।",
+    "Marathi": "उदाहरण: माझ्या गावाजवळ कोणतेही कोचिंग सेंटर नाही."
+   },
+   {
+    "id": "Y15_helped",
+    "en": "Example: My senior in college showed me how to prepare for interviews.",
+    "Hindi": "उदाहरण: कॉलेज में मेरे सीनियर ने मुझे इंटरव्यू की तैयारी करना सिखाया।",
+    "Marathi": "उदाहरण: कॉलेजमधील माझ्या सीनियरने मला मुलाखतीची तयारी कशी करायची ते शिकवले."
+   },
+   {
+    "id": "Y16_onething",
+    "en": "Example: Invite people from different jobs to talk to us about their work.",
+    "Hindi": "उदाहरण: अलग-अलग काम करने वाले लोगों को बुलाएँ जो हमें अपने काम के बारे में बताएँ।",
+    "Marathi": "उदाहरण: वेगवेगळी कामे करणाऱ्या लोकांना बोलवावे, जे आम्हाला त्यांच्या कामाबद्दल सांगतील."
+   },
+   {
+    "id": "Y17_asked",
+    "en": "Example: My cousin – which course to take after Class 12.",
+    "Hindi": "उदाहरण: मेरे चचेरे भाई से – 12वीं के बाद कौन सा कोर्स लूँ।",
+    "Marathi": "उदाहरण: माझ्या चुलत भावाला – बारावीनंतर कोणता कोर्स घ्यावा."
+   },
+   {
+    "id": "Y18_mydo",
+    "en": "Example: Teach English to children in my village on Sundays.",
+    "Hindi": "उदाहरण: रविवार को अपने गाँव के बच्चों को अंग्रेज़ी पढ़ाना।",
+    "Marathi": "उदाहरण: रविवारी माझ्या गावातील मुलांना इंग्रजी शिकवणे."
+   },
+   {
+    "id": "P8_reason",
+    "en": "Example: A parent-teacher meeting about her half-yearly results.",
+    "Hindi": "उदाहरण: उसके छमाही परीक्षा के नतीजों पर अभिभावक-शिक्षक बैठक।",
+    "Marathi": "उदाहरण: तिच्या सहामाही निकालाबद्दल पालक-शिक्षक सभा."
+   },
+   {
+    "id": "P8_notvisit",
+    "en": "Example: I work on daily wages and the meetings are during work hours.",
+    "Hindi": "उदाहरण: मैं दिहाड़ी पर काम करता हूँ और बैठकें काम के समय होती हैं।",
+    "Marathi": "उदाहरण: मी रोजंदारीवर काम करतो आणि सभा कामाच्या वेळेत असतात."
+   },
+   {
+    "id": "P9_reason",
+    "en": "Example: She now reads Hindi storybooks on her own.",
+    "Hindi": "उदाहरण: वह अब खुद हिंदी की कहानियों की किताबें पढ़ लेती है।",
+    "Marathi": "उदाहरण: ती आता स्वतः मराठी गोष्टींची पुस्तके वाचते."
+   },
+   {
+    "id": "P11_change",
+    "en": "Example: More regular teachers and a computer class.",
+    "Hindi": "उदाहरण: नियमित आने वाले ज़्यादा शिक्षक और कंप्यूटर की कक्षा।",
+    "Marathi": "उदाहरण: नियमित येणारे जास्त शिक्षक आणि संगणकाचा वर्ग."
+   },
+   {
+    "id": "P12_safe",
+    "en": "Example: A boundary wall and a lady teacher in every class.",
+    "Hindi": "उदाहरण: चारदीवारी और हर कक्षा में एक महिला शिक्षिका।",
+    "Marathi": "उदाहरण: संरक्षक भिंत आणि प्रत्येक वर्गात एक शिक्षिका."
+   },
+   {
+    "id": "P13_lastweek",
+    "en": "Example: Checked his homework each evening and asked what he learned.",
+    "Hindi": "उदाहरण: हर शाम उसका होमवर्क देखा और पूछा कि उसने क्या सीखा।",
+    "Marathi": "उदाहरण: रोज संध्याकाळी त्याचा गृहपाठ पाहिला आणि त्याने काय शिकले ते विचारले."
+   },
+   {
+    "id": "P14_why",
+    "en": "Example: I studied only till Class 5, so maths homework is hard for me.",
+    "Hindi": "उदाहरण: मैंने सिर्फ़ 5वीं तक पढ़ाई की है, इसलिए गणित का होमवर्क मेरे लिए मुश्किल है।",
+    "Marathi": "उदाहरण: मी फक्त पाचवीपर्यंत शिकलो, त्यामुळे गणिताचा गृहपाठ मला अवघड जातो."
+   },
+   {
+    "id": "P10_work",
+    "en": "Example: A government job as a nurse.",
+    "Hindi": "उदाहरण: नर्स की सरकारी नौकरी।",
+    "Marathi": "उदाहरण: परिचारिकेची (नर्स) सरकारी नोकरी."
+   },
+   {
+    "id": "P10_life",
+    "en": "Example: A settled life near the family, with no money worries.",
+    "Hindi": "उदाहरण: परिवार के पास बसी हुई ज़िंदगी, बिना पैसों की चिंता के।",
+    "Marathi": "उदाहरण: कुटुंबाजवळ स्थिर आयुष्य, पैशांची काळजी नसलेले."
+   },
+   {
+    "id": "P15_onething",
+    "en": "Example: A computer course after Class 10.",
+    "Hindi": "उदाहरण: 10वीं के बाद कंप्यूटर का कोर्स।",
+    "Marathi": "उदाहरण: दहावीनंतर संगणकाचा कोर्स."
+   },
+   {
+    "id": "G6_better",
+    "en": "Example: They can learn anything online.",
+    "Hindi": "उदाहरण: वे ऑनलाइन कुछ भी सीख सकते हैं।",
+    "Marathi": "उदाहरण: ते ऑनलाइन काहीही शिकू शकतात."
+   },
+   {
+    "id": "G6_harder",
+    "en": "Example: Much more competition for jobs.",
+    "Hindi": "उदाहरण: नौकरी के लिए बहुत ज़्यादा मुकाबला।",
+    "Marathi": "उदाहरण: नोकरीसाठी खूप जास्त स्पर्धा."
+   },
+   {
+    "id": "G8_where",
+    "en": "Example: Internships in local shops, and NSS camps in college.",
+    "Hindi": "उदाहरण: आसपास की दुकानों में इंटर्नशिप, और कॉलेज के एनएसएस कैंप।",
+    "Marathi": "उदाहरण: स्थानिक दुकानांमध्ये इंटर्नशिप, आणि कॉलेजमधील एनएसएस शिबिरे."
+   },
+   {
+    "id": "G9_hope",
+    "en": "Example: That girls in my village finish college and get jobs.",
+    "Hindi": "उदाहरण: कि मेरे गाँव की लड़कियाँ कॉलेज पूरा करें और नौकरी पाएँ।",
+    "Marathi": "उदाहरण: माझ्या गावातील मुलींनी कॉलेज पूर्ण करावे आणि त्यांना नोकरी मिळावी."
+   },
+   {
+    "id": "G10_worry",
+    "en": "Example: Boys leave school early to work in cities.",
+    "Hindi": "उदाहरण: लड़के जल्दी स्कूल छोड़कर शहरों में काम करने चले जाते हैं।",
+    "Marathi": "उदाहरण: मुले लवकर शाळा सोडून शहरात कामाला जातात."
+   },
+   {
+    "id": "G11_mydo",
+    "en": "Example: Help my neighbour's son prepare for his bank interview.",
+    "Hindi": "उदाहरण: पड़ोसी के बेटे को उसके बैंक इंटरव्यू की तैयारी में मदद करना।",
+    "Marathi": "उदाहरण: शेजाऱ्यांच्या मुलाला बँकेच्या मुलाखतीच्या तयारीत मदत करणे."
+   }
+  ],
+  "Follow-ups": [
+   {
+    "id": "Y11a_work",
+    "en": "Tell us a little more: what exactly would you do, and where?",
+    "Hindi": "थोड़ा और बताइए: आप ठीक-ठीक क्या काम करेंगे, और कहाँ?",
+    "Marathi": "थोडे अधिक सांगा: तुम्ही नेमके कोणते काम कराल, आणि कुठे?"
+   },
+   {
+    "id": "Y11b_life",
+    "en": "Can you describe it a bit more? For example: which place, who lives with you, what your home is like.",
+    "Hindi": "क्या आप थोड़ा और बता सकते हैं? जैसे: कौन सी जगह, आपके साथ कौन रहेगा, आपका घर कैसा होगा।",
+    "Marathi": "थोडे अधिक सांगू शकाल का? उदा.: कोणते ठिकाण, तुमच्यासोबत कोण राहील, तुमचे घर कसे असेल."
+   },
+   {
+    "id": "Y12_reason",
+    "en": "What makes you feel this way? Even one reason helps.",
+    "Hindi": "आपको ऐसा क्यों लगता है? एक कारण भी काफ़ी है।",
+    "Marathi": "तुम्हाला असे का वाटते? एक कारणही पुरेसे आहे."
+   },
+   {
+    "id": "Y13_skills",
+    "en": "Which specific skills? For example: typing, spoken English, driving, tailoring, coding.",
+    "Hindi": "कौन से खास हुनर? जैसे: टाइपिंग, अंग्रेज़ी बोलना, गाड़ी चलाना, सिलाई, कोडिंग।",
+    "Marathi": "नेमकी कोणती कौशल्ये? उदा.: टायपिंग, इंग्रजी बोलणे, गाडी चालवणे, शिलाई, कोडिंग."
+   },
+   {
+    "id": "Y14_where",
+    "en": "Please name the place, person or app where you learn.",
+    "Hindi": "कृपया वह जगह, व्यक्ति या ऐप बताइए जहाँ से आप सीखते हैं।",
+    "Marathi": "तुम्ही जिथून शिकता ते ठिकाण, व्यक्ती किंवा ॲप सांगा."
+   },
+   {
+    "id": "Y14_stop",
+    "en": "What gets in the way? For example: money, distance, time, no one to teach.",
+    "Hindi": "क्या रुकावट है? जैसे: पैसा, दूरी, समय, सिखाने वाला कोई नहीं।",
+    "Marathi": "नेमकी अडचण कोणती? उदा.: पैसे, अंतर, वेळ, शिकवणारे कोणी नाही."
+   },
+   {
+    "id": "Y15_helped",
+    "en": "Who was it, and what did they do for you?",
+    "Hindi": "वह कौन था, और उन्होंने आपके लिए क्या किया?",
+    "Marathi": "ते कोण होते, आणि त्यांनी तुमच्यासाठी काय केले?"
+   },
+   {
+    "id": "Y16_onething",
+    "en": "What exactly should they do? Try to describe one concrete thing.",
+    "Hindi": "उन्हें ठीक-ठीक क्या करना चाहिए? कोई एक ठोस चीज़ बताइए।",
+    "Marathi": "त्यांनी नेमके काय करावे? एखादी ठोस गोष्ट सांगा."
+   },
+   {
+    "id": "Y17_asked",
+    "en": "Who was it (for example a parent, teacher, friend) and what was it about?",
+    "Hindi": "वह कौन था (जैसे माता-पिता, शिक्षक, दोस्त) और बात किस बारे में थी?",
+    "Marathi": "ते कोण होते (उदा. आई-वडील, शिक्षक, मित्र) आणि कशाबद्दल बोललात?"
+   },
+   {
+    "id": "Y18_mydo",
+    "en": "What would you actually do, and for whom?",
+    "Hindi": "आप असल में क्या करेंगे, और किसके लिए?",
+    "Marathi": "तुम्ही प्रत्यक्षात काय कराल, आणि कोणासाठी?"
+   },
+   {
+    "id": "P8_reason",
+    "en": "What was the meeting or visit about?",
+    "Hindi": "वह बैठक या मुलाक़ात किस बारे में थी?",
+    "Marathi": "ती सभा किंवा भेट कशाबद्दल होती?"
+   },
+   {
+    "id": "P8_notvisit",
+    "en": "Even one reason helps: time, distance, not invited, or something else?",
+    "Hindi": "एक कारण भी काफ़ी है: समय, दूरी, बुलाया नहीं गया, या कुछ और?",
+    "Marathi": "एक कारणही पुरेसे आहे: वेळ, अंतर, बोलावले नाही, की आणखी काही?"
+   },
+   {
+    "id": "P9_reason",
+    "en": "What have you noticed about your child's learning that makes you feel this way?",
+    "Hindi": "बच्चे की पढ़ाई में आपने ऐसा क्या देखा जिससे आपको ऐसा लगता है?",
+    "Marathi": "मुलाच्या शिक्षणात तुम्ही असे काय पाहिले, ज्यामुळे तुम्हाला असे वाटते?"
+   },
+   {
+    "id": "P11_change",
+    "en": "Which exact things? For example: teachers, toilets, water, books, computers, sports.",
+    "Hindi": "कौन सी खास चीज़ें? जैसे: शिक्षक, शौचालय, पानी, किताबें, कंप्यूटर, खेल।",
+    "Marathi": "नेमक्या कोणत्या गोष्टी? उदा.: शिक्षक, स्वच्छतागृहे, पाणी, पुस्तके, संगणक, खेळ."
+   },
+   {
+    "id": "P12_safe",
+    "en": "What would help most: the building, teachers, other children, or the way to school?",
+    "Hindi": "सबसे ज़्यादा क्या मदद करेगा: भवन, शिक्षक, दूसरे बच्चे, या स्कूल आने-जाने का रास्ता?",
+    "Marathi": "सर्वात जास्त कशाने मदत होईल: इमारत, शिक्षक, इतर मुले, की शाळेत येण्या-जाण्याचा रस्ता?"
+   },
+   {
+    "id": "P13_lastweek",
+    "en": "Anything at all counts, even asking about school. If nothing, you can write \"nothing this week\".",
+    "Hindi": "कुछ भी गिना जाएगा, स्कूल के बारे में पूछना भी। अगर कुछ नहीं, तो \"इस हफ़्ते कुछ नहीं\" लिख सकते हैं।",
+    "Marathi": "कोणतीही गोष्ट चालेल, शाळेबद्दल विचारणेसुद्धा. काहीच नसेल, तर \"या आठवड्यात काही नाही\" असे लिहू शकता."
+   },
+   {
+    "id": "P14_why",
+    "en": "Could you share the main reason? For example: time, your own schooling, cost, or the syllabus.",
+    "Hindi": "मुख्य कारण बताइए? जैसे: समय, आपकी अपनी पढ़ाई, खर्च, या सिलेबस।",
+    "Marathi": "मुख्य कारण सांगाल का? उदा.: वेळ, तुमचे स्वतःचे शिक्षण, खर्च, की अभ्यासक्रम."
+   },
+   {
+    "id": "P10_work",
+    "en": "Which kind of work? For example: teacher, police, own business, farming, nurse.",
+    "Hindi": "किस तरह का काम? जैसे: शिक्षक, पुलिस, अपना व्यवसाय, खेती, नर्स।",
+    "Marathi": "कोणत्या प्रकारचे काम? उदा.: शिक्षक, पोलीस, स्वतःचा व्यवसाय, शेती, नर्स."
+   },
+   {
+    "id": "P10_life",
+    "en": "What would that life look like? For example: where they live, what they can afford.",
+    "Hindi": "वह ज़िंदगी कैसी दिखेगी? जैसे: वे कहाँ रहेंगे, क्या-क्या कर पाएँगे।",
+    "Marathi": "ते आयुष्य कसे असेल? उदा.: ते कुठे राहतील, काय काय करू शकतील."
+   },
+   {
+    "id": "P15_onething",
+    "en": "What exactly? For example: tuition, a phone or laptop, a good school nearby, money for fees, career guidance.",
+    "Hindi": "ठीक-ठीक क्या? जैसे: ट्यूशन, फ़ोन या लैपटॉप, पास में अच्छा स्कूल, फ़ीस के लिए पैसे, करियर मार्गदर्शन।",
+    "Marathi": "नेमके काय? उदा.: शिकवणी, फोन किंवा लॅपटॉप, जवळ चांगली शाळा, फीसाठी पैसे, करिअर मार्गदर्शन."
+   },
+   {
+    "id": "G6_better",
+    "en": "Could you say a little more about what has improved?",
+    "Hindi": "क्या आप थोड़ा और बता सकते हैं कि क्या बेहतर हुआ है?",
+    "Marathi": "काय सुधारले आहे, याबद्दल थोडे अधिक सांगाल का?"
+   },
+   {
+    "id": "G6_harder",
+    "en": "Could you say a little more about what has become harder?",
+    "Hindi": "क्या आप थोड़ा और बता सकते हैं कि क्या मुश्किल हो गया है?",
+    "Marathi": "काय अवघड झाले आहे, याबद्दल थोडे अधिक सांगाल का?"
+   },
+   {
+    "id": "G7_learn",
+    "en": "Which skills or experiences, specifically?",
+    "Hindi": "ख़ास तौर पर कौन से हुनर या अनुभव?",
+    "Marathi": "नेमकी कोणती कौशल्ये किंवा अनुभव?"
+   },
+   {
+    "id": "G8_where",
+    "en": "Please name a place or a person.",
+    "Hindi": "कृपया कोई जगह या व्यक्ति बताइए।",
+    "Marathi": "कृपया एखादे ठिकाण किंवा व्यक्ती सांगा."
+   },
+   {
+    "id": "G9_hope",
+    "en": "Which young people, and what do you hope for them?",
+    "Hindi": "कौन से युवा, और आप उनके लिए क्या उम्मीद करते हैं?",
+    "Marathi": "कोणते तरुण, आणि त्यांच्यासाठी तुम्हाला काय आशा आहे?"
+   },
+   {
+    "id": "G10_worry",
+    "en": "Could you say who is affected and how?",
+    "Hindi": "क्या आप बता सकते हैं कि किस पर और कैसे असर पड़ रहा है?",
+    "Marathi": "कोणावर आणि कसा परिणाम होत आहे, ते सांगाल का?"
+   },
+   {
+    "id": "G11_mydo",
+    "en": "What would you actually do, and for whom?",
+    "Hindi": "आप असल में क्या करेंगे, और किसके लिए?",
+    "Marathi": "तुम्ही प्रत्यक्षात काय कराल, आणि कोणासाठी?"
+   }
+  ],
+  "Options": [
+   {
+    "id": "Y1_age.12",
+    "en": "12",
+    "Hindi": "12",
+    "Marathi": "12"
+   },
+   {
+    "id": "Y1_age.13",
+    "en": "13",
+    "Hindi": "13",
+    "Marathi": "13"
+   },
+   {
+    "id": "Y1_age.14",
+    "en": "14",
+    "Hindi": "14",
+    "Marathi": "14"
+   },
+   {
+    "id": "Y1_age.15",
+    "en": "15",
+    "Hindi": "15",
+    "Marathi": "15"
+   },
+   {
+    "id": "Y1_age.16",
+    "en": "16",
+    "Hindi": "16",
+    "Marathi": "16"
+   },
+   {
+    "id": "Y1_age.17",
+    "en": "17",
+    "Hindi": "17",
+    "Marathi": "17"
+   },
+   {
+    "id": "Y1_age.18",
+    "en": "18",
+    "Hindi": "18",
+    "Marathi": "18"
+   },
+   {
+    "id": "Y1_age.19",
+    "en": "19",
+    "Hindi": "19",
+    "Marathi": "19"
+   },
+   {
+    "id": "Y1_age.20",
+    "en": "20",
+    "Hindi": "20",
+    "Marathi": "20"
+   },
+   {
+    "id": "Y1_age.21",
+    "en": "21",
+    "Hindi": "21",
+    "Marathi": "21"
+   },
+   {
+    "id": "Y1_age.22",
+    "en": "22",
+    "Hindi": "22",
+    "Marathi": "22"
+   },
+   {
+    "id": "Y1_age.23",
+    "en": "23",
+    "Hindi": "23",
+    "Marathi": "23"
+   },
+   {
+    "id": "Y1_age.24",
+    "en": "24",
+    "Hindi": "24",
+    "Marathi": "24"
+   },
+   {
+    "id": "Y1_age.25",
+    "en": "25",
+    "Hindi": "25",
+    "Marathi": "25"
+   },
+   {
+    "id": "Y1_age.26plus",
+    "en": "26 or older",
+    "Hindi": "26 या उससे ज़्यादा",
+    "Marathi": "२६ किंवा जास्त"
+   },
+   {
+    "id": "Y2_gender.female",
+    "en": "Female",
+    "Hindi": "महिला",
+    "Marathi": "स्त्री"
+   },
+   {
+    "id": "Y2_gender.male",
+    "en": "Male",
+    "Hindi": "पुरुष",
+    "Marathi": "पुरुष"
+   },
+   {
+    "id": "Y2_gender.other",
+    "en": "Other",
+    "Hindi": "अन्य",
+    "Marathi": "इतर"
+   },
+   {
+    "id": "Y2_gender.pnts",
+    "en": "Prefer not to say",
+    "Hindi": "नहीं बताना चाहते",
+    "Marathi": "सांगू इच्छित नाही"
+   },
+   {
+    "id": "Y5.school",
+    "en": "In school",
+    "Hindi": "स्कूल में पढ़ रहे हैं",
+    "Marathi": "शाळेत शिकत आहे"
+   },
+   {
+    "id": "Y5.college",
+    "en": "In college",
+    "Hindi": "कॉलेज में पढ़ रहे हैं",
+    "Marathi": "कॉलेजमध्ये शिकत आहे"
+   },
+   {
+    "id": "Y5.exam",
+    "en": "Preparing for a competitive exam (e.g. government jobs)",
+    "Hindi": "प्रतियोगी परीक्षा की तैयारी (जैसे सरकारी नौकरी)",
+    "Marathi": "स्पर्धा परीक्षेची तयारी (उदा. सरकारी नोकरी)"
+   },
+   {
+    "id": "Y5.working",
+    "en": "Working",
+    "Hindi": "काम कर रहे हैं",
+    "Marathi": "नोकरी / काम करत आहे"
+   },
+   {
+    "id": "Y5.both",
+    "en": "Studying and working",
+    "Hindi": "पढ़ाई और काम दोनों",
+    "Marathi": "शिक्षण आणि काम दोन्ही"
+   },
+   {
+    "id": "Y5.looking",
+    "en": "Looking for work",
+    "Hindi": "काम ढूंढ रहे हैं",
+    "Marathi": "कामाच्या शोधात आहे"
+   },
+   {
+    "id": "Y5.none",
+    "en": "None of these right now",
+    "Hindi": "अभी इनमें से कुछ नहीं",
+    "Marathi": "सध्या यापैकी काहीच नाही"
+   },
+   {
+    "id": "Y6_class.c6_8",
+    "en": "Class 6–8",
+    "Hindi": "कक्षा 6–8",
+    "Marathi": "इयत्ता ६–८"
+   },
+   {
+    "id": "Y6_class.c9_10",
+    "en": "Class 9–10",
+    "Hindi": "कक्षा 9–10",
+    "Marathi": "इयत्ता ९–१०"
+   },
+   {
+    "id": "Y6_class.c11_12",
+    "en": "Class 11–12",
+    "Hindi": "कक्षा 11–12",
+    "Marathi": "इयत्ता ११–१२"
+   },
+   {
+    "id": "Y6_class.arts",
+    "en": "College: Arts",
+    "Hindi": "कॉलेज: आर्ट्स",
+    "Marathi": "कॉलेज: कला (आर्ट्स)"
+   },
+   {
+    "id": "Y6_class.science",
+    "en": "College: Science",
+    "Hindi": "कॉलेज: साइंस",
+    "Marathi": "कॉलेज: विज्ञान"
+   },
+   {
+    "id": "Y6_class.commerce",
+    "en": "College: Commerce",
+    "Hindi": "कॉलेज: कॉमर्स",
+    "Marathi": "कॉलेज: वाणिज्य"
+   },
+   {
+    "id": "Y6_class.engg",
+    "en": "College: Engineering",
+    "Hindi": "कॉलेज: इंजीनियरिंग",
+    "Marathi": "कॉलेज: अभियांत्रिकी"
+   },
+   {
+    "id": "Y6_class.iti",
+    "en": "ITI or vocational",
+    "Hindi": "आईटीआई या व्यावसायिक",
+    "Marathi": "आयटीआय किंवा व्यावसायिक"
+   },
+   {
+    "id": "Y6_class.pg",
+    "en": "Postgraduate",
+    "Hindi": "स्नातकोत्तर (PG)",
+    "Marathi": "पदव्युत्तर (PG)"
+   },
+   {
+    "id": "Y6_class.other",
+    "en": "Other",
+    "Hindi": "अन्य",
+    "Marathi": "इतर"
+   },
+   {
+    "id": "Y7_institution.govt",
+    "en": "Government",
+    "Hindi": "सरकारी",
+    "Marathi": "सरकारी"
+   },
+   {
+    "id": "Y7_institution.aided",
+    "en": "Government-aided",
+    "Hindi": "सरकारी सहायता प्राप्त",
+    "Marathi": "सरकारी अनुदानित"
+   },
+   {
+    "id": "Y7_institution.private",
+    "en": "Private",
+    "Hindi": "प्राइवेट",
+    "Marathi": "खासगी"
+   },
+   {
+    "id": "Y7_institution.nios",
+    "en": "Open school (NIOS)",
+    "Hindi": "ओपन स्कूल (NIOS)",
+    "Marathi": "मुक्त शाळा (NIOS)"
+   },
+   {
+    "id": "Y7_institution.notsure",
+    "en": "Not sure",
+    "Hindi": "पता नहीं",
+    "Marathi": "नक्की माहीत नाही"
+   },
+   {
+    "id": "Y8_income.lt3",
+    "en": "Less than ₹3 lakh",
+    "Hindi": "₹3 लाख से कम",
+    "Marathi": "₹३ लाखांपेक्षा कमी"
+   },
+   {
+    "id": "Y8_income.3to8",
+    "en": "₹3–8 lakh",
+    "Hindi": "₹3–8 लाख",
+    "Marathi": "₹३–८ लाख"
+   },
+   {
+    "id": "Y8_income.8to10",
+    "en": "₹8–10 lakh",
+    "Hindi": "₹8–10 लाख",
+    "Marathi": "₹८–१० लाख"
+   },
+   {
+    "id": "Y8_income.gt10",
+    "en": "More than ₹10 lakh",
+    "Hindi": "₹10 लाख से ज़्यादा",
+    "Marathi": "₹१० लाखांपेक्षा जास्त"
+   },
+   {
+    "id": "Y8_income.dk",
+    "en": "I don't know",
+    "Hindi": "मुझे नहीं पता",
+    "Marathi": "मला माहीत नाही"
+   },
+   {
+    "id": "Y9_disability.no",
+    "en": "No",
+    "Hindi": "नहीं",
+    "Marathi": "नाही"
+   },
+   {
+    "id": "Y9_disability.moving",
+    "en": "Difficulty walking or moving",
+    "Hindi": "चलने-फिरने में कठिनाई",
+    "Marathi": "चालण्या-फिरण्यात अडचण"
+   },
+   {
+    "id": "Y9_disability.seeing",
+    "en": "Difficulty seeing",
+    "Hindi": "देखने में कठिनाई",
+    "Marathi": "पाहण्यात अडचण"
+   },
+   {
+    "id": "Y9_disability.hearing",
+    "en": "Difficulty hearing or speaking",
+    "Hindi": "सुनने या बोलने में कठिनाई",
+    "Marathi": "ऐकण्यात किंवा बोलण्यात अडचण"
+   },
+   {
+    "id": "Y9_disability.learning",
+    "en": "Difficulty learning or remembering",
+    "Hindi": "सीखने या याद रखने में कठिनाई",
+    "Marathi": "शिकण्यात किंवा लक्षात ठेवण्यात अडचण"
+   },
+   {
+    "id": "Y9_disability.other",
+    "en": "Other",
+    "Hindi": "अन्य",
+    "Marathi": "इतर"
+   },
+   {
+    "id": "Y9_disability.pnts",
+    "en": "Prefer not to say",
+    "Hindi": "नहीं बताना चाहते",
+    "Marathi": "सांगू इच्छित नाही"
+   },
+   {
+    "id": "Y12_sure.very",
+    "en": "Very sure",
+    "Hindi": "बहुत भरोसा है",
+    "Marathi": "खूप खात्री आहे"
+   },
+   {
+    "id": "Y12_sure.quite",
+    "en": "Quite sure",
+    "Hindi": "काफ़ी भरोसा है",
+    "Marathi": "बऱ्यापैकी खात्री आहे"
+   },
+   {
+    "id": "Y12_sure.unsure",
+    "en": "A little unsure",
+    "Hindi": "थोड़ा शक है",
+    "Marathi": "थोडी शंका आहे"
+   },
+   {
+    "id": "Y12_sure.notsure",
+    "en": "Not sure at all",
+    "Hindi": "बिल्कुल भरोसा नहीं",
+    "Marathi": "अजिबात खात्री नाही"
+   },
+   {
+    "id": "Y14_now.yes",
+    "en": "Yes, regularly",
+    "Hindi": "हाँ, नियमित रूप से",
+    "Marathi": "हो, नियमितपणे"
+   },
+   {
+    "id": "Y14_now.sometimes",
+    "en": "Sometimes",
+    "Hindi": "कभी-कभी",
+    "Marathi": "कधी कधी"
+   },
+   {
+    "id": "Y14_now.notyet",
+    "en": "Not yet",
+    "Hindi": "अभी नहीं",
+    "Marathi": "अजून नाही"
+   },
+   {
+    "id": "P3_relation.mother",
+    "en": "Mother",
+    "Hindi": "माँ",
+    "Marathi": "आई"
+   },
+   {
+    "id": "P3_relation.father",
+    "en": "Father",
+    "Hindi": "पिता",
+    "Marathi": "वडील"
+   },
+   {
+    "id": "P3_relation.grandparent",
+    "en": "Grandparent",
+    "Hindi": "दादा-दादी / नाना-नानी",
+    "Marathi": "आजी-आजोबा"
+   },
+   {
+    "id": "P3_relation.guardian",
+    "en": "Other guardian",
+    "Hindi": "अन्य अभिभावक",
+    "Marathi": "इतर पालक"
+   },
+   {
+    "id": "P4_school.govt",
+    "en": "Government",
+    "Hindi": "सरकारी",
+    "Marathi": "सरकारी"
+   },
+   {
+    "id": "P4_school.aided",
+    "en": "Government-aided",
+    "Hindi": "सरकारी सहायता प्राप्त",
+    "Marathi": "सरकारी अनुदानित"
+   },
+   {
+    "id": "P4_school.private",
+    "en": "Private",
+    "Hindi": "प्राइवेट",
+    "Marathi": "खासगी"
+   },
+   {
+    "id": "P4_school.notsure",
+    "en": "Not sure",
+    "Hindi": "पता नहीं",
+    "Marathi": "नक्की माहीत नाही"
+   },
+   {
+    "id": "P5_class.pre",
+    "en": "Nursery–UKG",
+    "Hindi": "नर्सरी–यूकेजी",
+    "Marathi": "नर्सरी–मोठा गट"
+   },
+   {
+    "id": "P5_class.c1_5",
+    "en": "Class 1–5",
+    "Hindi": "कक्षा 1–5",
+    "Marathi": "इयत्ता १–५"
+   },
+   {
+    "id": "P5_class.c6_8",
+    "en": "Class 6–8",
+    "Hindi": "कक्षा 6–8",
+    "Marathi": "इयत्ता ६–८"
+   },
+   {
+    "id": "P5_class.c9_10",
+    "en": "Class 9–10",
+    "Hindi": "कक्षा 9–10",
+    "Marathi": "इयत्ता ९–१०"
+   },
+   {
+    "id": "P5_class.c11_12",
+    "en": "Class 11–12",
+    "Hindi": "कक्षा 11–12",
+    "Marathi": "इयत्ता ११–१२"
+   },
+   {
+    "id": "P5_class.college",
+    "en": "College",
+    "Hindi": "कॉलेज",
+    "Marathi": "कॉलेज"
+   },
+   {
+    "id": "P5_class.done",
+    "en": "Finished studies",
+    "Hindi": "पढ़ाई पूरी कर ली",
+    "Marathi": "शिक्षण पूर्ण झाले"
+   },
+   {
+    "id": "P6_ownedu.none",
+    "en": "Did not go to school",
+    "Hindi": "स्कूल नहीं गए",
+    "Marathi": "शाळेत गेलो नाही"
+   },
+   {
+    "id": "P6_ownedu.c1_5",
+    "en": "Class 1–5",
+    "Hindi": "कक्षा 1–5",
+    "Marathi": "इयत्ता १–५"
+   },
+   {
+    "id": "P6_ownedu.c6_8",
+    "en": "Class 6–8",
+    "Hindi": "कक्षा 6–8",
+    "Marathi": "इयत्ता ६–८"
+   },
+   {
+    "id": "P6_ownedu.c9_10",
+    "en": "Class 9–10",
+    "Hindi": "कक्षा 9–10",
+    "Marathi": "इयत्ता ९–१०"
+   },
+   {
+    "id": "P6_ownedu.c11_12",
+    "en": "Class 11–12",
+    "Hindi": "कक्षा 11–12",
+    "Marathi": "इयत्ता ११–१२"
+   },
+   {
+    "id": "P6_ownedu.grad",
+    "en": "Graduate",
+    "Hindi": "स्नातक",
+    "Marathi": "पदवीधर"
+   },
+   {
+    "id": "P6_ownedu.pg",
+    "en": "Postgraduate or more",
+    "Hindi": "स्नातकोत्तर या उससे ज़्यादा",
+    "Marathi": "पदव्युत्तर किंवा जास्त"
+   },
+   {
+    "id": "P7_visits.0",
+    "en": "Not at all",
+    "Hindi": "एक बार भी नहीं",
+    "Marathi": "एकदाही नाही"
+   },
+   {
+    "id": "P7_visits.1_2",
+    "en": "1–2 times",
+    "Hindi": "1–2 बार",
+    "Marathi": "१–२ वेळा"
+   },
+   {
+    "id": "P7_visits.3_5",
+    "en": "3–5 times",
+    "Hindi": "3–5 बार",
+    "Marathi": "३–५ वेळा"
+   },
+   {
+    "id": "P7_visits.6plus",
+    "en": "6 times or more",
+    "Hindi": "6 बार या ज़्यादा",
+    "Marathi": "६ किंवा जास्त वेळा"
+   },
+   {
+    "id": "P9_happy.very",
+    "en": "Very happy",
+    "Hindi": "बहुत संतुष्ट",
+    "Marathi": "खूप समाधानी"
+   },
+   {
+    "id": "P9_happy.happy",
+    "en": "Happy",
+    "Hindi": "संतुष्ट",
+    "Marathi": "समाधानी"
+   },
+   {
+    "id": "P9_happy.notvery",
+    "en": "Not very happy",
+    "Hindi": "ज़्यादा संतुष्ट नहीं",
+    "Marathi": "फारसे समाधानी नाही"
+   },
+   {
+    "id": "P9_happy.not",
+    "en": "Not happy",
+    "Hindi": "संतुष्ट नहीं",
+    "Marathi": "समाधानी नाही"
+   },
+   {
+    "id": "P14_ease.easy",
+    "en": "Easy",
+    "Hindi": "आसान है",
+    "Marathi": "सोपे आहे"
+   },
+   {
+    "id": "P14_ease.sometimes",
+    "en": "Sometimes hard",
+    "Hindi": "कभी-कभी मुश्किल है",
+    "Marathi": "कधी कधी अवघड आहे"
+   },
+   {
+    "id": "P14_ease.hard",
+    "en": "Hard",
+    "Hindi": "मुश्किल है",
+    "Marathi": "अवघड आहे"
+   },
+   {
+    "id": "G2_gender.female",
+    "en": "Female",
+    "Hindi": "महिला",
+    "Marathi": "स्त्री"
+   },
+   {
+    "id": "G2_gender.male",
+    "en": "Male",
+    "Hindi": "पुरुष",
+    "Marathi": "पुरुष"
+   },
+   {
+    "id": "G2_gender.other",
+    "en": "Other",
+    "Hindi": "अन्य",
+    "Marathi": "इतर"
+   },
+   {
+    "id": "G2_gender.pnts",
+    "en": "Prefer not to say",
+    "Hindi": "नहीं बताना चाहते",
+    "Marathi": "सांगू इच्छित नाही"
+   },
+   {
+    "id": "G5_work.teacher",
+    "en": "Teacher or education",
+    "Hindi": "शिक्षक या शिक्षा",
+    "Marathi": "शिक्षक किंवा शिक्षण क्षेत्र"
+   },
+   {
+    "id": "G5_work.govt",
+    "en": "Government job",
+    "Hindi": "सरकारी नौकरी",
+    "Marathi": "सरकारी नोकरी"
+   },
+   {
+    "id": "G5_work.private",
+    "en": "Private job",
+    "Hindi": "प्राइवेट नौकरी",
+    "Marathi": "खासगी नोकरी"
+   },
+   {
+    "id": "G5_work.business",
+    "en": "Own business or shop",
+    "Hindi": "अपना व्यवसाय या दुकान",
+    "Marathi": "स्वतःचा व्यवसाय किंवा दुकान"
+   },
+   {
+    "id": "G5_work.farmer",
+    "en": "Farmer",
+    "Hindi": "किसान",
+    "Marathi": "शेतकरी"
+   },
+   {
+    "id": "G5_work.daily",
+    "en": "Daily wage work",
+    "Hindi": "दिहाड़ी मज़दूरी",
+    "Marathi": "रोजंदारी"
+   },
+   {
+    "id": "G5_work.ngo",
+    "en": "NGO or social work",
+    "Hindi": "एनजीओ या सामाजिक काम",
+    "Marathi": "स्वयंसेवी संस्था किंवा सामाजिक काम"
+   },
+   {
+    "id": "G5_work.home",
+    "en": "Homemaker",
+    "Hindi": "गृहिणी / घर का काम",
+    "Marathi": "गृहिणी / घरकाम"
+   },
+   {
+    "id": "G5_work.student",
+    "en": "Student",
+    "Hindi": "विद्यार्थी",
+    "Marathi": "विद्यार्थी"
+   },
+   {
+    "id": "G5_work.retired",
+    "en": "Retired",
+    "Hindi": "सेवानिवृत्त",
+    "Marathi": "निवृत्त"
+   },
+   {
+    "id": "G5_work.notworking",
+    "en": "Not working",
+    "Hindi": "काम नहीं कर रहे",
+    "Marathi": "सध्या काम करत नाही"
+   },
+   {
+    "id": "@states.andhra_pradesh",
+    "en": "Andhra Pradesh",
+    "Hindi": "आंध्र प्रदेश",
+    "Marathi": "आंध्र प्रदेश"
+   },
+   {
+    "id": "@states.arunachal_pradesh",
+    "en": "Arunachal Pradesh",
+    "Hindi": "अरुणाचल प्रदेश",
+    "Marathi": "अरुणाचल प्रदेश"
+   },
+   {
+    "id": "@states.assam",
+    "en": "Assam",
+    "Hindi": "असम",
+    "Marathi": "आसाम"
+   },
+   {
+    "id": "@states.bihar",
+    "en": "Bihar",
+    "Hindi": "बिहार",
+    "Marathi": "बिहार"
+   },
+   {
+    "id": "@states.chhattisgarh",
+    "en": "Chhattisgarh",
+    "Hindi": "छत्तीसगढ़",
+    "Marathi": "छत्तीसगड"
+   },
+   {
+    "id": "@states.goa",
+    "en": "Goa",
+    "Hindi": "गोवा",
+    "Marathi": "गोवा"
+   },
+   {
+    "id": "@states.gujarat",
+    "en": "Gujarat",
+    "Hindi": "गुजरात",
+    "Marathi": "गुजरात"
+   },
+   {
+    "id": "@states.haryana",
+    "en": "Haryana",
+    "Hindi": "हरियाणा",
+    "Marathi": "हरियाणा"
+   },
+   {
+    "id": "@states.himachal_pradesh",
+    "en": "Himachal Pradesh",
+    "Hindi": "हिमाचल प्रदेश",
+    "Marathi": "हिमाचल प्रदेश"
+   },
+   {
+    "id": "@states.jharkhand",
+    "en": "Jharkhand",
+    "Hindi": "झारखंड",
+    "Marathi": "झारखंड"
+   },
+   {
+    "id": "@states.karnataka",
+    "en": "Karnataka",
+    "Hindi": "कर्नाटक",
+    "Marathi": "कर्नाटक"
+   },
+   {
+    "id": "@states.kerala",
+    "en": "Kerala",
+    "Hindi": "केरल",
+    "Marathi": "केरळ"
+   },
+   {
+    "id": "@states.madhya_pradesh",
+    "en": "Madhya Pradesh",
+    "Hindi": "मध्य प्रदेश",
+    "Marathi": "मध्य प्रदेश"
+   },
+   {
+    "id": "@states.maharashtra",
+    "en": "Maharashtra",
+    "Hindi": "महाराष्ट्र",
+    "Marathi": "महाराष्ट्र"
+   },
+   {
+    "id": "@states.manipur",
+    "en": "Manipur",
+    "Hindi": "मणिपुर",
+    "Marathi": "मणिपूर"
+   },
+   {
+    "id": "@states.meghalaya",
+    "en": "Meghalaya",
+    "Hindi": "मेघालय",
+    "Marathi": "मेघालय"
+   },
+   {
+    "id": "@states.mizoram",
+    "en": "Mizoram",
+    "Hindi": "मिज़ोरम",
+    "Marathi": "मिझोराम"
+   },
+   {
+    "id": "@states.nagaland",
+    "en": "Nagaland",
+    "Hindi": "नागालैंड",
+    "Marathi": "नागालँड"
+   },
+   {
+    "id": "@states.odisha",
+    "en": "Odisha",
+    "Hindi": "ओडिशा",
+    "Marathi": "ओडिशा"
+   },
+   {
+    "id": "@states.punjab",
+    "en": "Punjab",
+    "Hindi": "पंजाब",
+    "Marathi": "पंजाब"
+   },
+   {
+    "id": "@states.rajasthan",
+    "en": "Rajasthan",
+    "Hindi": "राजस्थान",
+    "Marathi": "राजस्थान"
+   },
+   {
+    "id": "@states.sikkim",
+    "en": "Sikkim",
+    "Hindi": "सिक्किम",
+    "Marathi": "सिक्कीम"
+   },
+   {
+    "id": "@states.tamil_nadu",
+    "en": "Tamil Nadu",
+    "Hindi": "तमिलनाडु",
+    "Marathi": "तमिळनाडू"
+   },
+   {
+    "id": "@states.telangana",
+    "en": "Telangana",
+    "Hindi": "तेलंगाना",
+    "Marathi": "तेलंगणा"
+   },
+   {
+    "id": "@states.tripura",
+    "en": "Tripura",
+    "Hindi": "त्रिपुरा",
+    "Marathi": "त्रिपुरा"
+   },
+   {
+    "id": "@states.uttar_pradesh",
+    "en": "Uttar Pradesh",
+    "Hindi": "उत्तर प्रदेश",
+    "Marathi": "उत्तर प्रदेश"
+   },
+   {
+    "id": "@states.uttarakhand",
+    "en": "Uttarakhand",
+    "Hindi": "उत्तराखंड",
+    "Marathi": "उत्तराखंड"
+   },
+   {
+    "id": "@states.west_bengal",
+    "en": "West Bengal",
+    "Hindi": "पश्चिम बंगाल",
+    "Marathi": "पश्चिम बंगाल"
+   },
+   {
+    "id": "@states.andaman_nicobar",
+    "en": "Andaman and Nicobar Islands",
+    "Hindi": "अंडमान और निकोबार द्वीप समूह",
+    "Marathi": "अंदमान आणि निकोबार बेटे"
+   },
+   {
+    "id": "@states.chandigarh",
+    "en": "Chandigarh",
+    "Hindi": "चंडीगढ़",
+    "Marathi": "चंदीगड"
+   },
+   {
+    "id": "@states.dnh_dd",
+    "en": "Dadra and Nagar Haveli and Daman and Diu",
+    "Hindi": "दादरा और नगर हवेली और दमन और दीव",
+    "Marathi": "दादरा आणि नगर हवेली आणि दमण आणि दीव"
+   },
+   {
+    "id": "@states.delhi",
+    "en": "Delhi",
+    "Hindi": "दिल्ली",
+    "Marathi": "दिल्ली"
+   },
+   {
+    "id": "@states.jammu_kashmir",
+    "en": "Jammu and Kashmir",
+    "Hindi": "जम्मू और कश्मीर",
+    "Marathi": "जम्मू आणि काश्मीर"
+   },
+   {
+    "id": "@states.ladakh",
+    "en": "Ladakh",
+    "Hindi": "लद्दाख",
+    "Marathi": "लडाख"
+   },
+   {
+    "id": "@states.lakshadweep",
+    "en": "Lakshadweep",
+    "Hindi": "लक्षद्वीप",
+    "Marathi": "लक्षद्वीप"
+   },
+   {
+    "id": "@states.puducherry",
+    "en": "Puducherry",
+    "Hindi": "पुडुचेरी",
+    "Marathi": "पुदुच्चेरी"
+   }
+  ],
+  "Form text": [
+   {
+    "id": "youth.title",
+    "en": "Youth: Your Future, Your Voice",
+    "Hindi": "युवा: आपका भविष्य, आपकी आवाज़",
+    "Marathi": "तरुण: तुमचे भविष्य, तुमचा आवाज"
+   },
+   {
+    "id": "youth.intro",
+    "en": "We want to hear how young people aged 12–25 see their future. There are no right or wrong answers. It takes about 8 minutes.",
+    "Hindi": "हम जानना चाहते हैं कि 12–25 साल के युवा अपने भविष्य को कैसे देखते हैं। कोई जवाब सही या गलत नहीं है। इसमें लगभग 8 मिनट लगेंगे।",
+    "Marathi": "१२–२५ वयोगटातील तरुण आपल्या भविष्याकडे कसे पाहतात, हे आम्हाला जाणून घ्यायचे आहे. यात कोणतेही उत्तर बरोबर किंवा चूक नाही. यासाठी साधारण ८ मिनिटे लागतील."
+   },
+   {
+    "id": "youth.about.title",
+    "en": "About you",
+    "Hindi": "आपके बारे में",
+    "Marathi": "तुमच्याबद्दल"
+   },
+   {
+    "id": "youth.future.title",
+    "en": "Your future",
+    "Hindi": "आपका भविष्य",
+    "Marathi": "तुमचे भविष्य"
+   },
+   {
+    "id": "youth.learning.title",
+    "en": "Learning and support",
+    "Hindi": "सीखना और सहारा",
+    "Marathi": "शिकणे आणि आधार"
+   },
+   {
+    "id": "parent.title",
+    "en": "Parents: Your Child's School and Future",
+    "Hindi": "अभिभावक: आपके बच्चे का स्कूल और भविष्य",
+    "Marathi": "पालक: तुमच्या मुलाची शाळा आणि भविष्य"
+   },
+   {
+    "id": "parent.intro",
+    "en": "We want to hear from parents about their child's school and future. There are no right or wrong answers. It takes about 8 minutes.",
+    "Hindi": "हम अभिभावकों से उनके बच्चे के स्कूल और भविष्य के बारे में सुनना चाहते हैं। कोई जवाब सही या गलत नहीं है। इसमें लगभग 8 मिनट लगेंगे।",
+    "Marathi": "पालकांकडून त्यांच्या मुलाच्या शाळेबद्दल आणि भविष्याबद्दल आम्हाला ऐकायचे आहे. यात कोणतेही उत्तर बरोबर किंवा चूक नाही. यासाठी साधारण ८ मिनिटे लागतील."
+   },
+   {
+    "id": "parent.about.title",
+    "en": "About you and your child",
+    "Hindi": "आपके और आपके बच्चे के बारे में",
+    "Marathi": "तुमच्याबद्दल आणि तुमच्या मुलाबद्दल"
+   },
+   {
+    "id": "parent.about.note",
+    "en": "If you have more than one child, answer for your eldest child who is still studying.",
+    "Hindi": "अगर आपके एक से ज़्यादा बच्चे हैं, तो अपने सबसे बड़े पढ़ रहे बच्चे के बारे में जवाब दें।",
+    "Marathi": "तुम्हाला एकापेक्षा जास्त मुले असतील, तर अजूनही शिकत असलेल्या सर्वात मोठ्या मुलाबद्दल उत्तर द्या."
+   },
+   {
+    "id": "parent.school.title",
+    "en": "School and learning",
+    "Hindi": "स्कूल और पढ़ाई",
+    "Marathi": "शाळा आणि शिक्षण"
+   },
+   {
+    "id": "parent.home.title",
+    "en": "Home and future",
+    "Hindi": "घर और भविष्य",
+    "Marathi": "घर आणि भविष्य"
+   },
+   {
+    "id": "public.title",
+    "en": "Everyone: Young People Around You",
+    "Hindi": "सभी के लिए: आपके आसपास के युवा",
+    "Marathi": "सर्वांसाठी: तुमच्या आजूबाजूचे तरुण"
+   },
+   {
+    "id": "public.intro",
+    "en": "We want to hear how people see the future of young people around them. There are no right or wrong answers. It takes about 7 minutes.",
+    "Hindi": "हम जानना चाहते हैं कि लोग अपने आसपास के युवाओं के भविष्य को कैसे देखते हैं। कोई जवाब सही या गलत नहीं है। इसमें लगभग 7 मिनट लगेंगे।",
+    "Marathi": "लोक आपल्या आजूबाजूच्या तरुणांच्या भविष्याकडे कसे पाहतात, हे आम्हाला जाणून घ्यायचे आहे. यात कोणतेही उत्तर बरोबर किंवा चूक नाही. यासाठी साधारण ७ मिनिटे लागतील."
+   },
+   {
+    "id": "public.about.title",
+    "en": "About you",
+    "Hindi": "आपके बारे में",
+    "Marathi": "तुमच्याबद्दल"
+   },
+   {
+    "id": "public.views.title",
+    "en": "Young people today",
+    "Hindi": "आज के युवा",
+    "Marathi": "आजचे तरुण"
+   }
+  ],
+  "Screen text": [
+   {
+    "id": "appName",
+    "en": "1 Million Voices",
+    "Hindi": "10 लाख आवाज़ें",
+    "Marathi": "१० लाख आवाज"
+   },
+   {
+    "id": "startTitle",
+    "en": "How do you see the future of young people?",
+    "Hindi": "आप युवाओं के भविष्य को कैसे देखते हैं?",
+    "Marathi": "तुम्ही तरुणांच्या भविष्याकडे कसे पाहता?"
+   },
+   {
+    "id": "startLead",
+    "en": "A short form with simple questions. Type your answers, or tap 🎤 to speak them. Tap 🔊 to hear any question.",
+    "Hindi": "आसान सवालों वाला एक छोटा फ़ॉर्म। जवाब लिखें, या 🎤 दबाकर बोलें। कोई भी सवाल सुनने के लिए 🔊 दबाएँ।",
+    "Marathi": "सोप्या प्रश्नांचा छोटा फॉर्म. उत्तरे लिहा, किंवा 🎤 दाबून बोला. कोणताही प्रश्न ऐकण्यासाठी 🔊 दाबा."
+   },
+   {
+    "id": "stepLang",
+    "en": "1. Choose a language",
+    "Hindi": "1. भाषा चुनें",
+    "Marathi": "१. भाषा निवडा"
+   },
+   {
+    "id": "stepForm",
+    "en": "2. Choose the form that fits you",
+    "Hindi": "2. वह फ़ॉर्म चुनें जो आप पर लागू होता है",
+    "Marathi": "२. तुम्हाला लागू होणारा फॉर्म निवडा"
+   },
+   {
+    "id": "stepStart",
+    "en": "3. Before you start",
+    "Hindi": "3. शुरू करने से पहले",
+    "Marathi": "३. सुरू करण्यापूर्वी"
+   },
+   {
+    "id": "pickYouth",
+    "en": "I am 12–25 years old",
+    "Hindi": "मेरी उम्र 12–25 साल है",
+    "Marathi": "माझे वय १२–२५ वर्षे आहे"
+   },
+   {
+    "id": "pickParent",
+    "en": "I am a parent or guardian of a school-going child",
+    "Hindi": "मैं स्कूल जाने वाले बच्चे का माता-पिता या अभिभावक हूँ",
+    "Marathi": "मी शाळेत जाणाऱ्या मुलाचा/मुलीचा पालक आहे"
+   },
+   {
+    "id": "pickPublic",
+    "en": "I am anyone else (adult)",
+    "Hindi": "मैं कोई और (वयस्क) हूँ",
+    "Marathi": "मी इतर कोणीही (प्रौढ) आहे"
+   },
+   {
+    "id": "privacy",
+    "en": "Your answers are anonymous. Please do not write your name, phone number or address anywhere in the form.",
+    "Hindi": "आपके जवाब गुमनाम रहेंगे। कृपया फ़ॉर्म में कहीं भी अपना नाम, फ़ोन नंबर या पता न लिखें।",
+    "Marathi": "तुमची उत्तरे निनावी राहतील. कृपया फॉर्ममध्ये कुठेही तुमचे नाव, फोन नंबर किंवा पत्ता लिहू नका."
+   },
+   {
+    "id": "consent",
+    "en": "I agree to share my answers for this study.",
+    "Hindi": "मैं इस अध्ययन के लिए अपने जवाब देने के लिए सहमत हूँ।",
+    "Marathi": "या अभ्यासासाठी माझी उत्तरे देण्यास मी सहमत आहे."
+   },
+   {
+    "id": "start",
+    "en": "Start",
+    "Hindi": "शुरू करें",
+    "Marathi": "सुरू करा"
+   },
+   {
+    "id": "pickFormFirst",
+    "en": "Choose a form above to start.",
+    "Hindi": "शुरू करने के लिए ऊपर से एक फ़ॉर्म चुनें।",
+    "Marathi": "सुरू करण्यासाठी वरून एक फॉर्म निवडा."
+   },
+   {
+    "id": "next",
+    "en": "Next",
+    "Hindi": "आगे",
+    "Marathi": "पुढे"
+   },
+   {
+    "id": "back",
+    "en": "Back",
+    "Hindi": "पीछे",
+    "Marathi": "मागे"
+   },
+   {
+    "id": "submit",
+    "en": "Submit",
+    "Hindi": "जमा करें",
+    "Marathi": "सबमिट करा"
+   },
+   {
+    "id": "listen",
+    "en": "Listen",
+    "Hindi": "सुनें",
+    "Marathi": "ऐका"
+   },
+   {
+    "id": "stopListen",
+    "en": "Stop",
+    "Hindi": "रोकें",
+    "Marathi": "थांबवा"
+   },
+   {
+    "id": "qOf",
+    "en": "Question {i} of {n}",
+    "Hindi": "सवाल {i} / {n}",
+    "Marathi": "प्रश्न {i} / {n}"
+   },
+   {
+    "id": "required",
+    "en": "Required",
+    "Hindi": "ज़रूरी",
+    "Marathi": "आवश्यक"
+   },
+   {
+    "id": "requiredError",
+    "en": "Please answer this question.",
+    "Hindi": "कृपया इस सवाल का जवाब दें।",
+    "Marathi": "कृपया या प्रश्नाचे उत्तर द्या."
+   },
+   {
+    "id": "numberError",
+    "en": "Please enter a number between {min} and {max}.",
+    "Hindi": "कृपया {min} से {max} के बीच कोई संख्या लिखें।",
+    "Marathi": "कृपया {min} ते {max} मधील संख्या लिहा."
+   },
+   {
+    "id": "choose",
+    "en": "Choose",
+    "Hindi": "चुनें",
+    "Marathi": "निवडा"
+   },
+   {
+    "id": "chooseMany",
+    "en": "You can choose more than one.",
+    "Hindi": "आप एक से ज़्यादा चुन सकते हैं।",
+    "Marathi": "तुम्ही एकापेक्षा जास्त निवडू शकता."
+   },
+   {
+    "id": "other",
+    "en": "Other:",
+    "Hindi": "अन्य:",
+    "Marathi": "इतर:"
+   },
+   {
+    "id": "yourAnswer",
+    "en": "Type your answer here",
+    "Hindi": "अपना जवाब यहाँ लिखें",
+    "Marathi": "तुमचे उत्तर इथे लिहा"
+   },
+   {
+    "id": "probeEmpty",
+    "en": "You left this blank. Your answer really helps us.",
+    "Hindi": "आपने यह खाली छोड़ा है। आपका जवाब हमारे लिए बहुत काम का है।",
+    "Marathi": "तुम्ही हे रिकामे सोडले आहे. तुमचे उत्तर आमच्यासाठी खूप महत्त्वाचे आहे."
+   },
+   {
+    "id": "probeShort",
+    "en": "Thank you. Could you tell us a little more?",
+    "Hindi": "धन्यवाद। क्या आप थोड़ा और बता सकते हैं?",
+    "Marathi": "धन्यवाद. थोडे अधिक सांगाल का?"
+   },
+   {
+    "id": "probeVague",
+    "en": "Thank you, that's a start. Could you be more specific?",
+    "Hindi": "धन्यवाद, यह अच्छी शुरुआत है। क्या आप थोड़ा और साफ़ बता सकते हैं?",
+    "Marathi": "धन्यवाद, ही चांगली सुरुवात आहे. थोडे अधिक नेमके सांगाल का?"
+   },
+   {
+    "id": "probeUnclear",
+    "en": "We could not understand this answer.",
+    "Hindi": "हम यह जवाब समझ नहीं पाए।",
+    "Marathi": "आम्हाला हे उत्तर समजले नाही."
+   },
+   {
+    "id": "probeSkipNote",
+    "en": "If you prefer not to add more, press Next again.",
+    "Hindi": "अगर आप और नहीं लिखना चाहते, तो फिर से \"आगे\" दबाएँ।",
+    "Marathi": "अधिक लिहायचे नसेल, तर पुन्हा \"पुढे\" दाबा."
+   },
+   {
+    "id": "moreHere",
+    "en": "Write a bit more here",
+    "Hindi": "यहाँ थोड़ा और लिखें",
+    "Marathi": "इथे थोडे अधिक लिहा"
+   },
+   {
+    "id": "micStart",
+    "en": "Speak your answer",
+    "Hindi": "बोलकर जवाब दें",
+    "Marathi": "बोलून उत्तर द्या"
+   },
+   {
+    "id": "micStop",
+    "en": "Listening… tap the mic to stop",
+    "Hindi": "सुन रहे हैं… रोकने के लिए माइक दबाएँ",
+    "Marathi": "ऐकत आहोत… थांबवण्यासाठी माइक दाबा"
+   },
+   {
+    "id": "micAgain",
+    "en": "Tap the mic again to add more. You can also edit the text.",
+    "Hindi": "और जोड़ने के लिए माइक फिर से दबाएँ। आप लिखा हुआ बदल भी सकते हैं।",
+    "Marathi": "आणखी जोडण्यासाठी माइक पुन्हा दाबा. लिहिलेला मजकूर तुम्ही बदलूही शकता."
+   },
+   {
+    "id": "micDenied",
+    "en": "The microphone is blocked. Allow it in your browser settings, or type your answer.",
+    "Hindi": "माइक बंद है। ब्राउज़र की सेटिंग में इसकी अनुमति दें, या जवाब लिखें।",
+    "Marathi": "माइक बंद आहे. ब्राउझरच्या सेटिंगमध्ये परवानगी द्या, किंवा उत्तर लिहा."
+   },
+   {
+    "id": "micNoNet",
+    "en": "Speaking is not working in this browser right now. Please type your answer, or try again in Chrome or Edge.",
+    "Hindi": "इस ब्राउज़र में अभी बोलकर लिखना काम नहीं कर रहा। कृपया जवाब लिखें, या Chrome या Edge में फिर से कोशिश करें।",
+    "Marathi": "या ब्राउझरमध्ये सध्या बोलून लिहिणे चालत नाही. कृपया उत्तर लिहा, किंवा Chrome किंवा Edge मध्ये पुन्हा प्रयत्न करा."
+   },
+   {
+    "id": "micBrowser",
+    "en": "Speaking is not supported in {browser}. Please type your answer, or open this form in Chrome or Edge to speak.",
+    "Hindi": "{browser} में बोलकर लिखना काम नहीं करता। कृपया जवाब लिखें, या बोलने के लिए यह फ़ॉर्म Chrome या Edge में खोलें।",
+    "Marathi": "{browser} मध्ये बोलून लिहिणे चालत नाही. कृपया उत्तर लिहा, किंवा बोलण्यासाठी हा फॉर्म Chrome किंवा Edge मध्ये उघडा."
+   },
+   {
+    "id": "micNoLang",
+    "en": "This browser cannot take speech in this language. Please type your answer.",
+    "Hindi": "यह ब्राउज़र इस भाषा में बोलकर लिखना नहीं कर सकता। कृपया जवाब लिखें।",
+    "Marathi": "हा ब्राउझर या भाषेत बोलून लिहू शकत नाही. कृपया उत्तर लिहा."
+   },
+   {
+    "id": "micNoMic",
+    "en": "No microphone found. Please type your answer.",
+    "Hindi": "माइक नहीं मिला। कृपया जवाब लिखें।",
+    "Marathi": "माइक सापडला नाही. कृपया उत्तर लिहा."
+   },
+   {
+    "id": "micNothing",
+    "en": "We did not hear anything. Tap the mic and speak, or type.",
+    "Hindi": "हमें कुछ सुनाई नहीं दिया। माइक दबाकर बोलें, या लिखें।",
+    "Marathi": "आम्हाला काहीच ऐकू आले नाही. माइक दाबून बोला, किंवा लिहा."
+   },
+   {
+    "id": "noVoice",
+    "en": "This device has no voice for this language, so it cannot read aloud.",
+    "Hindi": "इस डिवाइस में इस भाषा की आवाज़ नहीं है, इसलिए पढ़कर नहीं सुना सकते।",
+    "Marathi": "या डिव्हाइसमध्ये या भाषेचा आवाज नाही, त्यामुळे वाचून दाखवता येत नाही."
+   },
+   {
+    "id": "supportTitle",
+    "en": "If you are going through a hard time",
+    "Hindi": "अगर आप किसी मुश्किल दौर से गुज़र रहे हैं",
+    "Marathi": "तुम्ही कठीण काळातून जात असाल तर"
+   },
+   {
+    "id": "supportText",
+    "en": "You are not alone. Tele-MANAS is a free, confidential 24×7 helpline from the Government of India. Call 14416 or 1-800-891-4416.",
+    "Hindi": "आप अकेले नहीं हैं। टेली-मानस भारत सरकार की मुफ़्त और गोपनीय 24×7 हेल्पलाइन है। 14416 या 1-800-891-4416 पर कॉल करें।",
+    "Marathi": "तुम्ही एकटे नाही. टेली-मानस ही भारत सरकारची मोफत आणि गोपनीय २४×७ हेल्पलाइन आहे. 14416 किंवा 1-800-891-4416 वर कॉल करा."
+   },
+   {
+    "id": "thanksTitle",
+    "en": "Thank you for sharing your voice!",
+    "Hindi": "अपनी बात रखने के लिए धन्यवाद!",
+    "Marathi": "तुमचे म्हणणे मांडल्याबद्दल धन्यवाद!"
+   },
+   {
+    "id": "thanksText",
+    "en": "Your answers have been saved.",
+    "Hindi": "आपके जवाब सेव हो गए हैं।",
+    "Marathi": "तुमची उत्तरे जतन झाली आहेत."
+   },
+   {
+    "id": "thanksSent",
+    "en": "They have been sent.",
+    "Hindi": "जवाब भेज दिए गए हैं।",
+    "Marathi": "उत्तरे पाठवली गेली आहेत."
+   },
+   {
+    "id": "thanksQueued",
+    "en": "They are saved on this device and will be sent automatically in a moment. If you close this page now, they will be sent the next time you open this link on this device.",
+    "Hindi": "जवाब इस डिवाइस पर सेव हैं और थोड़ी देर में अपने-आप भेज दिए जाएँगे। अगर आप अभी यह पेज बंद करते हैं, तो इसी डिवाइस पर यह लिंक अगली बार खोलते ही जवाब चले जाएँगे।",
+    "Marathi": "उत्तरे या डिव्हाइसवर जतन आहेत आणि थोड्याच वेळात आपोआप पाठवली जातील. आत्ता हे पान बंद केले, तर याच डिव्हाइसवर हा लिंक पुढच्या वेळी उघडताच उत्तरे पाठवली जातील."
+   },
+   {
+    "id": "refCode",
+    "en": "Reference code",
+    "Hindi": "संदर्भ कोड",
+    "Marathi": "संदर्भ कोड"
+   },
+   {
+    "id": "another",
+    "en": "Fill another response",
+    "Hindi": "एक और जवाब भरें",
+    "Marathi": "आणखी एक प्रतिसाद भरा"
+   },
+   {
+    "id": "home",
+    "en": "Home",
+    "Hindi": "मुख्य पेज",
+    "Marathi": "मुख्य पान"
+   },
+   {
+    "id": "resume",
+    "en": "You have an unfinished form on this device.",
+    "Hindi": "इस डिवाइस पर आपका एक अधूरा फ़ॉर्म है।",
+    "Marathi": "या डिव्हाइसवर तुमचा एक अपूर्ण फॉर्म आहे."
+   },
+   {
+    "id": "resumeYes",
+    "en": "Continue it",
+    "Hindi": "उसे पूरा करें",
+    "Marathi": "तो पूर्ण करा"
+   },
+   {
+    "id": "resumeNo",
+    "en": "Start fresh",
+    "Hindi": "नया शुरू करें",
+    "Marathi": "नव्याने सुरू करा"
+   }
+  ]
+ }
+}

@@ -20,6 +20,1365 @@
   }
  ],
  "forms": {
+  "parent": {
+   "key": "parent",
+   "title": {
+    "en": "Parents: Your Child's School and Future",
+    "hi": "अभिभावक: आपके बच्चे का स्कूल और भविष्य",
+    "mr": "पालक: तुमच्या मुलाची शाळा आणि भविष्य"
+   },
+   "intro": {
+    "en": "We want to hear from parents about their child's school and future. There are no right or wrong answers. It takes about 8 minutes.",
+    "hi": "हम अभिभावकों से उनके बच्चे के स्कूल और भविष्य के बारे में सुनना चाहते हैं। कोई जवाब सही या गलत नहीं है। इसमें लगभग 8 मिनट लगेंगे।",
+    "mr": "पालकांकडून त्यांच्या मुलाच्या शाळेबद्दल आणि भविष्याबद्दल आम्हाला ऐकायचे आहे. यात कोणतेही उत्तर बरोबर किंवा चूक नाही. यासाठी साधारण ८ मिनिटे लागतील."
+   },
+   "sections": [
+    {
+     "id": "about",
+     "title": {
+      "en": "About you and your child",
+      "hi": "आपके और आपके बच्चे के बारे में",
+      "mr": "तुमच्याबद्दल आणि तुमच्या मुलाबद्दल"
+     },
+     "note": {
+      "en": "If you have more than one child, answer for your eldest child who is still studying.",
+      "hi": "अगर आपके एक से ज़्यादा बच्चे हैं, तो अपने सबसे बड़े पढ़ रहे बच्चे के बारे में जवाब दें।",
+      "mr": "तुम्हाला एकापेक्षा जास्त मुले असतील, तर अजूनही शिकत असलेल्या सर्वात मोठ्या मुलाबद्दल उत्तर द्या."
+     },
+     "items": [
+      {
+       "id": "P1_state",
+       "type": "dropdown",
+       "label": {
+        "en": "Which state do you live in?",
+        "hi": "आप किस राज्य में रहते हैं?",
+        "mr": "तुम्ही कोणत्या राज्यात राहता?"
+       },
+       "required": true,
+       "options": [
+        {
+         "v": "andhra_pradesh",
+         "en": "Andhra Pradesh",
+         "hi": "आंध्र प्रदेश",
+         "mr": "आंध्र प्रदेश"
+        },
+        {
+         "v": "arunachal_pradesh",
+         "en": "Arunachal Pradesh",
+         "hi": "अरुणाचल प्रदेश",
+         "mr": "अरुणाचल प्रदेश"
+        },
+        {
+         "v": "assam",
+         "en": "Assam",
+         "hi": "असम",
+         "mr": "आसाम"
+        },
+        {
+         "v": "bihar",
+         "en": "Bihar",
+         "hi": "बिहार",
+         "mr": "बिहार"
+        },
+        {
+         "v": "chhattisgarh",
+         "en": "Chhattisgarh",
+         "hi": "छत्तीसगढ़",
+         "mr": "छत्तीसगड"
+        },
+        {
+         "v": "goa",
+         "en": "Goa",
+         "hi": "गोवा",
+         "mr": "गोवा"
+        },
+        {
+         "v": "gujarat",
+         "en": "Gujarat",
+         "hi": "गुजरात",
+         "mr": "गुजरात"
+        },
+        {
+         "v": "haryana",
+         "en": "Haryana",
+         "hi": "हरियाणा",
+         "mr": "हरियाणा"
+        },
+        {
+         "v": "himachal_pradesh",
+         "en": "Himachal Pradesh",
+         "hi": "हिमाचल प्रदेश",
+         "mr": "हिमाचल प्रदेश"
+        },
+        {
+         "v": "jharkhand",
+         "en": "Jharkhand",
+         "hi": "झारखंड",
+         "mr": "झारखंड"
+        },
+        {
+         "v": "karnataka",
+         "en": "Karnataka",
+         "hi": "कर्नाटक",
+         "mr": "कर्नाटक"
+        },
+        {
+         "v": "kerala",
+         "en": "Kerala",
+         "hi": "केरल",
+         "mr": "केरळ"
+        },
+        {
+         "v": "madhya_pradesh",
+         "en": "Madhya Pradesh",
+         "hi": "मध्य प्रदेश",
+         "mr": "मध्य प्रदेश"
+        },
+        {
+         "v": "maharashtra",
+         "en": "Maharashtra",
+         "hi": "महाराष्ट्र",
+         "mr": "महाराष्ट्र"
+        },
+        {
+         "v": "manipur",
+         "en": "Manipur",
+         "hi": "मणिपुर",
+         "mr": "मणिपूर"
+        },
+        {
+         "v": "meghalaya",
+         "en": "Meghalaya",
+         "hi": "मेघालय",
+         "mr": "मेघालय"
+        },
+        {
+         "v": "mizoram",
+         "en": "Mizoram",
+         "hi": "मिज़ोरम",
+         "mr": "मिझोराम"
+        },
+        {
+         "v": "nagaland",
+         "en": "Nagaland",
+         "hi": "नागालैंड",
+         "mr": "नागालँड"
+        },
+        {
+         "v": "odisha",
+         "en": "Odisha",
+         "hi": "ओडिशा",
+         "mr": "ओडिशा"
+        },
+        {
+         "v": "punjab",
+         "en": "Punjab",
+         "hi": "पंजाब",
+         "mr": "पंजाब"
+        },
+        {
+         "v": "rajasthan",
+         "en": "Rajasthan",
+         "hi": "राजस्थान",
+         "mr": "राजस्थान"
+        },
+        {
+         "v": "sikkim",
+         "en": "Sikkim",
+         "hi": "सिक्किम",
+         "mr": "सिक्कीम"
+        },
+        {
+         "v": "tamil_nadu",
+         "en": "Tamil Nadu",
+         "hi": "तमिलनाडु",
+         "mr": "तमिळनाडू"
+        },
+        {
+         "v": "telangana",
+         "en": "Telangana",
+         "hi": "तेलंगाना",
+         "mr": "तेलंगणा"
+        },
+        {
+         "v": "tripura",
+         "en": "Tripura",
+         "hi": "त्रिपुरा",
+         "mr": "त्रिपुरा"
+        },
+        {
+         "v": "uttar_pradesh",
+         "en": "Uttar Pradesh",
+         "hi": "उत्तर प्रदेश",
+         "mr": "उत्तर प्रदेश"
+        },
+        {
+         "v": "uttarakhand",
+         "en": "Uttarakhand",
+         "hi": "उत्तराखंड",
+         "mr": "उत्तराखंड"
+        },
+        {
+         "v": "west_bengal",
+         "en": "West Bengal",
+         "hi": "पश्चिम बंगाल",
+         "mr": "पश्चिम बंगाल"
+        },
+        {
+         "v": "andaman_nicobar",
+         "en": "Andaman and Nicobar Islands",
+         "hi": "अंडमान और निकोबार द्वीप समूह",
+         "mr": "अंदमान आणि निकोबार बेटे"
+        },
+        {
+         "v": "chandigarh",
+         "en": "Chandigarh",
+         "hi": "चंडीगढ़",
+         "mr": "चंदीगड"
+        },
+        {
+         "v": "dnh_dd",
+         "en": "Dadra and Nagar Haveli and Daman and Diu",
+         "hi": "दादरा और नगर हवेली और दमन और दीव",
+         "mr": "दादरा आणि नगर हवेली आणि दमण आणि दीव"
+        },
+        {
+         "v": "delhi",
+         "en": "Delhi",
+         "hi": "दिल्ली",
+         "mr": "दिल्ली"
+        },
+        {
+         "v": "jammu_kashmir",
+         "en": "Jammu and Kashmir",
+         "hi": "जम्मू और कश्मीर",
+         "mr": "जम्मू आणि काश्मीर"
+        },
+        {
+         "v": "ladakh",
+         "en": "Ladakh",
+         "hi": "लद्दाख",
+         "mr": "लडाख"
+        },
+        {
+         "v": "lakshadweep",
+         "en": "Lakshadweep",
+         "hi": "लक्षद्वीप",
+         "mr": "लक्षद्वीप"
+        },
+        {
+         "v": "puducherry",
+         "en": "Puducherry",
+         "hi": "पुडुचेरी",
+         "mr": "पुदुच्चेरी"
+        }
+       ]
+      },
+      {
+       "id": "P2_district",
+       "type": "short",
+       "label": {
+        "en": "In which district is your child's school?",
+        "hi": "आपके बच्चे का स्कूल किस ज़िले में है?",
+        "mr": "तुमच्या मुलाची शाळा कोणत्या जिल्ह्यात आहे?"
+       },
+       "required": true
+      },
+      {
+       "id": "P3_relation",
+       "type": "choice",
+       "label": {
+        "en": "You are the child's:",
+        "hi": "आप बच्चे के क्या लगते हैं?",
+        "mr": "तुम्ही मुलाचे कोण आहात?"
+       },
+       "required": true,
+       "options": [
+        {
+         "v": "mother",
+         "en": "Mother",
+         "hi": "माँ",
+         "mr": "आई"
+        },
+        {
+         "v": "father",
+         "en": "Father",
+         "hi": "पिता",
+         "mr": "वडील"
+        },
+        {
+         "v": "grandparent",
+         "en": "Grandparent",
+         "hi": "दादा-दादी / नाना-नानी",
+         "mr": "आजी-आजोबा"
+        },
+        {
+         "v": "guardian",
+         "en": "Other guardian",
+         "hi": "अन्य अभिभावक",
+         "mr": "इतर पालक"
+        }
+       ]
+      },
+      {
+       "id": "P4_school",
+       "type": "choice",
+       "label": {
+        "en": "Your child's school or college is:",
+        "hi": "आपके बच्चे का स्कूल या कॉलेज:",
+        "mr": "तुमच्या मुलाची शाळा किंवा कॉलेज:"
+       },
+       "required": true,
+       "options": [
+        {
+         "v": "govt",
+         "en": "Government",
+         "hi": "सरकारी",
+         "mr": "सरकारी"
+        },
+        {
+         "v": "aided",
+         "en": "Government-aided",
+         "hi": "सरकारी सहायता प्राप्त",
+         "mr": "सरकारी अनुदानित"
+        },
+        {
+         "v": "private",
+         "en": "Private",
+         "hi": "प्राइवेट",
+         "mr": "खासगी"
+        },
+        {
+         "v": "notsure",
+         "en": "Not sure",
+         "hi": "पता नहीं",
+         "mr": "नक्की माहीत नाही"
+        }
+       ]
+      },
+      {
+       "id": "P5_class",
+       "type": "dropdown",
+       "label": {
+        "en": "Which class is your child in?",
+        "hi": "आपका बच्चा किस कक्षा में है?",
+        "mr": "तुमचे मूल कितवीत आहे?"
+       },
+       "required": true,
+       "options": [
+        {
+         "v": "pre",
+         "en": "Nursery–UKG",
+         "hi": "नर्सरी–यूकेजी",
+         "mr": "नर्सरी–मोठा गट"
+        },
+        {
+         "v": "c1_5",
+         "en": "Class 1–5",
+         "hi": "कक्षा 1–5",
+         "mr": "इयत्ता १–५"
+        },
+        {
+         "v": "c6_8",
+         "en": "Class 6–8",
+         "hi": "कक्षा 6–8",
+         "mr": "इयत्ता ६–८"
+        },
+        {
+         "v": "c9_10",
+         "en": "Class 9–10",
+         "hi": "कक्षा 9–10",
+         "mr": "इयत्ता ९–१०"
+        },
+        {
+         "v": "c11_12",
+         "en": "Class 11–12",
+         "hi": "कक्षा 11–12",
+         "mr": "इयत्ता ११–१२"
+        },
+        {
+         "v": "college",
+         "en": "College",
+         "hi": "कॉलेज",
+         "mr": "कॉलेज"
+        },
+        {
+         "v": "done",
+         "en": "Finished studies",
+         "hi": "पढ़ाई पूरी कर ली",
+         "mr": "शिक्षण पूर्ण झाले"
+        }
+       ]
+      },
+      {
+       "id": "P6_ownedu",
+       "type": "choice",
+       "label": {
+        "en": "Up to which level did you study?",
+        "hi": "आपने कहाँ तक पढ़ाई की है?",
+        "mr": "तुम्ही कितवीपर्यंत शिकलात?"
+       },
+       "required": true,
+       "options": [
+        {
+         "v": "none",
+         "en": "Did not go to school",
+         "hi": "स्कूल नहीं गए",
+         "mr": "शाळेत गेलो नाही"
+        },
+        {
+         "v": "c1_5",
+         "en": "Class 1–5",
+         "hi": "कक्षा 1–5",
+         "mr": "इयत्ता १–५"
+        },
+        {
+         "v": "c6_8",
+         "en": "Class 6–8",
+         "hi": "कक्षा 6–8",
+         "mr": "इयत्ता ६–८"
+        },
+        {
+         "v": "c9_10",
+         "en": "Class 9–10",
+         "hi": "कक्षा 9–10",
+         "mr": "इयत्ता ९–१०"
+        },
+        {
+         "v": "c11_12",
+         "en": "Class 11–12",
+         "hi": "कक्षा 11–12",
+         "mr": "इयत्ता ११–१२"
+        },
+        {
+         "v": "grad",
+         "en": "Graduate",
+         "hi": "स्नातक",
+         "mr": "पदवीधर"
+        },
+        {
+         "v": "pg",
+         "en": "Postgraduate or more",
+         "hi": "स्नातकोत्तर या उससे ज़्यादा",
+         "mr": "पदव्युत्तर किंवा जास्त"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "school",
+     "title": {
+      "en": "School and learning",
+      "hi": "स्कूल और पढ़ाई",
+      "mr": "शाळा आणि शिक्षण"
+     },
+     "note": {},
+     "items": [
+      {
+       "id": "P7_visits",
+       "type": "choice",
+       "label": {
+        "en": "In the last 6 months, how many times did you go to your child's school?",
+        "hi": "पिछले 6 महीनों में आप अपने बच्चे के स्कूल कितनी बार गए?",
+        "mr": "गेल्या ६ महिन्यांत तुम्ही मुलाच्या शाळेत किती वेळा गेलात?"
+       },
+       "required": true,
+       "options": [
+        {
+         "v": "0",
+         "en": "Not at all",
+         "hi": "एक बार भी नहीं",
+         "mr": "एकदाही नाही"
+        },
+        {
+         "v": "1_2",
+         "en": "1–2 times",
+         "hi": "1–2 बार",
+         "mr": "१–२ वेळा"
+        },
+        {
+         "v": "3_5",
+         "en": "3–5 times",
+         "hi": "3–5 बार",
+         "mr": "३–५ वेळा"
+        },
+        {
+         "v": "6plus",
+         "en": "6 times or more",
+         "hi": "6 बार या ज़्यादा",
+         "mr": "६ किंवा जास्त वेळा"
+        }
+       ]
+      },
+      {
+       "id": "P8_reason",
+       "type": "short",
+       "label": {
+        "en": "What was the main reason for your last visit to the school?",
+        "hi": "पिछली बार स्कूल जाने का मुख्य कारण क्या था?",
+        "mr": "मागच्या वेळी शाळेत जाण्याचे मुख्य कारण काय होते?"
+       },
+       "hint": {
+        "en": "Example: A parent-teacher meeting about her half-yearly results.",
+        "hi": "उदाहरण: उसके छमाही परीक्षा के नतीजों पर अभिभावक-शिक्षक बैठक।",
+        "mr": "उदाहरण: तिच्या सहामाही निकालाबद्दल पालक-शिक्षक सभा."
+       },
+       "showIf": {
+        "q": "P7_visits",
+        "op": "notin",
+        "values": [
+         "0"
+        ]
+       },
+       "probe": {
+        "minWords": 3,
+        "ask": {
+         "en": "What was the meeting or visit about?",
+         "hi": "वह बैठक या मुलाक़ात किस बारे में थी?",
+         "mr": "ती सभा किंवा भेट कशाबद्दल होती?"
+        }
+       }
+      },
+      {
+       "id": "P8_notvisit",
+       "type": "short",
+       "label": {
+        "en": "What makes it hard to visit your child's school?",
+        "hi": "बच्चे के स्कूल जाने में क्या मुश्किल आती है?",
+        "mr": "मुलाच्या शाळेत जाण्यात काय अडचण येते?"
+       },
+       "hint": {
+        "en": "Example: I work on daily wages and the meetings are during work hours.",
+        "hi": "उदाहरण: मैं दिहाड़ी पर काम करता हूँ और बैठकें काम के समय होती हैं।",
+        "mr": "उदाहरण: मी रोजंदारीवर काम करतो आणि सभा कामाच्या वेळेत असतात."
+       },
+       "showIf": {
+        "q": "P7_visits",
+        "op": "in",
+        "values": [
+         "0"
+        ]
+       },
+       "probe": {
+        "minWords": 3,
+        "ask": {
+         "en": "Even one reason helps: time, distance, not invited, or something else?",
+         "hi": "एक कारण भी काफ़ी है: समय, दूरी, बुलाया नहीं गया, या कुछ और?",
+         "mr": "एक कारणही पुरेसे आहे: वेळ, अंतर, बोलावले नाही, की आणखी काही?"
+        }
+       }
+      },
+      {
+       "id": "P9_happy",
+       "type": "choice",
+       "label": {
+        "en": "How happy are you with your child's learning?",
+        "hi": "आप अपने बच्चे की पढ़ाई से कितने संतुष्ट हैं?",
+        "mr": "मुलाच्या शिक्षणाबद्दल तुम्ही किती समाधानी आहात?"
+       },
+       "required": true,
+       "options": [
+        {
+         "v": "very",
+         "en": "Very happy",
+         "hi": "बहुत संतुष्ट",
+         "mr": "खूप समाधानी"
+        },
+        {
+         "v": "happy",
+         "en": "Happy",
+         "hi": "संतुष्ट",
+         "mr": "समाधानी"
+        },
+        {
+         "v": "notvery",
+         "en": "Not very happy",
+         "hi": "ज़्यादा संतुष्ट नहीं",
+         "mr": "फारसे समाधानी नाही"
+        },
+        {
+         "v": "not",
+         "en": "Not happy",
+         "hi": "संतुष्ट नहीं",
+         "mr": "समाधानी नाही"
+        }
+       ]
+      },
+      {
+       "id": "P9_reason",
+       "type": "short",
+       "label": {
+        "en": "What is one reason you feel this way?",
+        "hi": "आप ऐसा क्यों महसूस करते हैं? एक कारण बताइए।",
+        "mr": "तुम्हाला असे का वाटते? एक कारण सांगा."
+       },
+       "hint": {
+        "en": "Example: She now reads Hindi storybooks on her own.",
+        "hi": "उदाहरण: वह अब खुद हिंदी की कहानियों की किताबें पढ़ लेती है।",
+        "mr": "उदाहरण: ती आता स्वतः मराठी गोष्टींची पुस्तके वाचते."
+       },
+       "probe": {
+        "minWords": 4,
+        "ask": {
+         "en": "What have you noticed about your child's learning that makes you feel this way?",
+         "hi": "बच्चे की पढ़ाई में आपने ऐसा क्या देखा जिससे आपको ऐसा लगता है?",
+         "mr": "मुलाच्या शिक्षणात तुम्ही असे काय पाहिले, ज्यामुळे तुम्हाला असे वाटते?"
+        }
+       }
+      },
+      {
+       "id": "P11_change",
+       "type": "short",
+       "label": {
+        "en": "Name 2 things you would change first in your child's school.",
+        "hi": "अपने बच्चे के स्कूल में आप सबसे पहले कौन सी 2 चीज़ें बदलना चाहेंगे?",
+        "mr": "मुलाच्या शाळेत तुम्ही सर्वात आधी कोणत्या २ गोष्टी बदलाल?"
+       },
+       "hint": {
+        "en": "Example: More regular teachers and a computer class.",
+        "hi": "उदाहरण: नियमित आने वाले ज़्यादा शिक्षक और कंप्यूटर की कक्षा।",
+        "mr": "उदाहरण: नियमित येणारे जास्त शिक्षक आणि संगणकाचा वर्ग."
+       },
+       "probe": {
+        "minWords": 4,
+        "ask": {
+         "en": "Which exact things? For example: teachers, toilets, water, books, computers, sports.",
+         "hi": "कौन सी खास चीज़ें? जैसे: शिक्षक, शौचालय, पानी, किताबें, कंप्यूटर, खेल।",
+         "mr": "नेमक्या कोणत्या गोष्टी? उदा.: शिक्षक, स्वच्छतागृहे, पाणी, पुस्तके, संगणक, खेळ."
+        }
+       }
+      },
+      {
+       "id": "P12_safe",
+       "type": "short",
+       "label": {
+        "en": "What one thing would make your child feel safer at school?",
+        "hi": "कौन सी एक चीज़ आपके बच्चे को स्कूल में ज़्यादा सुरक्षित महसूस कराएगी?",
+        "mr": "कोणत्या एका गोष्टीमुळे तुमच्या मुलाला शाळेत अधिक सुरक्षित वाटेल?"
+       },
+       "hint": {
+        "en": "Example: A boundary wall and a lady teacher in every class.",
+        "hi": "उदाहरण: चारदीवारी और हर कक्षा में एक महिला शिक्षिका।",
+        "mr": "उदाहरण: संरक्षक भिंत आणि प्रत्येक वर्गात एक शिक्षिका."
+       },
+       "probe": {
+        "minWords": 3,
+        "ask": {
+         "en": "What would help most: the building, teachers, other children, or the way to school?",
+         "hi": "सबसे ज़्यादा क्या मदद करेगा: भवन, शिक्षक, दूसरे बच्चे, या स्कूल आने-जाने का रास्ता?",
+         "mr": "सर्वात जास्त कशाने मदत होईल: इमारत, शिक्षक, इतर मुले, की शाळेत येण्या-जाण्याचा रस्ता?"
+        }
+       }
+      }
+     ]
+    },
+    {
+     "id": "home",
+     "title": {
+      "en": "Home and future",
+      "hi": "घर और भविष्य",
+      "mr": "घर आणि भविष्य"
+     },
+     "note": {},
+     "items": [
+      {
+       "id": "P13_lastweek",
+       "type": "short",
+       "label": {
+        "en": "What did you do last week to help your child with studies?",
+        "hi": "पिछले हफ़्ते आपने बच्चे की पढ़ाई में मदद के लिए क्या किया?",
+        "mr": "मागच्या आठवड्यात मुलाच्या अभ्यासात मदत करण्यासाठी तुम्ही काय केले?"
+       },
+       "hint": {
+        "en": "Example: Checked his homework each evening and asked what he learned.",
+        "hi": "उदाहरण: हर शाम उसका होमवर्क देखा और पूछा कि उसने क्या सीखा।",
+        "mr": "उदाहरण: रोज संध्याकाळी त्याचा गृहपाठ पाहिला आणि त्याने काय शिकले ते विचारले."
+       },
+       "probe": {
+        "minWords": 3,
+        "ask": {
+         "en": "Anything at all counts, even asking about school. If nothing, you can write \"nothing this week\".",
+         "hi": "कुछ भी गिना जाएगा, स्कूल के बारे में पूछना भी। अगर कुछ नहीं, तो \"इस हफ़्ते कुछ नहीं\" लिख सकते हैं।",
+         "mr": "कोणतीही गोष्ट चालेल, शाळेबद्दल विचारणेसुद्धा. काहीच नसेल, तर \"या आठवड्यात काही नाही\" असे लिहू शकता."
+        },
+        "allowNoOne": true
+       }
+      },
+      {
+       "id": "P14_ease",
+       "type": "choice",
+       "label": {
+        "en": "Helping my child with studies at home is:",
+        "hi": "घर पर बच्चे की पढ़ाई में मदद करना मेरे लिए:",
+        "mr": "घरी मुलाच्या अभ्यासात मदत करणे माझ्यासाठी:"
+       },
+       "required": true,
+       "options": [
+        {
+         "v": "easy",
+         "en": "Easy",
+         "hi": "आसान है",
+         "mr": "सोपे आहे"
+        },
+        {
+         "v": "sometimes",
+         "en": "Sometimes hard",
+         "hi": "कभी-कभी मुश्किल है",
+         "mr": "कधी कधी अवघड आहे"
+        },
+        {
+         "v": "hard",
+         "en": "Hard",
+         "hi": "मुश्किल है",
+         "mr": "अवघड आहे"
+        }
+       ]
+      },
+      {
+       "id": "P14_why",
+       "type": "short",
+       "label": {
+        "en": "What makes it easy or hard for you?",
+        "hi": "आपके लिए यह आसान या मुश्किल क्यों है?",
+        "mr": "तुमच्यासाठी ते सोपे किंवा अवघड का आहे?"
+       },
+       "hint": {
+        "en": "Example: I studied only till Class 5, so maths homework is hard for me.",
+        "hi": "उदाहरण: मैंने सिर्फ़ 5वीं तक पढ़ाई की है, इसलिए गणित का होमवर्क मेरे लिए मुश्किल है।",
+        "mr": "उदाहरण: मी फक्त पाचवीपर्यंत शिकलो, त्यामुळे गणिताचा गृहपाठ मला अवघड जातो."
+       },
+       "probe": {
+        "minWords": 4,
+        "ask": {
+         "en": "Could you share the main reason? For example: time, your own schooling, cost, or the syllabus.",
+         "hi": "मुख्य कारण बताइए? जैसे: समय, आपकी अपनी पढ़ाई, खर्च, या सिलेबस।",
+         "mr": "मुख्य कारण सांगाल का? उदा.: वेळ, तुमचे स्वतःचे शिक्षण, खर्च, की अभ्यासक्रम."
+        }
+       }
+      },
+      {
+       "id": "P10_work",
+       "type": "short",
+       "label": {
+        "en": "What work do you hope your child will do when they grow up? (You can also write \"whatever my child chooses\".)",
+        "hi": "बड़े होकर आपका बच्चा कौन सा काम करे, ऐसी आपकी उम्मीद है? (आप \"जो बच्चा खुद चुने\" भी लिख सकते हैं।)",
+        "mr": "मोठे झाल्यावर तुमच्या मुलाने कोणते काम करावे, असे तुम्हाला वाटते? (\"मूल स्वतः ठरवेल ते\" असेही लिहू शकता.)"
+       },
+       "hint": {
+        "en": "Example: A government job as a nurse.",
+        "hi": "उदाहरण: नर्स की सरकारी नौकरी।",
+        "mr": "उदाहरण: परिचारिकेची (नर्स) सरकारी नोकरी."
+       },
+       "probe": {
+        "minWords": 3,
+        "ask": {
+         "en": "Which kind of work? For example: teacher, police, own business, farming, nurse.",
+         "hi": "किस तरह का काम? जैसे: शिक्षक, पुलिस, अपना व्यवसाय, खेती, नर्स।",
+         "mr": "कोणत्या प्रकारचे काम? उदा.: शिक्षक, पोलीस, स्वतःचा व्यवसाय, शेती, नर्स."
+        },
+        "allowChoice": true
+       }
+      },
+      {
+       "id": "P10_life",
+       "type": "short",
+       "label": {
+        "en": "What kind of life do you wish for your child?",
+        "hi": "आप अपने बच्चे के लिए कैसी ज़िंदगी चाहते हैं?",
+        "mr": "तुम्हाला तुमच्या मुलासाठी कसे आयुष्य हवे आहे?"
+       },
+       "hint": {
+        "en": "Example: A settled life near the family, with no money worries.",
+        "hi": "उदाहरण: परिवार के पास बसी हुई ज़िंदगी, बिना पैसों की चिंता के।",
+        "mr": "उदाहरण: कुटुंबाजवळ स्थिर आयुष्य, पैशांची काळजी नसलेले."
+       },
+       "probe": {
+        "minWords": 4,
+        "ask": {
+         "en": "What would that life look like? For example: where they live, what they can afford.",
+         "hi": "वह ज़िंदगी कैसी दिखेगी? जैसे: वे कहाँ रहेंगे, क्या-क्या कर पाएँगे।",
+         "mr": "ते आयुष्य कसे असेल? उदा.: ते कुठे राहतील, काय काय करू शकतील."
+        }
+       }
+      },
+      {
+       "id": "P15_onething",
+       "type": "short",
+       "label": {
+        "en": "What ONE thing would help your child most to reach their future?",
+        "hi": "बच्चे को उसके भविष्य तक पहुँचाने में सबसे ज़्यादा कौन सी एक चीज़ मदद करेगी?",
+        "mr": "मुलाला त्याचे भविष्य गाठण्यासाठी सर्वात जास्त मदत कोणत्या एका गोष्टीची होईल?"
+       },
+       "hint": {
+        "en": "Example: A computer course after Class 10.",
+        "hi": "उदाहरण: 10वीं के बाद कंप्यूटर का कोर्स।",
+        "mr": "उदाहरण: दहावीनंतर संगणकाचा कोर्स."
+       },
+       "probe": {
+        "minWords": 3,
+        "ask": {
+         "en": "What exactly? For example: tuition, a phone or laptop, a good school nearby, money for fees, career guidance.",
+         "hi": "ठीक-ठीक क्या? जैसे: ट्यूशन, फ़ोन या लैपटॉप, पास में अच्छा स्कूल, फ़ीस के लिए पैसे, करियर मार्गदर्शन।",
+         "mr": "नेमके काय? उदा.: शिकवणी, फोन किंवा लॅपटॉप, जवळ चांगली शाळा, फीसाठी पैसे, करिअर मार्गदर्शन."
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "public": {
+   "key": "public",
+   "title": {
+    "en": "Everyone: Young People Around You",
+    "hi": "सभी के लिए: आपके आसपास के युवा",
+    "mr": "सर्वांसाठी: तुमच्या आजूबाजूचे तरुण"
+   },
+   "intro": {
+    "en": "We want to hear how people see the future of young people around them. There are no right or wrong answers. It takes about 7 minutes.",
+    "hi": "हम जानना चाहते हैं कि लोग अपने आसपास के युवाओं के भविष्य को कैसे देखते हैं। कोई जवाब सही या गलत नहीं है। इसमें लगभग 7 मिनट लगेंगे।",
+    "mr": "लोक आपल्या आजूबाजूच्या तरुणांच्या भविष्याकडे कसे पाहतात, हे आम्हाला जाणून घ्यायचे आहे. यात कोणतेही उत्तर बरोबर किंवा चूक नाही. यासाठी साधारण ७ मिनिटे लागतील."
+   },
+   "sections": [
+    {
+     "id": "about",
+     "title": {
+      "en": "About you",
+      "hi": "आपके बारे में",
+      "mr": "तुमच्याबद्दल"
+     },
+     "note": {},
+     "items": [
+      {
+       "id": "G1_age",
+       "type": "number",
+       "label": {
+        "en": "How old are you?",
+        "hi": "आपकी उम्र कितनी है?",
+        "mr": "तुमचे वय किती आहे?"
+       },
+       "required": true,
+       "min": 18,
+       "max": 100
+      },
+      {
+       "id": "G2_gender",
+       "type": "choice",
+       "label": {
+        "en": "What is your gender?",
+        "hi": "आपका लिंग क्या है?",
+        "mr": "तुमचे लिंग कोणते?"
+       },
+       "required": true,
+       "options": [
+        {
+         "v": "female",
+         "en": "Female",
+         "hi": "महिला",
+         "mr": "स्त्री"
+        },
+        {
+         "v": "male",
+         "en": "Male",
+         "hi": "पुरुष",
+         "mr": "पुरुष"
+        },
+        {
+         "v": "other",
+         "en": "Other",
+         "hi": "अन्य",
+         "mr": "इतर"
+        },
+        {
+         "v": "pnts",
+         "en": "Prefer not to say",
+         "hi": "नहीं बताना चाहते",
+         "mr": "सांगू इच्छित नाही"
+        }
+       ]
+      },
+      {
+       "id": "G3_state",
+       "type": "dropdown",
+       "label": {
+        "en": "Which state do you live in?",
+        "hi": "आप किस राज्य में रहते हैं?",
+        "mr": "तुम्ही कोणत्या राज्यात राहता?"
+       },
+       "required": true,
+       "options": [
+        {
+         "v": "andhra_pradesh",
+         "en": "Andhra Pradesh",
+         "hi": "आंध्र प्रदेश",
+         "mr": "आंध्र प्रदेश"
+        },
+        {
+         "v": "arunachal_pradesh",
+         "en": "Arunachal Pradesh",
+         "hi": "अरुणाचल प्रदेश",
+         "mr": "अरुणाचल प्रदेश"
+        },
+        {
+         "v": "assam",
+         "en": "Assam",
+         "hi": "असम",
+         "mr": "आसाम"
+        },
+        {
+         "v": "bihar",
+         "en": "Bihar",
+         "hi": "बिहार",
+         "mr": "बिहार"
+        },
+        {
+         "v": "chhattisgarh",
+         "en": "Chhattisgarh",
+         "hi": "छत्तीसगढ़",
+         "mr": "छत्तीसगड"
+        },
+        {
+         "v": "goa",
+         "en": "Goa",
+         "hi": "गोवा",
+         "mr": "गोवा"
+        },
+        {
+         "v": "gujarat",
+         "en": "Gujarat",
+         "hi": "गुजरात",
+         "mr": "गुजरात"
+        },
+        {
+         "v": "haryana",
+         "en": "Haryana",
+         "hi": "हरियाणा",
+         "mr": "हरियाणा"
+        },
+        {
+         "v": "himachal_pradesh",
+         "en": "Himachal Pradesh",
+         "hi": "हिमाचल प्रदेश",
+         "mr": "हिमाचल प्रदेश"
+        },
+        {
+         "v": "jharkhand",
+         "en": "Jharkhand",
+         "hi": "झारखंड",
+         "mr": "झारखंड"
+        },
+        {
+         "v": "karnataka",
+         "en": "Karnataka",
+         "hi": "कर्नाटक",
+         "mr": "कर्नाटक"
+        },
+        {
+         "v": "kerala",
+         "en": "Kerala",
+         "hi": "केरल",
+         "mr": "केरळ"
+        },
+        {
+         "v": "madhya_pradesh",
+         "en": "Madhya Pradesh",
+         "hi": "मध्य प्रदेश",
+         "mr": "मध्य प्रदेश"
+        },
+        {
+         "v": "maharashtra",
+         "en": "Maharashtra",
+         "hi": "महाराष्ट्र",
+         "mr": "महाराष्ट्र"
+        },
+        {
+         "v": "manipur",
+         "en": "Manipur",
+         "hi": "मणिपुर",
+         "mr": "मणिपूर"
+        },
+        {
+         "v": "meghalaya",
+         "en": "Meghalaya",
+         "hi": "मेघालय",
+         "mr": "मेघालय"
+        },
+        {
+         "v": "mizoram",
+         "en": "Mizoram",
+         "hi": "मिज़ोरम",
+         "mr": "मिझोराम"
+        },
+        {
+         "v": "nagaland",
+         "en": "Nagaland",
+         "hi": "नागालैंड",
+         "mr": "नागालँड"
+        },
+        {
+         "v": "odisha",
+         "en": "Odisha",
+         "hi": "ओडिशा",
+         "mr": "ओडिशा"
+        },
+        {
+         "v": "punjab",
+         "en": "Punjab",
+         "hi": "पंजाब",
+         "mr": "पंजाब"
+        },
+        {
+         "v": "rajasthan",
+         "en": "Rajasthan",
+         "hi": "राजस्थान",
+         "mr": "राजस्थान"
+        },
+        {
+         "v": "sikkim",
+         "en": "Sikkim",
+         "hi": "सिक्किम",
+         "mr": "सिक्कीम"
+        },
+        {
+         "v": "tamil_nadu",
+         "en": "Tamil Nadu",
+         "hi": "तमिलनाडु",
+         "mr": "तमिळनाडू"
+        },
+        {
+         "v": "telangana",
+         "en": "Telangana",
+         "hi": "तेलंगाना",
+         "mr": "तेलंगणा"
+        },
+        {
+         "v": "tripura",
+         "en": "Tripura",
+         "hi": "त्रिपुरा",
+         "mr": "त्रिपुरा"
+        },
+        {
+         "v": "uttar_pradesh",
+         "en": "Uttar Pradesh",
+         "hi": "उत्तर प्रदेश",
+         "mr": "उत्तर प्रदेश"
+        },
+        {
+         "v": "uttarakhand",
+         "en": "Uttarakhand",
+         "hi": "उत्तराखंड",
+         "mr": "उत्तराखंड"
+        },
+        {
+         "v": "west_bengal",
+         "en": "West Bengal",
+         "hi": "पश्चिम बंगाल",
+         "mr": "पश्चिम बंगाल"
+        },
+        {
+         "v": "andaman_nicobar",
+         "en": "Andaman and Nicobar Islands",
+         "hi": "अंडमान और निकोबार द्वीप समूह",
+         "mr": "अंदमान आणि निकोबार बेटे"
+        },
+        {
+         "v": "chandigarh",
+         "en": "Chandigarh",
+         "hi": "चंडीगढ़",
+         "mr": "चंदीगड"
+        },
+        {
+         "v": "dnh_dd",
+         "en": "Dadra and Nagar Haveli and Daman and Diu",
+         "hi": "दादरा और नगर हवेली और दमन और दीव",
+         "mr": "दादरा आणि नगर हवेली आणि दमण आणि दीव"
+        },
+        {
+         "v": "delhi",
+         "en": "Delhi",
+         "hi": "दिल्ली",
+         "mr": "दिल्ली"
+        },
+        {
+         "v": "jammu_kashmir",
+         "en": "Jammu and Kashmir",
+         "hi": "जम्मू और कश्मीर",
+         "mr": "जम्मू आणि काश्मीर"
+        },
+        {
+         "v": "ladakh",
+         "en": "Ladakh",
+         "hi": "लद्दाख",
+         "mr": "लडाख"
+        },
+        {
+         "v": "lakshadweep",
+         "en": "Lakshadweep",
+         "hi": "लक्षद्वीप",
+         "mr": "लक्षद्वीप"
+        },
+        {
+         "v": "puducherry",
+         "en": "Puducherry",
+         "hi": "पुडुचेरी",
+         "mr": "पुदुच्चेरी"
+        }
+       ]
+      },
+      {
+       "id": "G4_district",
+       "type": "short",
+       "label": {
+        "en": "Which district do you live in?",
+        "hi": "आप किस ज़िले में रहते हैं?",
+        "mr": "तुम्ही कोणत्या जिल्ह्यात राहता?"
+       },
+       "required": true
+      },
+      {
+       "id": "G5_work",
+       "type": "dropdown",
+       "label": {
+        "en": "What is your main work?",
+        "hi": "आपका मुख्य काम क्या है?",
+        "mr": "तुमचे मुख्य काम कोणते?"
+       },
+       "required": true,
+       "options": [
+        {
+         "v": "teacher",
+         "en": "Teacher or education",
+         "hi": "शिक्षक या शिक्षा",
+         "mr": "शिक्षक किंवा शिक्षण क्षेत्र"
+        },
+        {
+         "v": "govt",
+         "en": "Government job",
+         "hi": "सरकारी नौकरी",
+         "mr": "सरकारी नोकरी"
+        },
+        {
+         "v": "private",
+         "en": "Private job",
+         "hi": "प्राइवेट नौकरी",
+         "mr": "खासगी नोकरी"
+        },
+        {
+         "v": "business",
+         "en": "Own business or shop",
+         "hi": "अपना व्यवसाय या दुकान",
+         "mr": "स्वतःचा व्यवसाय किंवा दुकान"
+        },
+        {
+         "v": "farmer",
+         "en": "Farmer",
+         "hi": "किसान",
+         "mr": "शेतकरी"
+        },
+        {
+         "v": "daily",
+         "en": "Daily wage work",
+         "hi": "दिहाड़ी मज़दूरी",
+         "mr": "रोजंदारी"
+        },
+        {
+         "v": "ngo",
+         "en": "NGO or social work",
+         "hi": "एनजीओ या सामाजिक काम",
+         "mr": "स्वयंसेवी संस्था किंवा सामाजिक काम"
+        },
+        {
+         "v": "home",
+         "en": "Homemaker",
+         "hi": "गृहिणी / घर का काम",
+         "mr": "गृहिणी / घरकाम"
+        },
+        {
+         "v": "student",
+         "en": "Student",
+         "hi": "विद्यार्थी",
+         "mr": "विद्यार्थी"
+        },
+        {
+         "v": "retired",
+         "en": "Retired",
+         "hi": "सेवानिवृत्त",
+         "mr": "निवृत्त"
+        },
+        {
+         "v": "notworking",
+         "en": "Not working",
+         "hi": "काम नहीं कर रहे",
+         "mr": "सध्या काम करत नाही"
+        }
+       ],
+       "other": true
+      }
+     ]
+    },
+    {
+     "id": "views",
+     "title": {
+      "en": "Young people today",
+      "hi": "आज के युवा",
+      "mr": "आजचे तरुण"
+     },
+     "note": {},
+     "items": [
+      {
+       "id": "G6_better",
+       "type": "short",
+       "label": {
+        "en": "What is one thing that is BETTER for young people today than when you were young?",
+        "hi": "आपके समय की तुलना में आज के युवाओं के लिए कौन सी एक चीज़ बेहतर है?",
+        "mr": "तुमच्या लहानपणापेक्षा आजच्या तरुणांसाठी कोणती एक गोष्ट अधिक चांगली आहे?"
+       },
+       "hint": {
+        "en": "Example: They can learn anything online.",
+        "hi": "उदाहरण: वे ऑनलाइन कुछ भी सीख सकते हैं।",
+        "mr": "उदाहरण: ते ऑनलाइन काहीही शिकू शकतात."
+       },
+       "probe": {
+        "minWords": 4,
+        "ask": {
+         "en": "Could you say a little more about what has improved?",
+         "hi": "क्या आप थोड़ा और बता सकते हैं कि क्या बेहतर हुआ है?",
+         "mr": "काय सुधारले आहे, याबद्दल थोडे अधिक सांगाल का?"
+        }
+       }
+      },
+      {
+       "id": "G6_harder",
+       "type": "short",
+       "label": {
+        "en": "What is one thing that is HARDER for them today?",
+        "hi": "आज उनके लिए कौन सी एक चीज़ ज़्यादा मुश्किल है?",
+        "mr": "आज त्यांच्यासाठी कोणती एक गोष्ट अधिक अवघड आहे?"
+       },
+       "hint": {
+        "en": "Example: Much more competition for jobs.",
+        "hi": "उदाहरण: नौकरी के लिए बहुत ज़्यादा मुकाबला।",
+        "mr": "उदाहरण: नोकरीसाठी खूप जास्त स्पर्धा."
+       },
+       "probe": {
+        "minWords": 4,
+        "ask": {
+         "en": "Could you say a little more about what has become harder?",
+         "hi": "क्या आप थोड़ा और बता सकते हैं कि क्या मुश्किल हो गया है?",
+         "mr": "काय अवघड झाले आहे, याबद्दल थोडे अधिक सांगाल का?"
+        }
+       }
+      },
+      {
+       "id": "G7_learn",
+       "type": "para",
+       "label": {
+        "en": "What do young people need to learn or experience to do well in the future?",
+        "hi": "भविष्य में अच्छा करने के लिए युवाओं को क्या सीखना या अनुभव करना चाहिए?",
+        "mr": "भविष्यात चांगली प्रगती करण्यासाठी तरुणांनी काय शिकले किंवा अनुभवले पाहिजे?"
+       },
+       "probe": {
+        "minWords": 5,
+        "ask": {
+         "en": "Which skills or experiences, specifically?",
+         "hi": "ख़ास तौर पर कौन से हुनर या अनुभव?",
+         "mr": "नेमकी कोणती कौशल्ये किंवा अनुभव?"
+        }
+       }
+      },
+      {
+       "id": "G8_where",
+       "type": "short",
+       "label": {
+        "en": "Where can young people best get these skills? Name 1–2 places or people.",
+        "hi": "युवा ये हुनर सबसे अच्छी तरह कहाँ से सीख सकते हैं? 1–2 जगहें या लोग बताइए।",
+        "mr": "तरुणांना ही कौशल्ये सर्वात चांगल्या प्रकारे कुठे मिळू शकतील? १–२ ठिकाणे किंवा व्यक्ती सांगा."
+       },
+       "hint": {
+        "en": "Example: Internships in local shops, and NSS camps in college.",
+        "hi": "उदाहरण: आसपास की दुकानों में इंटर्नशिप, और कॉलेज के एनएसएस कैंप।",
+        "mr": "उदाहरण: स्थानिक दुकानांमध्ये इंटर्नशिप, आणि कॉलेजमधील एनएसएस शिबिरे."
+       },
+       "probe": {
+        "minWords": 3,
+        "ask": {
+         "en": "Please name a place or a person.",
+         "hi": "कृपया कोई जगह या व्यक्ति बताइए।",
+         "mr": "कृपया एखादे ठिकाण किंवा व्यक्ती सांगा."
+        }
+       }
+      },
+      {
+       "id": "G9_hope",
+       "type": "short",
+       "label": {
+        "en": "What is your one biggest hope for young people around you?",
+        "hi": "अपने आसपास के युवाओं के लिए आपकी सबसे बड़ी उम्मीद क्या है?",
+        "mr": "तुमच्या आजूबाजूच्या तरुणांबद्दल तुमची सर्वात मोठी आशा कोणती?"
+       },
+       "hint": {
+        "en": "Example: That girls in my village finish college and get jobs.",
+        "hi": "उदाहरण: कि मेरे गाँव की लड़कियाँ कॉलेज पूरा करें और नौकरी पाएँ।",
+        "mr": "उदाहरण: माझ्या गावातील मुलींनी कॉलेज पूर्ण करावे आणि त्यांना नोकरी मिळावी."
+       },
+       "probe": {
+        "minWords": 4,
+        "ask": {
+         "en": "Which young people, and what do you hope for them?",
+         "hi": "कौन से युवा, और आप उनके लिए क्या उम्मीद करते हैं?",
+         "mr": "कोणते तरुण, आणि त्यांच्यासाठी तुम्हाला काय आशा आहे?"
+        }
+       }
+      },
+      {
+       "id": "G10_worry",
+       "type": "short",
+       "label": {
+        "en": "What is your one biggest worry for young people around you?",
+        "hi": "अपने आसपास के युवाओं को लेकर आपकी सबसे बड़ी चिंता क्या है?",
+        "mr": "तुमच्या आजूबाजूच्या तरुणांबद्दल तुमची सर्वात मोठी काळजी कोणती?"
+       },
+       "hint": {
+        "en": "Example: Boys leave school early to work in cities.",
+        "hi": "उदाहरण: लड़के जल्दी स्कूल छोड़कर शहरों में काम करने चले जाते हैं।",
+        "mr": "उदाहरण: मुले लवकर शाळा सोडून शहरात कामाला जातात."
+       },
+       "probe": {
+        "minWords": 4,
+        "ask": {
+         "en": "Could you say who is affected and how?",
+         "hi": "क्या आप बता सकते हैं कि किस पर और कैसे असर पड़ रहा है?",
+         "mr": "कोणावर आणि कसा परिणाम होत आहे, ते सांगाल का?"
+        }
+       }
+      },
+      {
+       "id": "G11_mydo",
+       "type": "short",
+       "label": {
+        "en": "What is one thing YOU can do in the next 6 months for a young person you know?",
+        "hi": "अगले 6 महीनों में आप अपने जान-पहचान के किसी युवा के लिए खुद कौन सी एक चीज़ कर सकते हैं?",
+        "mr": "पुढच्या ६ महिन्यांत तुमच्या ओळखीच्या एखाद्या तरुणासाठी तुम्ही स्वतः कोणती एक गोष्ट करू शकता?"
+       },
+       "hint": {
+        "en": "Example: Help my neighbour's son prepare for his bank interview.",
+        "hi": "उदाहरण: पड़ोसी के बेटे को उसके बैंक इंटरव्यू की तैयारी में मदद करना।",
+        "mr": "उदाहरण: शेजाऱ्यांच्या मुलाला बँकेच्या मुलाखतीच्या तयारीत मदत करणे."
+       },
+       "probe": {
+        "minWords": 4,
+        "ask": {
+         "en": "What would you actually do, and for whom?",
+         "hi": "आप असल में क्या करेंगे, और किसके लिए?",
+         "mr": "तुम्ही प्रत्यक्षात काय कराल, आणि कोणासाठी?"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
   "youth": {
    "key": "youth",
    "title": {
@@ -724,52 +2083,7 @@
          "en": "Tell us a little more: what exactly would you do, and where?",
          "hi": "थोड़ा और बताइए: आप ठीक-ठीक क्या काम करेंगे, और कहाँ?",
          "mr": "थोडे अधिक सांगा: तुम्ही नेमके कोणते काम कराल, आणि कुठे?"
-        },
-        "vague": [
-         "good",
-         "happy",
-         "peaceful",
-         "peace",
-         "settled",
-         "nice",
-         "better",
-         "best",
-         "success",
-         "successful",
-         "comfortable",
-         "rich",
-         "enjoy",
-         "enjoyable",
-         "easy",
-         "smooth",
-         "balanced",
-         "balance",
-         "independent",
-         "life",
-         "work",
-         "job",
-         "achha",
-         "accha",
-         "acha",
-         "badhiya",
-         "khush",
-         "sukhi",
-         "अच्छा",
-         "अच्छी",
-         "खुश",
-         "सुखी",
-         "शांत",
-         "बढ़िया",
-         "जीवन",
-         "नौकरी",
-         "चांगले",
-         "चांगली",
-         "चांगला",
-         "आनंदी",
-         "आयुष्य",
-         "नोकरी",
-         "समाधानी"
-        ]
+        }
        }
       },
       {
@@ -791,52 +2105,7 @@
          "en": "Can you describe it a bit more? For example: which place, who lives with you, what your home is like.",
          "hi": "क्या आप थोड़ा और बता सकते हैं? जैसे: कौन सी जगह, आपके साथ कौन रहेगा, आपका घर कैसा होगा।",
          "mr": "थोडे अधिक सांगू शकाल का? उदा.: कोणते ठिकाण, तुमच्यासोबत कोण राहील, तुमचे घर कसे असेल."
-        },
-        "vague": [
-         "good",
-         "happy",
-         "peaceful",
-         "peace",
-         "settled",
-         "nice",
-         "better",
-         "best",
-         "success",
-         "successful",
-         "comfortable",
-         "rich",
-         "enjoy",
-         "enjoyable",
-         "easy",
-         "smooth",
-         "balanced",
-         "balance",
-         "independent",
-         "life",
-         "work",
-         "job",
-         "achha",
-         "accha",
-         "acha",
-         "badhiya",
-         "khush",
-         "sukhi",
-         "अच्छा",
-         "अच्छी",
-         "खुश",
-         "सुखी",
-         "शांत",
-         "बढ़िया",
-         "जीवन",
-         "नौकरी",
-         "चांगले",
-         "चांगली",
-         "चांगला",
-         "आनंदी",
-         "आयुष्य",
-         "नोकरी",
-         "समाधानी"
-        ]
+        }
        }
       },
       {
@@ -916,37 +2185,7 @@
          "en": "Which specific skills? For example: typing, spoken English, driving, tailoring, coding.",
          "hi": "कौन से खास हुनर? जैसे: टाइपिंग, अंग्रेज़ी बोलना, गाड़ी चलाना, सिलाई, कोडिंग।",
          "mr": "नेमकी कोणती कौशल्ये? उदा.: टायपिंग, इंग्रजी बोलणे, गाडी चालवणे, शिलाई, कोडिंग."
-        },
-        "vague": [
-         "hard",
-         "work",
-         "study",
-         "studying",
-         "studies",
-         "learn",
-         "learning",
-         "continuous",
-         "knowledge",
-         "skills",
-         "skill",
-         "practice",
-         "more",
-         "focus",
-         "discipline",
-         "mehnat",
-         "padhai",
-         "padhna",
-         "मेहनत",
-         "पढ़ाई",
-         "पढ़ना",
-         "सीखना",
-         "ज्ञान",
-         "अभ्यास",
-         "कष्ट",
-         "शिक्षण",
-         "शिकणे",
-         "कौशल्य"
-        ]
+        }
        }
       }
      ]
@@ -1090,30 +2329,7 @@
          "en": "What exactly should they do? Try to describe one concrete thing.",
          "hi": "उन्हें ठीक-ठीक क्या करना चाहिए? कोई एक ठोस चीज़ बताइए।",
          "mr": "त्यांनी नेमके काय करावे? एखादी ठोस गोष्ट सांगा."
-        },
-        "vague": [
-         "support",
-         "help",
-         "guidance",
-         "guide",
-         "motivation",
-         "motivate",
-         "encourage",
-         "encouragement",
-         "more",
-         "better",
-         "proper",
-         "good",
-         "sahyog",
-         "madad",
-         "सहयोग",
-         "मदद",
-         "मार्गदर्शन",
-         "प्रेरणा",
-         "मदत",
-         "पाठिंबा",
-         "प्रोत्साहन"
-        ]
+        }
        }
       },
       {
@@ -1158,1676 +2374,7 @@
          "en": "What would you actually do, and for whom?",
          "hi": "आप असल में क्या करेंगे, और किसके लिए?",
          "mr": "तुम्ही प्रत्यक्षात काय कराल, आणि कोणासाठी?"
-        },
-        "vague": [
-         "support",
-         "help",
-         "guidance",
-         "guide",
-         "motivation",
-         "motivate",
-         "encourage",
-         "encouragement",
-         "more",
-         "better",
-         "proper",
-         "good",
-         "sahyog",
-         "madad",
-         "सहयोग",
-         "मदद",
-         "मार्गदर्शन",
-         "प्रेरणा",
-         "मदत",
-         "पाठिंबा",
-         "प्रोत्साहन"
-        ]
-       }
-      }
-     ]
-    }
-   ]
-  },
-  "parent": {
-   "key": "parent",
-   "title": {
-    "en": "Parents: Your Child's School and Future",
-    "hi": "अभिभावक: आपके बच्चे का स्कूल और भविष्य",
-    "mr": "पालक: तुमच्या मुलाची शाळा आणि भविष्य"
-   },
-   "intro": {
-    "en": "We want to hear from parents about their child's school and future. There are no right or wrong answers. It takes about 8 minutes.",
-    "hi": "हम अभिभावकों से उनके बच्चे के स्कूल और भविष्य के बारे में सुनना चाहते हैं। कोई जवाब सही या गलत नहीं है। इसमें लगभग 8 मिनट लगेंगे।",
-    "mr": "पालकांकडून त्यांच्या मुलाच्या शाळेबद्दल आणि भविष्याबद्दल आम्हाला ऐकायचे आहे. यात कोणतेही उत्तर बरोबर किंवा चूक नाही. यासाठी साधारण ८ मिनिटे लागतील."
-   },
-   "sections": [
-    {
-     "id": "about",
-     "title": {
-      "en": "About you and your child",
-      "hi": "आपके और आपके बच्चे के बारे में",
-      "mr": "तुमच्याबद्दल आणि तुमच्या मुलाबद्दल"
-     },
-     "note": {
-      "en": "If you have more than one child, answer for your eldest child who is still studying.",
-      "hi": "अगर आपके एक से ज़्यादा बच्चे हैं, तो अपने सबसे बड़े पढ़ रहे बच्चे के बारे में जवाब दें।",
-      "mr": "तुम्हाला एकापेक्षा जास्त मुले असतील, तर अजूनही शिकत असलेल्या सर्वात मोठ्या मुलाबद्दल उत्तर द्या."
-     },
-     "items": [
-      {
-       "id": "P1_state",
-       "type": "dropdown",
-       "label": {
-        "en": "Which state do you live in?",
-        "hi": "आप किस राज्य में रहते हैं?",
-        "mr": "तुम्ही कोणत्या राज्यात राहता?"
-       },
-       "required": true,
-       "options": [
-        {
-         "v": "andhra_pradesh",
-         "en": "Andhra Pradesh",
-         "hi": "आंध्र प्रदेश",
-         "mr": "आंध्र प्रदेश"
-        },
-        {
-         "v": "arunachal_pradesh",
-         "en": "Arunachal Pradesh",
-         "hi": "अरुणाचल प्रदेश",
-         "mr": "अरुणाचल प्रदेश"
-        },
-        {
-         "v": "assam",
-         "en": "Assam",
-         "hi": "असम",
-         "mr": "आसाम"
-        },
-        {
-         "v": "bihar",
-         "en": "Bihar",
-         "hi": "बिहार",
-         "mr": "बिहार"
-        },
-        {
-         "v": "chhattisgarh",
-         "en": "Chhattisgarh",
-         "hi": "छत्तीसगढ़",
-         "mr": "छत्तीसगड"
-        },
-        {
-         "v": "goa",
-         "en": "Goa",
-         "hi": "गोवा",
-         "mr": "गोवा"
-        },
-        {
-         "v": "gujarat",
-         "en": "Gujarat",
-         "hi": "गुजरात",
-         "mr": "गुजरात"
-        },
-        {
-         "v": "haryana",
-         "en": "Haryana",
-         "hi": "हरियाणा",
-         "mr": "हरियाणा"
-        },
-        {
-         "v": "himachal_pradesh",
-         "en": "Himachal Pradesh",
-         "hi": "हिमाचल प्रदेश",
-         "mr": "हिमाचल प्रदेश"
-        },
-        {
-         "v": "jharkhand",
-         "en": "Jharkhand",
-         "hi": "झारखंड",
-         "mr": "झारखंड"
-        },
-        {
-         "v": "karnataka",
-         "en": "Karnataka",
-         "hi": "कर्नाटक",
-         "mr": "कर्नाटक"
-        },
-        {
-         "v": "kerala",
-         "en": "Kerala",
-         "hi": "केरल",
-         "mr": "केरळ"
-        },
-        {
-         "v": "madhya_pradesh",
-         "en": "Madhya Pradesh",
-         "hi": "मध्य प्रदेश",
-         "mr": "मध्य प्रदेश"
-        },
-        {
-         "v": "maharashtra",
-         "en": "Maharashtra",
-         "hi": "महाराष्ट्र",
-         "mr": "महाराष्ट्र"
-        },
-        {
-         "v": "manipur",
-         "en": "Manipur",
-         "hi": "मणिपुर",
-         "mr": "मणिपूर"
-        },
-        {
-         "v": "meghalaya",
-         "en": "Meghalaya",
-         "hi": "मेघालय",
-         "mr": "मेघालय"
-        },
-        {
-         "v": "mizoram",
-         "en": "Mizoram",
-         "hi": "मिज़ोरम",
-         "mr": "मिझोराम"
-        },
-        {
-         "v": "nagaland",
-         "en": "Nagaland",
-         "hi": "नागालैंड",
-         "mr": "नागालँड"
-        },
-        {
-         "v": "odisha",
-         "en": "Odisha",
-         "hi": "ओडिशा",
-         "mr": "ओडिशा"
-        },
-        {
-         "v": "punjab",
-         "en": "Punjab",
-         "hi": "पंजाब",
-         "mr": "पंजाब"
-        },
-        {
-         "v": "rajasthan",
-         "en": "Rajasthan",
-         "hi": "राजस्थान",
-         "mr": "राजस्थान"
-        },
-        {
-         "v": "sikkim",
-         "en": "Sikkim",
-         "hi": "सिक्किम",
-         "mr": "सिक्कीम"
-        },
-        {
-         "v": "tamil_nadu",
-         "en": "Tamil Nadu",
-         "hi": "तमिलनाडु",
-         "mr": "तमिळनाडू"
-        },
-        {
-         "v": "telangana",
-         "en": "Telangana",
-         "hi": "तेलंगाना",
-         "mr": "तेलंगणा"
-        },
-        {
-         "v": "tripura",
-         "en": "Tripura",
-         "hi": "त्रिपुरा",
-         "mr": "त्रिपुरा"
-        },
-        {
-         "v": "uttar_pradesh",
-         "en": "Uttar Pradesh",
-         "hi": "उत्तर प्रदेश",
-         "mr": "उत्तर प्रदेश"
-        },
-        {
-         "v": "uttarakhand",
-         "en": "Uttarakhand",
-         "hi": "उत्तराखंड",
-         "mr": "उत्तराखंड"
-        },
-        {
-         "v": "west_bengal",
-         "en": "West Bengal",
-         "hi": "पश्चिम बंगाल",
-         "mr": "पश्चिम बंगाल"
-        },
-        {
-         "v": "andaman_nicobar",
-         "en": "Andaman and Nicobar Islands",
-         "hi": "अंडमान और निकोबार द्वीप समूह",
-         "mr": "अंदमान आणि निकोबार बेटे"
-        },
-        {
-         "v": "chandigarh",
-         "en": "Chandigarh",
-         "hi": "चंडीगढ़",
-         "mr": "चंदीगड"
-        },
-        {
-         "v": "dnh_dd",
-         "en": "Dadra and Nagar Haveli and Daman and Diu",
-         "hi": "दादरा और नगर हवेली और दमन और दीव",
-         "mr": "दादरा आणि नगर हवेली आणि दमण आणि दीव"
-        },
-        {
-         "v": "delhi",
-         "en": "Delhi",
-         "hi": "दिल्ली",
-         "mr": "दिल्ली"
-        },
-        {
-         "v": "jammu_kashmir",
-         "en": "Jammu and Kashmir",
-         "hi": "जम्मू और कश्मीर",
-         "mr": "जम्मू आणि काश्मीर"
-        },
-        {
-         "v": "ladakh",
-         "en": "Ladakh",
-         "hi": "लद्दाख",
-         "mr": "लडाख"
-        },
-        {
-         "v": "lakshadweep",
-         "en": "Lakshadweep",
-         "hi": "लक्षद्वीप",
-         "mr": "लक्षद्वीप"
-        },
-        {
-         "v": "puducherry",
-         "en": "Puducherry",
-         "hi": "पुडुचेरी",
-         "mr": "पुदुच्चेरी"
         }
-       ]
-      },
-      {
-       "id": "P2_district",
-       "type": "short",
-       "label": {
-        "en": "In which district is your child's school?",
-        "hi": "आपके बच्चे का स्कूल किस ज़िले में है?",
-        "mr": "तुमच्या मुलाची शाळा कोणत्या जिल्ह्यात आहे?"
-       },
-       "required": true
-      },
-      {
-       "id": "P3_relation",
-       "type": "choice",
-       "label": {
-        "en": "You are the child's:",
-        "hi": "आप बच्चे के क्या लगते हैं?",
-        "mr": "तुम्ही मुलाचे कोण आहात?"
-       },
-       "required": true,
-       "options": [
-        {
-         "v": "mother",
-         "en": "Mother",
-         "hi": "माँ",
-         "mr": "आई"
-        },
-        {
-         "v": "father",
-         "en": "Father",
-         "hi": "पिता",
-         "mr": "वडील"
-        },
-        {
-         "v": "grandparent",
-         "en": "Grandparent",
-         "hi": "दादा-दादी / नाना-नानी",
-         "mr": "आजी-आजोबा"
-        },
-        {
-         "v": "guardian",
-         "en": "Other guardian",
-         "hi": "अन्य अभिभावक",
-         "mr": "इतर पालक"
-        }
-       ]
-      },
-      {
-       "id": "P4_school",
-       "type": "choice",
-       "label": {
-        "en": "Your child's school or college is:",
-        "hi": "आपके बच्चे का स्कूल या कॉलेज:",
-        "mr": "तुमच्या मुलाची शाळा किंवा कॉलेज:"
-       },
-       "required": true,
-       "options": [
-        {
-         "v": "govt",
-         "en": "Government",
-         "hi": "सरकारी",
-         "mr": "सरकारी"
-        },
-        {
-         "v": "aided",
-         "en": "Government-aided",
-         "hi": "सरकारी सहायता प्राप्त",
-         "mr": "सरकारी अनुदानित"
-        },
-        {
-         "v": "private",
-         "en": "Private",
-         "hi": "प्राइवेट",
-         "mr": "खासगी"
-        },
-        {
-         "v": "notsure",
-         "en": "Not sure",
-         "hi": "पता नहीं",
-         "mr": "नक्की माहीत नाही"
-        }
-       ]
-      },
-      {
-       "id": "P5_class",
-       "type": "dropdown",
-       "label": {
-        "en": "Which class is your child in?",
-        "hi": "आपका बच्चा किस कक्षा में है?",
-        "mr": "तुमचे मूल कितवीत आहे?"
-       },
-       "required": true,
-       "options": [
-        {
-         "v": "pre",
-         "en": "Nursery–UKG",
-         "hi": "नर्सरी–यूकेजी",
-         "mr": "नर्सरी–मोठा गट"
-        },
-        {
-         "v": "c1_5",
-         "en": "Class 1–5",
-         "hi": "कक्षा 1–5",
-         "mr": "इयत्ता १–५"
-        },
-        {
-         "v": "c6_8",
-         "en": "Class 6–8",
-         "hi": "कक्षा 6–8",
-         "mr": "इयत्ता ६–८"
-        },
-        {
-         "v": "c9_10",
-         "en": "Class 9–10",
-         "hi": "कक्षा 9–10",
-         "mr": "इयत्ता ९–१०"
-        },
-        {
-         "v": "c11_12",
-         "en": "Class 11–12",
-         "hi": "कक्षा 11–12",
-         "mr": "इयत्ता ११–१२"
-        },
-        {
-         "v": "college",
-         "en": "College",
-         "hi": "कॉलेज",
-         "mr": "कॉलेज"
-        },
-        {
-         "v": "done",
-         "en": "Finished studies",
-         "hi": "पढ़ाई पूरी कर ली",
-         "mr": "शिक्षण पूर्ण झाले"
-        }
-       ]
-      },
-      {
-       "id": "P6_ownedu",
-       "type": "choice",
-       "label": {
-        "en": "Up to which level did you study?",
-        "hi": "आपने कहाँ तक पढ़ाई की है?",
-        "mr": "तुम्ही कितवीपर्यंत शिकलात?"
-       },
-       "required": true,
-       "options": [
-        {
-         "v": "none",
-         "en": "Did not go to school",
-         "hi": "स्कूल नहीं गए",
-         "mr": "शाळेत गेलो नाही"
-        },
-        {
-         "v": "c1_5",
-         "en": "Class 1–5",
-         "hi": "कक्षा 1–5",
-         "mr": "इयत्ता १–५"
-        },
-        {
-         "v": "c6_8",
-         "en": "Class 6–8",
-         "hi": "कक्षा 6–8",
-         "mr": "इयत्ता ६–८"
-        },
-        {
-         "v": "c9_10",
-         "en": "Class 9–10",
-         "hi": "कक्षा 9–10",
-         "mr": "इयत्ता ९–१०"
-        },
-        {
-         "v": "c11_12",
-         "en": "Class 11–12",
-         "hi": "कक्षा 11–12",
-         "mr": "इयत्ता ११–१२"
-        },
-        {
-         "v": "grad",
-         "en": "Graduate",
-         "hi": "स्नातक",
-         "mr": "पदवीधर"
-        },
-        {
-         "v": "pg",
-         "en": "Postgraduate or more",
-         "hi": "स्नातकोत्तर या उससे ज़्यादा",
-         "mr": "पदव्युत्तर किंवा जास्त"
-        }
-       ]
-      }
-     ]
-    },
-    {
-     "id": "school",
-     "title": {
-      "en": "School and learning",
-      "hi": "स्कूल और पढ़ाई",
-      "mr": "शाळा आणि शिक्षण"
-     },
-     "note": {},
-     "items": [
-      {
-       "id": "P7_visits",
-       "type": "choice",
-       "label": {
-        "en": "In the last 6 months, how many times did you go to your child's school?",
-        "hi": "पिछले 6 महीनों में आप अपने बच्चे के स्कूल कितनी बार गए?",
-        "mr": "गेल्या ६ महिन्यांत तुम्ही मुलाच्या शाळेत किती वेळा गेलात?"
-       },
-       "required": true,
-       "options": [
-        {
-         "v": "0",
-         "en": "Not at all",
-         "hi": "एक बार भी नहीं",
-         "mr": "एकदाही नाही"
-        },
-        {
-         "v": "1_2",
-         "en": "1–2 times",
-         "hi": "1–2 बार",
-         "mr": "१–२ वेळा"
-        },
-        {
-         "v": "3_5",
-         "en": "3–5 times",
-         "hi": "3–5 बार",
-         "mr": "३–५ वेळा"
-        },
-        {
-         "v": "6plus",
-         "en": "6 times or more",
-         "hi": "6 बार या ज़्यादा",
-         "mr": "६ किंवा जास्त वेळा"
-        }
-       ]
-      },
-      {
-       "id": "P8_reason",
-       "type": "short",
-       "label": {
-        "en": "What was the main reason for your last visit to the school?",
-        "hi": "पिछली बार स्कूल जाने का मुख्य कारण क्या था?",
-        "mr": "मागच्या वेळी शाळेत जाण्याचे मुख्य कारण काय होते?"
-       },
-       "hint": {
-        "en": "Example: A parent-teacher meeting about her half-yearly results.",
-        "hi": "उदाहरण: उसके छमाही परीक्षा के नतीजों पर अभिभावक-शिक्षक बैठक।",
-        "mr": "उदाहरण: तिच्या सहामाही निकालाबद्दल पालक-शिक्षक सभा."
-       },
-       "showIf": {
-        "q": "P7_visits",
-        "op": "notin",
-        "values": [
-         "0"
-        ]
-       },
-       "probe": {
-        "minWords": 3,
-        "ask": {
-         "en": "What was the meeting or visit about?",
-         "hi": "वह बैठक या मुलाक़ात किस बारे में थी?",
-         "mr": "ती सभा किंवा भेट कशाबद्दल होती?"
-        }
-       }
-      },
-      {
-       "id": "P8_notvisit",
-       "type": "short",
-       "label": {
-        "en": "What makes it hard to visit your child's school?",
-        "hi": "बच्चे के स्कूल जाने में क्या मुश्किल आती है?",
-        "mr": "मुलाच्या शाळेत जाण्यात काय अडचण येते?"
-       },
-       "hint": {
-        "en": "Example: I work on daily wages and the meetings are during work hours.",
-        "hi": "उदाहरण: मैं दिहाड़ी पर काम करता हूँ और बैठकें काम के समय होती हैं।",
-        "mr": "उदाहरण: मी रोजंदारीवर काम करतो आणि सभा कामाच्या वेळेत असतात."
-       },
-       "showIf": {
-        "q": "P7_visits",
-        "op": "in",
-        "values": [
-         "0"
-        ]
-       },
-       "probe": {
-        "minWords": 3,
-        "ask": {
-         "en": "Even one reason helps: time, distance, not invited, or something else?",
-         "hi": "एक कारण भी काफ़ी है: समय, दूरी, बुलाया नहीं गया, या कुछ और?",
-         "mr": "एक कारणही पुरेसे आहे: वेळ, अंतर, बोलावले नाही, की आणखी काही?"
-        }
-       }
-      },
-      {
-       "id": "P9_happy",
-       "type": "choice",
-       "label": {
-        "en": "How happy are you with your child's learning?",
-        "hi": "आप अपने बच्चे की पढ़ाई से कितने संतुष्ट हैं?",
-        "mr": "मुलाच्या शिक्षणाबद्दल तुम्ही किती समाधानी आहात?"
-       },
-       "required": true,
-       "options": [
-        {
-         "v": "very",
-         "en": "Very happy",
-         "hi": "बहुत संतुष्ट",
-         "mr": "खूप समाधानी"
-        },
-        {
-         "v": "happy",
-         "en": "Happy",
-         "hi": "संतुष्ट",
-         "mr": "समाधानी"
-        },
-        {
-         "v": "notvery",
-         "en": "Not very happy",
-         "hi": "ज़्यादा संतुष्ट नहीं",
-         "mr": "फारसे समाधानी नाही"
-        },
-        {
-         "v": "not",
-         "en": "Not happy",
-         "hi": "संतुष्ट नहीं",
-         "mr": "समाधानी नाही"
-        }
-       ]
-      },
-      {
-       "id": "P9_reason",
-       "type": "short",
-       "label": {
-        "en": "What is one reason you feel this way?",
-        "hi": "आप ऐसा क्यों महसूस करते हैं? एक कारण बताइए।",
-        "mr": "तुम्हाला असे का वाटते? एक कारण सांगा."
-       },
-       "hint": {
-        "en": "Example: She now reads Hindi storybooks on her own.",
-        "hi": "उदाहरण: वह अब खुद हिंदी की कहानियों की किताबें पढ़ लेती है।",
-        "mr": "उदाहरण: ती आता स्वतः मराठी गोष्टींची पुस्तके वाचते."
-       },
-       "probe": {
-        "minWords": 4,
-        "ask": {
-         "en": "What have you noticed about your child's learning that makes you feel this way?",
-         "hi": "बच्चे की पढ़ाई में आपने ऐसा क्या देखा जिससे आपको ऐसा लगता है?",
-         "mr": "मुलाच्या शिक्षणात तुम्ही असे काय पाहिले, ज्यामुळे तुम्हाला असे वाटते?"
-        },
-        "vague": [
-         "good",
-         "happy",
-         "peaceful",
-         "peace",
-         "settled",
-         "nice",
-         "better",
-         "best",
-         "success",
-         "successful",
-         "comfortable",
-         "rich",
-         "enjoy",
-         "enjoyable",
-         "easy",
-         "smooth",
-         "balanced",
-         "balance",
-         "independent",
-         "life",
-         "work",
-         "job",
-         "achha",
-         "accha",
-         "acha",
-         "badhiya",
-         "khush",
-         "sukhi",
-         "अच्छा",
-         "अच्छी",
-         "खुश",
-         "सुखी",
-         "शांत",
-         "बढ़िया",
-         "जीवन",
-         "नौकरी",
-         "चांगले",
-         "चांगली",
-         "चांगला",
-         "आनंदी",
-         "आयुष्य",
-         "नोकरी",
-         "समाधानी"
-        ]
-       }
-      },
-      {
-       "id": "P11_change",
-       "type": "short",
-       "label": {
-        "en": "Name 2 things you would change first in your child's school.",
-        "hi": "अपने बच्चे के स्कूल में आप सबसे पहले कौन सी 2 चीज़ें बदलना चाहेंगे?",
-        "mr": "मुलाच्या शाळेत तुम्ही सर्वात आधी कोणत्या २ गोष्टी बदलाल?"
-       },
-       "hint": {
-        "en": "Example: More regular teachers and a computer class.",
-        "hi": "उदाहरण: नियमित आने वाले ज़्यादा शिक्षक और कंप्यूटर की कक्षा।",
-        "mr": "उदाहरण: नियमित येणारे जास्त शिक्षक आणि संगणकाचा वर्ग."
-       },
-       "probe": {
-        "minWords": 4,
-        "ask": {
-         "en": "Which exact things? For example: teachers, toilets, water, books, computers, sports.",
-         "hi": "कौन सी खास चीज़ें? जैसे: शिक्षक, शौचालय, पानी, किताबें, कंप्यूटर, खेल।",
-         "mr": "नेमक्या कोणत्या गोष्टी? उदा.: शिक्षक, स्वच्छतागृहे, पाणी, पुस्तके, संगणक, खेळ."
-        },
-        "vague": [
-         "good",
-         "study",
-         "studies",
-         "education",
-         "teaching",
-         "better",
-         "achhi",
-         "padhai",
-         "अच्छी",
-         "पढ़ाई",
-         "शिक्षा",
-         "चांगले",
-         "अभ्यास",
-         "शिक्षण"
-        ]
-       }
-      },
-      {
-       "id": "P12_safe",
-       "type": "short",
-       "label": {
-        "en": "What one thing would make your child feel safer at school?",
-        "hi": "कौन सी एक चीज़ आपके बच्चे को स्कूल में ज़्यादा सुरक्षित महसूस कराएगी?",
-        "mr": "कोणत्या एका गोष्टीमुळे तुमच्या मुलाला शाळेत अधिक सुरक्षित वाटेल?"
-       },
-       "hint": {
-        "en": "Example: A boundary wall and a lady teacher in every class.",
-        "hi": "उदाहरण: चारदीवारी और हर कक्षा में एक महिला शिक्षिका।",
-        "mr": "उदाहरण: संरक्षक भिंत आणि प्रत्येक वर्गात एक शिक्षिका."
-       },
-       "probe": {
-        "minWords": 3,
-        "ask": {
-         "en": "What would help most: the building, teachers, other children, or the way to school?",
-         "hi": "सबसे ज़्यादा क्या मदद करेगा: भवन, शिक्षक, दूसरे बच्चे, या स्कूल आने-जाने का रास्ता?",
-         "mr": "सर्वात जास्त कशाने मदत होईल: इमारत, शिक्षक, इतर मुले, की शाळेत येण्या-जाण्याचा रस्ता?"
-        }
-       }
-      }
-     ]
-    },
-    {
-     "id": "home",
-     "title": {
-      "en": "Home and future",
-      "hi": "घर और भविष्य",
-      "mr": "घर आणि भविष्य"
-     },
-     "note": {},
-     "items": [
-      {
-       "id": "P13_lastweek",
-       "type": "short",
-       "label": {
-        "en": "What did you do last week to help your child with studies?",
-        "hi": "पिछले हफ़्ते आपने बच्चे की पढ़ाई में मदद के लिए क्या किया?",
-        "mr": "मागच्या आठवड्यात मुलाच्या अभ्यासात मदत करण्यासाठी तुम्ही काय केले?"
-       },
-       "hint": {
-        "en": "Example: Checked his homework each evening and asked what he learned.",
-        "hi": "उदाहरण: हर शाम उसका होमवर्क देखा और पूछा कि उसने क्या सीखा।",
-        "mr": "उदाहरण: रोज संध्याकाळी त्याचा गृहपाठ पाहिला आणि त्याने काय शिकले ते विचारले."
-       },
-       "probe": {
-        "minWords": 3,
-        "ask": {
-         "en": "Anything at all counts, even asking about school. If nothing, you can write \"nothing this week\".",
-         "hi": "कुछ भी गिना जाएगा, स्कूल के बारे में पूछना भी। अगर कुछ नहीं, तो \"इस हफ़्ते कुछ नहीं\" लिख सकते हैं।",
-         "mr": "कोणतीही गोष्ट चालेल, शाळेबद्दल विचारणेसुद्धा. काहीच नसेल, तर \"या आठवड्यात काही नाही\" असे लिहू शकता."
-        },
-        "allowNoOne": true
-       }
-      },
-      {
-       "id": "P14_ease",
-       "type": "choice",
-       "label": {
-        "en": "Helping my child with studies at home is:",
-        "hi": "घर पर बच्चे की पढ़ाई में मदद करना मेरे लिए:",
-        "mr": "घरी मुलाच्या अभ्यासात मदत करणे माझ्यासाठी:"
-       },
-       "required": true,
-       "options": [
-        {
-         "v": "easy",
-         "en": "Easy",
-         "hi": "आसान है",
-         "mr": "सोपे आहे"
-        },
-        {
-         "v": "sometimes",
-         "en": "Sometimes hard",
-         "hi": "कभी-कभी मुश्किल है",
-         "mr": "कधी कधी अवघड आहे"
-        },
-        {
-         "v": "hard",
-         "en": "Hard",
-         "hi": "मुश्किल है",
-         "mr": "अवघड आहे"
-        }
-       ]
-      },
-      {
-       "id": "P14_why",
-       "type": "short",
-       "label": {
-        "en": "What makes it easy or hard for you?",
-        "hi": "आपके लिए यह आसान या मुश्किल क्यों है?",
-        "mr": "तुमच्यासाठी ते सोपे किंवा अवघड का आहे?"
-       },
-       "hint": {
-        "en": "Example: I studied only till Class 5, so maths homework is hard for me.",
-        "hi": "उदाहरण: मैंने सिर्फ़ 5वीं तक पढ़ाई की है, इसलिए गणित का होमवर्क मेरे लिए मुश्किल है।",
-        "mr": "उदाहरण: मी फक्त पाचवीपर्यंत शिकलो, त्यामुळे गणिताचा गृहपाठ मला अवघड जातो."
-       },
-       "probe": {
-        "minWords": 4,
-        "ask": {
-         "en": "Could you share the main reason? For example: time, your own schooling, cost, or the syllabus.",
-         "hi": "मुख्य कारण बताइए? जैसे: समय, आपकी अपनी पढ़ाई, खर्च, या सिलेबस।",
-         "mr": "मुख्य कारण सांगाल का? उदा.: वेळ, तुमचे स्वतःचे शिक्षण, खर्च, की अभ्यासक्रम."
-        }
-       }
-      },
-      {
-       "id": "P10_work",
-       "type": "short",
-       "label": {
-        "en": "What work do you hope your child will do when they grow up? (You can also write \"whatever my child chooses\".)",
-        "hi": "बड़े होकर आपका बच्चा कौन सा काम करे, ऐसी आपकी उम्मीद है? (आप \"जो बच्चा खुद चुने\" भी लिख सकते हैं।)",
-        "mr": "मोठे झाल्यावर तुमच्या मुलाने कोणते काम करावे, असे तुम्हाला वाटते? (\"मूल स्वतः ठरवेल ते\" असेही लिहू शकता.)"
-       },
-       "hint": {
-        "en": "Example: A government job as a nurse.",
-        "hi": "उदाहरण: नर्स की सरकारी नौकरी।",
-        "mr": "उदाहरण: परिचारिकेची (नर्स) सरकारी नोकरी."
-       },
-       "probe": {
-        "minWords": 3,
-        "ask": {
-         "en": "Which kind of work? For example: teacher, police, own business, farming, nurse.",
-         "hi": "किस तरह का काम? जैसे: शिक्षक, पुलिस, अपना व्यवसाय, खेती, नर्स।",
-         "mr": "कोणत्या प्रकारचे काम? उदा.: शिक्षक, पोलीस, स्वतःचा व्यवसाय, शेती, नर्स."
-        },
-        "vague": [
-         "good",
-         "happy",
-         "peaceful",
-         "peace",
-         "settled",
-         "nice",
-         "better",
-         "best",
-         "success",
-         "successful",
-         "comfortable",
-         "rich",
-         "enjoy",
-         "enjoyable",
-         "easy",
-         "smooth",
-         "balanced",
-         "balance",
-         "independent",
-         "life",
-         "work",
-         "job",
-         "achha",
-         "accha",
-         "acha",
-         "badhiya",
-         "khush",
-         "sukhi",
-         "अच्छा",
-         "अच्छी",
-         "खुश",
-         "सुखी",
-         "शांत",
-         "बढ़िया",
-         "जीवन",
-         "नौकरी",
-         "चांगले",
-         "चांगली",
-         "चांगला",
-         "आनंदी",
-         "आयुष्य",
-         "नोकरी",
-         "समाधानी"
-        ],
-        "allowChoice": true
-       }
-      },
-      {
-       "id": "P10_life",
-       "type": "short",
-       "label": {
-        "en": "What kind of life do you wish for your child?",
-        "hi": "आप अपने बच्चे के लिए कैसी ज़िंदगी चाहते हैं?",
-        "mr": "तुम्हाला तुमच्या मुलासाठी कसे आयुष्य हवे आहे?"
-       },
-       "hint": {
-        "en": "Example: A settled life near the family, with no money worries.",
-        "hi": "उदाहरण: परिवार के पास बसी हुई ज़िंदगी, बिना पैसों की चिंता के।",
-        "mr": "उदाहरण: कुटुंबाजवळ स्थिर आयुष्य, पैशांची काळजी नसलेले."
-       },
-       "probe": {
-        "minWords": 4,
-        "ask": {
-         "en": "What would that life look like? For example: where they live, what they can afford.",
-         "hi": "वह ज़िंदगी कैसी दिखेगी? जैसे: वे कहाँ रहेंगे, क्या-क्या कर पाएँगे।",
-         "mr": "ते आयुष्य कसे असेल? उदा.: ते कुठे राहतील, काय काय करू शकतील."
-        },
-        "vague": [
-         "good",
-         "happy",
-         "peaceful",
-         "peace",
-         "settled",
-         "nice",
-         "better",
-         "best",
-         "success",
-         "successful",
-         "comfortable",
-         "rich",
-         "enjoy",
-         "enjoyable",
-         "easy",
-         "smooth",
-         "balanced",
-         "balance",
-         "independent",
-         "life",
-         "work",
-         "job",
-         "achha",
-         "accha",
-         "acha",
-         "badhiya",
-         "khush",
-         "sukhi",
-         "अच्छा",
-         "अच्छी",
-         "खुश",
-         "सुखी",
-         "शांत",
-         "बढ़िया",
-         "जीवन",
-         "नौकरी",
-         "चांगले",
-         "चांगली",
-         "चांगला",
-         "आनंदी",
-         "आयुष्य",
-         "नोकरी",
-         "समाधानी"
-        ]
-       }
-      },
-      {
-       "id": "P15_onething",
-       "type": "short",
-       "label": {
-        "en": "What ONE thing would help your child most to reach their future?",
-        "hi": "बच्चे को उसके भविष्य तक पहुँचाने में सबसे ज़्यादा कौन सी एक चीज़ मदद करेगी?",
-        "mr": "मुलाला त्याचे भविष्य गाठण्यासाठी सर्वात जास्त मदत कोणत्या एका गोष्टीची होईल?"
-       },
-       "hint": {
-        "en": "Example: A computer course after Class 10.",
-        "hi": "उदाहरण: 10वीं के बाद कंप्यूटर का कोर्स।",
-        "mr": "उदाहरण: दहावीनंतर संगणकाचा कोर्स."
-       },
-       "probe": {
-        "minWords": 3,
-        "ask": {
-         "en": "What exactly? For example: tuition, a phone or laptop, a good school nearby, money for fees, career guidance.",
-         "hi": "ठीक-ठीक क्या? जैसे: ट्यूशन, फ़ोन या लैपटॉप, पास में अच्छा स्कूल, फ़ीस के लिए पैसे, करियर मार्गदर्शन।",
-         "mr": "नेमके काय? उदा.: शिकवणी, फोन किंवा लॅपटॉप, जवळ चांगली शाळा, फीसाठी पैसे, करिअर मार्गदर्शन."
-        },
-        "vague": [
-         "support",
-         "help",
-         "guidance",
-         "guide",
-         "motivation",
-         "motivate",
-         "encourage",
-         "encouragement",
-         "more",
-         "better",
-         "proper",
-         "good",
-         "sahyog",
-         "madad",
-         "सहयोग",
-         "मदद",
-         "मार्गदर्शन",
-         "प्रेरणा",
-         "मदत",
-         "पाठिंबा",
-         "प्रोत्साहन",
-         "hard",
-         "work",
-         "study",
-         "studying",
-         "studies",
-         "learn",
-         "learning",
-         "continuous",
-         "knowledge",
-         "skills",
-         "skill",
-         "practice",
-         "more",
-         "focus",
-         "discipline",
-         "mehnat",
-         "padhai",
-         "padhna",
-         "मेहनत",
-         "पढ़ाई",
-         "पढ़ना",
-         "सीखना",
-         "ज्ञान",
-         "अभ्यास",
-         "कष्ट",
-         "शिक्षण",
-         "शिकणे",
-         "कौशल्य",
-         "confidence",
-         "education",
-         "शिक्षा",
-         "आत्मविश्वास",
-         "शिक्षण"
-        ]
-       }
-      }
-     ]
-    }
-   ]
-  },
-  "public": {
-   "key": "public",
-   "title": {
-    "en": "Everyone: Young People Around You",
-    "hi": "सभी के लिए: आपके आसपास के युवा",
-    "mr": "सर्वांसाठी: तुमच्या आजूबाजूचे तरुण"
-   },
-   "intro": {
-    "en": "We want to hear how people see the future of young people around them. There are no right or wrong answers. It takes about 7 minutes.",
-    "hi": "हम जानना चाहते हैं कि लोग अपने आसपास के युवाओं के भविष्य को कैसे देखते हैं। कोई जवाब सही या गलत नहीं है। इसमें लगभग 7 मिनट लगेंगे।",
-    "mr": "लोक आपल्या आजूबाजूच्या तरुणांच्या भविष्याकडे कसे पाहतात, हे आम्हाला जाणून घ्यायचे आहे. यात कोणतेही उत्तर बरोबर किंवा चूक नाही. यासाठी साधारण ७ मिनिटे लागतील."
-   },
-   "sections": [
-    {
-     "id": "about",
-     "title": {
-      "en": "About you",
-      "hi": "आपके बारे में",
-      "mr": "तुमच्याबद्दल"
-     },
-     "note": {},
-     "items": [
-      {
-       "id": "G1_age",
-       "type": "number",
-       "label": {
-        "en": "How old are you?",
-        "hi": "आपकी उम्र कितनी है?",
-        "mr": "तुमचे वय किती आहे?"
-       },
-       "required": true,
-       "min": 18,
-       "max": 100
-      },
-      {
-       "id": "G2_gender",
-       "type": "choice",
-       "label": {
-        "en": "What is your gender?",
-        "hi": "आपका लिंग क्या है?",
-        "mr": "तुमचे लिंग कोणते?"
-       },
-       "required": true,
-       "options": [
-        {
-         "v": "female",
-         "en": "Female",
-         "hi": "महिला",
-         "mr": "स्त्री"
-        },
-        {
-         "v": "male",
-         "en": "Male",
-         "hi": "पुरुष",
-         "mr": "पुरुष"
-        },
-        {
-         "v": "other",
-         "en": "Other",
-         "hi": "अन्य",
-         "mr": "इतर"
-        },
-        {
-         "v": "pnts",
-         "en": "Prefer not to say",
-         "hi": "नहीं बताना चाहते",
-         "mr": "सांगू इच्छित नाही"
-        }
-       ]
-      },
-      {
-       "id": "G3_state",
-       "type": "dropdown",
-       "label": {
-        "en": "Which state do you live in?",
-        "hi": "आप किस राज्य में रहते हैं?",
-        "mr": "तुम्ही कोणत्या राज्यात राहता?"
-       },
-       "required": true,
-       "options": [
-        {
-         "v": "andhra_pradesh",
-         "en": "Andhra Pradesh",
-         "hi": "आंध्र प्रदेश",
-         "mr": "आंध्र प्रदेश"
-        },
-        {
-         "v": "arunachal_pradesh",
-         "en": "Arunachal Pradesh",
-         "hi": "अरुणाचल प्रदेश",
-         "mr": "अरुणाचल प्रदेश"
-        },
-        {
-         "v": "assam",
-         "en": "Assam",
-         "hi": "असम",
-         "mr": "आसाम"
-        },
-        {
-         "v": "bihar",
-         "en": "Bihar",
-         "hi": "बिहार",
-         "mr": "बिहार"
-        },
-        {
-         "v": "chhattisgarh",
-         "en": "Chhattisgarh",
-         "hi": "छत्तीसगढ़",
-         "mr": "छत्तीसगड"
-        },
-        {
-         "v": "goa",
-         "en": "Goa",
-         "hi": "गोवा",
-         "mr": "गोवा"
-        },
-        {
-         "v": "gujarat",
-         "en": "Gujarat",
-         "hi": "गुजरात",
-         "mr": "गुजरात"
-        },
-        {
-         "v": "haryana",
-         "en": "Haryana",
-         "hi": "हरियाणा",
-         "mr": "हरियाणा"
-        },
-        {
-         "v": "himachal_pradesh",
-         "en": "Himachal Pradesh",
-         "hi": "हिमाचल प्रदेश",
-         "mr": "हिमाचल प्रदेश"
-        },
-        {
-         "v": "jharkhand",
-         "en": "Jharkhand",
-         "hi": "झारखंड",
-         "mr": "झारखंड"
-        },
-        {
-         "v": "karnataka",
-         "en": "Karnataka",
-         "hi": "कर्नाटक",
-         "mr": "कर्नाटक"
-        },
-        {
-         "v": "kerala",
-         "en": "Kerala",
-         "hi": "केरल",
-         "mr": "केरळ"
-        },
-        {
-         "v": "madhya_pradesh",
-         "en": "Madhya Pradesh",
-         "hi": "मध्य प्रदेश",
-         "mr": "मध्य प्रदेश"
-        },
-        {
-         "v": "maharashtra",
-         "en": "Maharashtra",
-         "hi": "महाराष्ट्र",
-         "mr": "महाराष्ट्र"
-        },
-        {
-         "v": "manipur",
-         "en": "Manipur",
-         "hi": "मणिपुर",
-         "mr": "मणिपूर"
-        },
-        {
-         "v": "meghalaya",
-         "en": "Meghalaya",
-         "hi": "मेघालय",
-         "mr": "मेघालय"
-        },
-        {
-         "v": "mizoram",
-         "en": "Mizoram",
-         "hi": "मिज़ोरम",
-         "mr": "मिझोराम"
-        },
-        {
-         "v": "nagaland",
-         "en": "Nagaland",
-         "hi": "नागालैंड",
-         "mr": "नागालँड"
-        },
-        {
-         "v": "odisha",
-         "en": "Odisha",
-         "hi": "ओडिशा",
-         "mr": "ओडिशा"
-        },
-        {
-         "v": "punjab",
-         "en": "Punjab",
-         "hi": "पंजाब",
-         "mr": "पंजाब"
-        },
-        {
-         "v": "rajasthan",
-         "en": "Rajasthan",
-         "hi": "राजस्थान",
-         "mr": "राजस्थान"
-        },
-        {
-         "v": "sikkim",
-         "en": "Sikkim",
-         "hi": "सिक्किम",
-         "mr": "सिक्कीम"
-        },
-        {
-         "v": "tamil_nadu",
-         "en": "Tamil Nadu",
-         "hi": "तमिलनाडु",
-         "mr": "तमिळनाडू"
-        },
-        {
-         "v": "telangana",
-         "en": "Telangana",
-         "hi": "तेलंगाना",
-         "mr": "तेलंगणा"
-        },
-        {
-         "v": "tripura",
-         "en": "Tripura",
-         "hi": "त्रिपुरा",
-         "mr": "त्रिपुरा"
-        },
-        {
-         "v": "uttar_pradesh",
-         "en": "Uttar Pradesh",
-         "hi": "उत्तर प्रदेश",
-         "mr": "उत्तर प्रदेश"
-        },
-        {
-         "v": "uttarakhand",
-         "en": "Uttarakhand",
-         "hi": "उत्तराखंड",
-         "mr": "उत्तराखंड"
-        },
-        {
-         "v": "west_bengal",
-         "en": "West Bengal",
-         "hi": "पश्चिम बंगाल",
-         "mr": "पश्चिम बंगाल"
-        },
-        {
-         "v": "andaman_nicobar",
-         "en": "Andaman and Nicobar Islands",
-         "hi": "अंडमान और निकोबार द्वीप समूह",
-         "mr": "अंदमान आणि निकोबार बेटे"
-        },
-        {
-         "v": "chandigarh",
-         "en": "Chandigarh",
-         "hi": "चंडीगढ़",
-         "mr": "चंदीगड"
-        },
-        {
-         "v": "dnh_dd",
-         "en": "Dadra and Nagar Haveli and Daman and Diu",
-         "hi": "दादरा और नगर हवेली और दमन और दीव",
-         "mr": "दादरा आणि नगर हवेली आणि दमण आणि दीव"
-        },
-        {
-         "v": "delhi",
-         "en": "Delhi",
-         "hi": "दिल्ली",
-         "mr": "दिल्ली"
-        },
-        {
-         "v": "jammu_kashmir",
-         "en": "Jammu and Kashmir",
-         "hi": "जम्मू और कश्मीर",
-         "mr": "जम्मू आणि काश्मीर"
-        },
-        {
-         "v": "ladakh",
-         "en": "Ladakh",
-         "hi": "लद्दाख",
-         "mr": "लडाख"
-        },
-        {
-         "v": "lakshadweep",
-         "en": "Lakshadweep",
-         "hi": "लक्षद्वीप",
-         "mr": "लक्षद्वीप"
-        },
-        {
-         "v": "puducherry",
-         "en": "Puducherry",
-         "hi": "पुडुचेरी",
-         "mr": "पुदुच्चेरी"
-        }
-       ]
-      },
-      {
-       "id": "G4_district",
-       "type": "short",
-       "label": {
-        "en": "Which district do you live in?",
-        "hi": "आप किस ज़िले में रहते हैं?",
-        "mr": "तुम्ही कोणत्या जिल्ह्यात राहता?"
-       },
-       "required": true
-      },
-      {
-       "id": "G5_work",
-       "type": "dropdown",
-       "label": {
-        "en": "What is your main work?",
-        "hi": "आपका मुख्य काम क्या है?",
-        "mr": "तुमचे मुख्य काम कोणते?"
-       },
-       "required": true,
-       "options": [
-        {
-         "v": "teacher",
-         "en": "Teacher or education",
-         "hi": "शिक्षक या शिक्षा",
-         "mr": "शिक्षक किंवा शिक्षण क्षेत्र"
-        },
-        {
-         "v": "govt",
-         "en": "Government job",
-         "hi": "सरकारी नौकरी",
-         "mr": "सरकारी नोकरी"
-        },
-        {
-         "v": "private",
-         "en": "Private job",
-         "hi": "प्राइवेट नौकरी",
-         "mr": "खासगी नोकरी"
-        },
-        {
-         "v": "business",
-         "en": "Own business or shop",
-         "hi": "अपना व्यवसाय या दुकान",
-         "mr": "स्वतःचा व्यवसाय किंवा दुकान"
-        },
-        {
-         "v": "farmer",
-         "en": "Farmer",
-         "hi": "किसान",
-         "mr": "शेतकरी"
-        },
-        {
-         "v": "daily",
-         "en": "Daily wage work",
-         "hi": "दिहाड़ी मज़दूरी",
-         "mr": "रोजंदारी"
-        },
-        {
-         "v": "ngo",
-         "en": "NGO or social work",
-         "hi": "एनजीओ या सामाजिक काम",
-         "mr": "स्वयंसेवी संस्था किंवा सामाजिक काम"
-        },
-        {
-         "v": "home",
-         "en": "Homemaker",
-         "hi": "गृहिणी / घर का काम",
-         "mr": "गृहिणी / घरकाम"
-        },
-        {
-         "v": "student",
-         "en": "Student",
-         "hi": "विद्यार्थी",
-         "mr": "विद्यार्थी"
-        },
-        {
-         "v": "retired",
-         "en": "Retired",
-         "hi": "सेवानिवृत्त",
-         "mr": "निवृत्त"
-        },
-        {
-         "v": "notworking",
-         "en": "Not working",
-         "hi": "काम नहीं कर रहे",
-         "mr": "सध्या काम करत नाही"
-        }
-       ],
-       "other": true
-      }
-     ]
-    },
-    {
-     "id": "views",
-     "title": {
-      "en": "Young people today",
-      "hi": "आज के युवा",
-      "mr": "आजचे तरुण"
-     },
-     "note": {},
-     "items": [
-      {
-       "id": "G6_better",
-       "type": "short",
-       "label": {
-        "en": "What is one thing that is BETTER for young people today than when you were young?",
-        "hi": "आपके समय की तुलना में आज के युवाओं के लिए कौन सी एक चीज़ बेहतर है?",
-        "mr": "तुमच्या लहानपणापेक्षा आजच्या तरुणांसाठी कोणती एक गोष्ट अधिक चांगली आहे?"
-       },
-       "hint": {
-        "en": "Example: They can learn anything online.",
-        "hi": "उदाहरण: वे ऑनलाइन कुछ भी सीख सकते हैं।",
-        "mr": "उदाहरण: ते ऑनलाइन काहीही शिकू शकतात."
-       },
-       "probe": {
-        "minWords": 4,
-        "ask": {
-         "en": "Could you say a little more about what has improved?",
-         "hi": "क्या आप थोड़ा और बता सकते हैं कि क्या बेहतर हुआ है?",
-         "mr": "काय सुधारले आहे, याबद्दल थोडे अधिक सांगाल का?"
-        }
-       }
-      },
-      {
-       "id": "G6_harder",
-       "type": "short",
-       "label": {
-        "en": "What is one thing that is HARDER for them today?",
-        "hi": "आज उनके लिए कौन सी एक चीज़ ज़्यादा मुश्किल है?",
-        "mr": "आज त्यांच्यासाठी कोणती एक गोष्ट अधिक अवघड आहे?"
-       },
-       "hint": {
-        "en": "Example: Much more competition for jobs.",
-        "hi": "उदाहरण: नौकरी के लिए बहुत ज़्यादा मुकाबला।",
-        "mr": "उदाहरण: नोकरीसाठी खूप जास्त स्पर्धा."
-       },
-       "probe": {
-        "minWords": 4,
-        "ask": {
-         "en": "Could you say a little more about what has become harder?",
-         "hi": "क्या आप थोड़ा और बता सकते हैं कि क्या मुश्किल हो गया है?",
-         "mr": "काय अवघड झाले आहे, याबद्दल थोडे अधिक सांगाल का?"
-        }
-       }
-      },
-      {
-       "id": "G7_learn",
-       "type": "para",
-       "label": {
-        "en": "What do young people need to learn or experience to do well in the future?",
-        "hi": "भविष्य में अच्छा करने के लिए युवाओं को क्या सीखना या अनुभव करना चाहिए?",
-        "mr": "भविष्यात चांगली प्रगती करण्यासाठी तरुणांनी काय शिकले किंवा अनुभवले पाहिजे?"
-       },
-       "probe": {
-        "minWords": 5,
-        "ask": {
-         "en": "Which skills or experiences, specifically?",
-         "hi": "ख़ास तौर पर कौन से हुनर या अनुभव?",
-         "mr": "नेमकी कोणती कौशल्ये किंवा अनुभव?"
-        },
-        "vague": [
-         "education",
-         "skills",
-         "skill",
-         "knowledge",
-         "shiksha",
-         "शिक्षा",
-         "ज्ञान",
-         "हुनर",
-         "शिक्षण",
-         "कौशल्य"
-        ]
-       }
-      },
-      {
-       "id": "G8_where",
-       "type": "short",
-       "label": {
-        "en": "Where can young people best get these skills? Name 1–2 places or people.",
-        "hi": "युवा ये हुनर सबसे अच्छी तरह कहाँ से सीख सकते हैं? 1–2 जगहें या लोग बताइए।",
-        "mr": "तरुणांना ही कौशल्ये सर्वात चांगल्या प्रकारे कुठे मिळू शकतील? १–२ ठिकाणे किंवा व्यक्ती सांगा."
-       },
-       "hint": {
-        "en": "Example: Internships in local shops, and NSS camps in college.",
-        "hi": "उदाहरण: आसपास की दुकानों में इंटर्नशिप, और कॉलेज के एनएसएस कैंप।",
-        "mr": "उदाहरण: स्थानिक दुकानांमध्ये इंटर्नशिप, आणि कॉलेजमधील एनएसएस शिबिरे."
-       },
-       "probe": {
-        "minWords": 3,
-        "ask": {
-         "en": "Please name a place or a person.",
-         "hi": "कृपया कोई जगह या व्यक्ति बताइए।",
-         "mr": "कृपया एखादे ठिकाण किंवा व्यक्ती सांगा."
-        }
-       }
-      },
-      {
-       "id": "G9_hope",
-       "type": "short",
-       "label": {
-        "en": "What is your one biggest hope for young people around you?",
-        "hi": "अपने आसपास के युवाओं के लिए आपकी सबसे बड़ी उम्मीद क्या है?",
-        "mr": "तुमच्या आजूबाजूच्या तरुणांबद्दल तुमची सर्वात मोठी आशा कोणती?"
-       },
-       "hint": {
-        "en": "Example: That girls in my village finish college and get jobs.",
-        "hi": "उदाहरण: कि मेरे गाँव की लड़कियाँ कॉलेज पूरा करें और नौकरी पाएँ।",
-        "mr": "उदाहरण: माझ्या गावातील मुलींनी कॉलेज पूर्ण करावे आणि त्यांना नोकरी मिळावी."
-       },
-       "probe": {
-        "minWords": 4,
-        "ask": {
-         "en": "Which young people, and what do you hope for them?",
-         "hi": "कौन से युवा, और आप उनके लिए क्या उम्मीद करते हैं?",
-         "mr": "कोणते तरुण, आणि त्यांच्यासाठी तुम्हाला काय आशा आहे?"
-        },
-        "vague": [
-         "good",
-         "happy",
-         "peaceful",
-         "peace",
-         "settled",
-         "nice",
-         "better",
-         "best",
-         "success",
-         "successful",
-         "comfortable",
-         "rich",
-         "enjoy",
-         "enjoyable",
-         "easy",
-         "smooth",
-         "balanced",
-         "balance",
-         "independent",
-         "life",
-         "work",
-         "job",
-         "achha",
-         "accha",
-         "acha",
-         "badhiya",
-         "khush",
-         "sukhi",
-         "अच्छा",
-         "अच्छी",
-         "खुश",
-         "सुखी",
-         "शांत",
-         "बढ़िया",
-         "जीवन",
-         "नौकरी",
-         "चांगले",
-         "चांगली",
-         "चांगला",
-         "आनंदी",
-         "आयुष्य",
-         "नोकरी",
-         "समाधानी"
-        ]
-       }
-      },
-      {
-       "id": "G10_worry",
-       "type": "short",
-       "label": {
-        "en": "What is your one biggest worry for young people around you?",
-        "hi": "अपने आसपास के युवाओं को लेकर आपकी सबसे बड़ी चिंता क्या है?",
-        "mr": "तुमच्या आजूबाजूच्या तरुणांबद्दल तुमची सर्वात मोठी काळजी कोणती?"
-       },
-       "hint": {
-        "en": "Example: Boys leave school early to work in cities.",
-        "hi": "उदाहरण: लड़के जल्दी स्कूल छोड़कर शहरों में काम करने चले जाते हैं।",
-        "mr": "उदाहरण: मुले लवकर शाळा सोडून शहरात कामाला जातात."
-       },
-       "probe": {
-        "minWords": 4,
-        "ask": {
-         "en": "Could you say who is affected and how?",
-         "hi": "क्या आप बता सकते हैं कि किस पर और कैसे असर पड़ रहा है?",
-         "mr": "कोणावर आणि कसा परिणाम होत आहे, ते सांगाल का?"
-        }
-       }
-      },
-      {
-       "id": "G11_mydo",
-       "type": "short",
-       "label": {
-        "en": "What is one thing YOU can do in the next 6 months for a young person you know?",
-        "hi": "अगले 6 महीनों में आप अपने जान-पहचान के किसी युवा के लिए खुद कौन सी एक चीज़ कर सकते हैं?",
-        "mr": "पुढच्या ६ महिन्यांत तुमच्या ओळखीच्या एखाद्या तरुणासाठी तुम्ही स्वतः कोणती एक गोष्ट करू शकता?"
-       },
-       "hint": {
-        "en": "Example: Help my neighbour's son prepare for his bank interview.",
-        "hi": "उदाहरण: पड़ोसी के बेटे को उसके बैंक इंटरव्यू की तैयारी में मदद करना।",
-        "mr": "उदाहरण: शेजाऱ्यांच्या मुलाला बँकेच्या मुलाखतीच्या तयारीत मदत करणे."
-       },
-       "probe": {
-        "minWords": 4,
-        "ask": {
-         "en": "What would you actually do, and for whom?",
-         "hi": "आप असल में क्या करेंगे, और किसके लिए?",
-         "mr": "तुम्ही प्रत्यक्षात काय कराल, आणि कोणासाठी?"
-        },
-        "vague": [
-         "support",
-         "help",
-         "guidance",
-         "guide",
-         "motivation",
-         "motivate",
-         "encourage",
-         "encouragement",
-         "more",
-         "better",
-         "proper",
-         "good",
-         "sahyog",
-         "madad",
-         "सहयोग",
-         "मदद",
-         "मार्गदर्शन",
-         "प्रेरणा",
-         "मदत",
-         "पाठिंबा",
-         "प्रोत्साहन"
-        ]
        }
       }
      ]
@@ -3105,358 +2652,12 @@
    "en": "Start fresh",
    "hi": "नया शुरू करें",
    "mr": "नव्याने सुरू करा"
-  },
-  "draftNote": {
-   "hi": "हिंदी अनुवाद अभी समीक्षा में है।",
-   "mr": "मराठी भाषांतर अजून तपासले जात आहे."
   }
  },
- "checks": {
-  "non_answer": [
-   "yes",
-   "yess",
-   "yes yes",
-   "yeah",
-   "ya",
-   "yep",
-   "no",
-   "nope",
-   "ok",
-   "okay",
-   "k",
-   "fine",
-   "same",
-   "as above",
-   "nothing",
-   "none",
-   "nil",
-   "na",
-   "n a",
-   "dont know",
-   "do not know",
-   "i dont know",
-   "idk",
-   "no idea",
-   "not sure",
-   "maybe",
-   "good",
-   "nice",
-   "correct",
-   "right",
-   "all right",
-   "alright",
-   "haan",
-   "han",
-   "ha",
-   "haa",
-   "ji",
-   "ji haan",
-   "nahi",
-   "nahin",
-   "nai",
-   "pata nahi",
-   "pata nhi",
-   "malum nahi",
-   "maloom nahi",
-   "kuch nahi",
-   "kuchh nahin",
-   "theek",
-   "thik",
-   "theek hai",
-   "thik hai",
-   "sahi",
-   "achha",
-   "accha",
-   "हाँ",
-   "हां",
-   "जी",
-   "जी हाँ",
-   "नहीं",
-   "ना",
-   "पता नहीं",
-   "मालूम नहीं",
-   "कुछ नहीं",
-   "ठीक",
-   "ठीक है",
-   "सही",
-   "अच्छा",
-   "हो",
-   "होय",
-   "नाही",
-   "माहीत नाही",
-   "माहिती नाही",
-   "काही नाही",
-   "काहीच नाही",
-   "ठीक आहे",
-   "बरं",
-   "बरोबर",
-   "चांगले",
-   "चांगलं",
-   "हो हो"
-  ],
-  "no_one": [
-   "no one",
-   "noone",
-   "nobody",
-   "not anyone",
-   "myself",
-   "kisi se nahi",
-   "koi nahi",
-   "किसी से नहीं",
-   "कोई नहीं",
-   "खुद से",
-   "nothing this week",
-   "इस हफ़्ते कुछ नहीं",
-   "कोणालाच नाही",
-   "कोणालाही नाही",
-   "कोणी नाही",
-   "कोणीच नाही",
-   "स्वतःच",
-   "या आठवड्यात काही नाही"
-  ],
-  "childs_choice": [
-   "whatever my child",
-   "whatever the child",
-   "child chooses",
-   "his choice",
-   "her choice",
-   "their choice",
-   "jo bachcha chahe",
-   "jo baccha chahe",
-   "jo bachcha chune",
-   "जो बच्चा",
-   "बच्चा खुद चुने",
-   "उसकी मर्ज़ी",
-   "मूल स्वतः ठरवेल",
-   "त्याला हवे ते",
-   "तिला हवे ते",
-   "मुलाला हवे ते",
-   "त्याची इच्छा",
-   "तिची इच्छा"
-  ],
-  "distress": [
-   "suicid",
-   "kill myself",
-   "kill my self",
-   "end my life",
-   "end this life",
-   "want to die",
-   "self harm",
-   "selfharm",
-   "no reason to live",
-   "aatmhatya",
-   "atmhatya",
-   "khudkushi",
-   "marna chahta",
-   "marna chahti",
-   "jeena nahi chahta",
-   "jeena nahi chahti",
-   "आत्महत्या",
-   "ख़ुदकुशी",
-   "खुदकुशी",
-   "मरना चाहता",
-   "मरना चाहती",
-   "जीना नहीं चाहता",
-   "जीना नहीं चाहती",
-   "मरायचे आहे",
-   "मरायचं आहे",
-   "जगायचे नाही",
-   "जगायचं नाही",
-   "जीव द्यायचा"
-  ],
-  "filler": [
-   "a",
-   "an",
-   "the",
-   "and",
-   "or",
-   "but",
-   "to",
-   "of",
-   "in",
-   "on",
-   "at",
-   "for",
-   "with",
-   "my",
-   "me",
-   "i",
-   "we",
-   "our",
-   "you",
-   "your",
-   "it",
-   "is",
-   "am",
-   "are",
-   "be",
-   "will",
-   "would",
-   "should",
-   "can",
-   "could",
-   "want",
-   "wish",
-   "hope",
-   "like",
-   "some",
-   "very",
-   "more",
-   "much",
-   "also",
-   "just",
-   "so",
-   "that",
-   "this",
-   "there",
-   "their",
-   "them",
-   "they",
-   "he",
-   "she",
-   "his",
-   "her",
-   "as",
-   "by",
-   "from",
-   "do",
-   "give",
-   "provide",
-   "get",
-   "make",
-   "have",
-   "take",
-   "need",
-   "try",
-   "become",
-   "being",
-   "keep",
-   "all",
-   "every",
-   "dena",
-   "karna",
-   "chahiye",
-   "hona",
-   "देना",
-   "करना",
-   "चाहिए",
-   "होना",
-   "aur",
-   "ya",
-   "ki",
-   "ka",
-   "ke",
-   "ko",
-   "se",
-   "mein",
-   "me",
-   "main",
-   "hum",
-   "mai",
-   "hai",
-   "hain",
-   "ho",
-   "tha",
-   "thi",
-   "bhi",
-   "to",
-   "toh",
-   "ek",
-   "koi",
-   "apna",
-   "apni",
-   "apne",
-   "और",
-   "या",
-   "की",
-   "का",
-   "के",
-   "को",
-   "से",
-   "में",
-   "मैं",
-   "हम",
-   "है",
-   "हैं",
-   "हो",
-   "था",
-   "थी",
-   "भी",
-   "तो",
-   "एक",
-   "कोई",
-   "अपना",
-   "अपनी",
-   "अपने",
-   "वह",
-   "ये",
-   "यह",
-   "आणि",
-   "किंवा",
-   "मी",
-   "आम्ही",
-   "माझा",
-   "माझी",
-   "माझे",
-   "आहे",
-   "आहेत",
-   "ला",
-   "ने",
-   "चा",
-   "ची",
-   "चे",
-   "च्या",
-   "मध्ये",
-   "तर",
-   "पण",
-   "हे",
-   "ते",
-   "ती",
-   "तो",
-   "एक",
-   "काही",
-   "आपला",
-   "आपली",
-   "आपले",
-   "करणे",
-   "पाहिजे",
-   "असावे"
-  ]
- },
- "version": "ae36a5b0a3",
+ "checks": {},
+ "version": "0069ea6b49",
  "audio": {
   "en": {
-   "youth/Y1_age/q": "audio/en/4deefc81fd86f5b0.mp3",
-   "youth/Y2_gender/q": "audio/en/5501bd8b80be5c90.mp3",
-   "youth/Y3_state/q": "audio/en/2bbd2273a0d4ac81.mp3",
-   "youth/Y4_district/q": "audio/en/6c6727b5bbc2c519.mp3",
-   "youth/Y5/q": "audio/en/c928116c43140f7b.mp3",
-   "youth/Y6_class/q": "audio/en/1fe5e953f1a68cfb.mp3",
-   "youth/Y7_institution/q": "audio/en/b980f2addd9000ad.mp3",
-   "youth/Y8_income/q": "audio/en/811f141dfe4238a4.mp3",
-   "youth/Y9_disability/q": "audio/en/7554ac5b7de898d3.mp3",
-   "youth/Y11a_work/q": "audio/en/b81ae33ed20cdfc8.mp3",
-   "youth/Y11a_work/f": "audio/en/f32c1196fa15759c.mp3",
-   "youth/Y11b_life/q": "audio/en/5cd42383a2673f2d.mp3",
-   "youth/Y11b_life/f": "audio/en/ad9df3591351b4d4.mp3",
-   "youth/Y12_sure/q": "audio/en/a88325f3d47403b1.mp3",
-   "youth/Y12_reason/q": "audio/en/6103dc3779b78052.mp3",
-   "youth/Y12_reason/f": "audio/en/7ef2580edfd05ef7.mp3",
-   "youth/Y13_skills/q": "audio/en/66925c6c1d490b4b.mp3",
-   "youth/Y13_skills/f": "audio/en/109fade04b7b02ea.mp3",
-   "youth/Y14_now/q": "audio/en/dcce7d80bb145586.mp3",
-   "youth/Y14_where/q": "audio/en/6302878294588c5c.mp3",
-   "youth/Y14_where/f": "audio/en/b2de40c7e39ff2ef.mp3",
-   "youth/Y14_stop/q": "audio/en/47c32dd758933a6e.mp3",
-   "youth/Y14_stop/f": "audio/en/54489923e6d44faf.mp3",
-   "youth/Y15_helped/q": "audio/en/2a351e6f1a5f4773.mp3",
-   "youth/Y15_helped/f": "audio/en/a343eb96b595089b.mp3",
-   "youth/Y16_onething/q": "audio/en/6ab11cd6806d257f.mp3",
-   "youth/Y16_onething/f": "audio/en/e1cfeae8cb3a3e9b.mp3",
-   "youth/Y17_asked/q": "audio/en/4dc3dd93f89b15de.mp3",
-   "youth/Y17_asked/f": "audio/en/60d4b23b3dad511a.mp3",
-   "youth/Y18_mydo/q": "audio/en/6ee6536758e06925.mp3",
-   "youth/Y18_mydo/f": "audio/en/895e2c1070b57d26.mp3",
    "parent/P1_state/q": "audio/en/2bbd2273a0d4ac81.mp3",
    "parent/P2_district/q": "audio/en/231f74d67f744355.mp3",
    "parent/P3_relation/q": "audio/en/a126e1aab50d43e2.mp3",
@@ -3504,40 +2705,40 @@
    "public/G10_worry/q": "audio/en/1963c6c897e046d6.mp3",
    "public/G10_worry/f": "audio/en/9fca39b4e0fef740.mp3",
    "public/G11_mydo/q": "audio/en/bd068228329b5b03.mp3",
-   "public/G11_mydo/f": "audio/en/895e2c1070b57d26.mp3"
+   "public/G11_mydo/f": "audio/en/895e2c1070b57d26.mp3",
+   "youth/Y1_age/q": "audio/en/4deefc81fd86f5b0.mp3",
+   "youth/Y2_gender/q": "audio/en/5501bd8b80be5c90.mp3",
+   "youth/Y3_state/q": "audio/en/2bbd2273a0d4ac81.mp3",
+   "youth/Y4_district/q": "audio/en/6c6727b5bbc2c519.mp3",
+   "youth/Y5/q": "audio/en/c928116c43140f7b.mp3",
+   "youth/Y6_class/q": "audio/en/1fe5e953f1a68cfb.mp3",
+   "youth/Y7_institution/q": "audio/en/b980f2addd9000ad.mp3",
+   "youth/Y8_income/q": "audio/en/811f141dfe4238a4.mp3",
+   "youth/Y9_disability/q": "audio/en/7554ac5b7de898d3.mp3",
+   "youth/Y11a_work/q": "audio/en/b81ae33ed20cdfc8.mp3",
+   "youth/Y11a_work/f": "audio/en/f32c1196fa15759c.mp3",
+   "youth/Y11b_life/q": "audio/en/5cd42383a2673f2d.mp3",
+   "youth/Y11b_life/f": "audio/en/ad9df3591351b4d4.mp3",
+   "youth/Y12_sure/q": "audio/en/a88325f3d47403b1.mp3",
+   "youth/Y12_reason/q": "audio/en/6103dc3779b78052.mp3",
+   "youth/Y12_reason/f": "audio/en/7ef2580edfd05ef7.mp3",
+   "youth/Y13_skills/q": "audio/en/66925c6c1d490b4b.mp3",
+   "youth/Y13_skills/f": "audio/en/109fade04b7b02ea.mp3",
+   "youth/Y14_now/q": "audio/en/dcce7d80bb145586.mp3",
+   "youth/Y14_where/q": "audio/en/6302878294588c5c.mp3",
+   "youth/Y14_where/f": "audio/en/b2de40c7e39ff2ef.mp3",
+   "youth/Y14_stop/q": "audio/en/47c32dd758933a6e.mp3",
+   "youth/Y14_stop/f": "audio/en/54489923e6d44faf.mp3",
+   "youth/Y15_helped/q": "audio/en/2a351e6f1a5f4773.mp3",
+   "youth/Y15_helped/f": "audio/en/a343eb96b595089b.mp3",
+   "youth/Y16_onething/q": "audio/en/6ab11cd6806d257f.mp3",
+   "youth/Y16_onething/f": "audio/en/e1cfeae8cb3a3e9b.mp3",
+   "youth/Y17_asked/q": "audio/en/4dc3dd93f89b15de.mp3",
+   "youth/Y17_asked/f": "audio/en/60d4b23b3dad511a.mp3",
+   "youth/Y18_mydo/q": "audio/en/6ee6536758e06925.mp3",
+   "youth/Y18_mydo/f": "audio/en/895e2c1070b57d26.mp3"
   },
   "hi": {
-   "youth/Y1_age/q": "audio/hi/e08d886a6cf287a2.mp3",
-   "youth/Y2_gender/q": "audio/hi/a5c381ba1034d3d2.mp3",
-   "youth/Y3_state/q": "audio/hi/292fe06aaecb87db.mp3",
-   "youth/Y4_district/q": "audio/hi/fcdf89acd6962751.mp3",
-   "youth/Y5/q": "audio/hi/90d74498df924a5c.mp3",
-   "youth/Y6_class/q": "audio/hi/e5b5de67e27d3a12.mp3",
-   "youth/Y7_institution/q": "audio/hi/30ddeda99d968393.mp3",
-   "youth/Y8_income/q": "audio/hi/a84a754cdbca53dc.mp3",
-   "youth/Y9_disability/q": "audio/hi/c2827b372ba478a4.mp3",
-   "youth/Y11a_work/q": "audio/hi/99bd59a3c01cd1ed.mp3",
-   "youth/Y11a_work/f": "audio/hi/c68aeff0d7496393.mp3",
-   "youth/Y11b_life/q": "audio/hi/03949b0dd48abc88.mp3",
-   "youth/Y11b_life/f": "audio/hi/63c89ccf3c551260.mp3",
-   "youth/Y12_sure/q": "audio/hi/1e248ff374a44745.mp3",
-   "youth/Y12_reason/q": "audio/hi/e505539f2a1d61e1.mp3",
-   "youth/Y12_reason/f": "audio/hi/76f0827cf21fa85c.mp3",
-   "youth/Y13_skills/q": "audio/hi/4071e351605866ac.mp3",
-   "youth/Y13_skills/f": "audio/hi/0d95d670b0eade16.mp3",
-   "youth/Y14_now/q": "audio/hi/53a3123253f7f53b.mp3",
-   "youth/Y14_where/q": "audio/hi/9924df06ed3395b6.mp3",
-   "youth/Y14_where/f": "audio/hi/39b1acfb702aec4f.mp3",
-   "youth/Y14_stop/q": "audio/hi/681e94522b782828.mp3",
-   "youth/Y14_stop/f": "audio/hi/be801a41916fbcd4.mp3",
-   "youth/Y15_helped/q": "audio/hi/6d7de9e8b49faaa2.mp3",
-   "youth/Y15_helped/f": "audio/hi/019ba03c138b1b40.mp3",
-   "youth/Y16_onething/q": "audio/hi/d0c75794967069cd.mp3",
-   "youth/Y16_onething/f": "audio/hi/ec823810aa0d23c7.mp3",
-   "youth/Y17_asked/q": "audio/hi/c64ab67d94584de7.mp3",
-   "youth/Y17_asked/f": "audio/hi/7a535e083695f2bc.mp3",
-   "youth/Y18_mydo/q": "audio/hi/c1c8eb659fc370cb.mp3",
-   "youth/Y18_mydo/f": "audio/hi/d769c9a16a3ea1a0.mp3",
    "parent/P1_state/q": "audio/hi/292fe06aaecb87db.mp3",
    "parent/P2_district/q": "audio/hi/f64986b7b04cb5ab.mp3",
    "parent/P3_relation/q": "audio/hi/09b045aaee697df5.mp3",
@@ -3585,40 +2786,40 @@
    "public/G10_worry/q": "audio/hi/13908013a5c57c75.mp3",
    "public/G10_worry/f": "audio/hi/7e37f6781b8356a8.mp3",
    "public/G11_mydo/q": "audio/hi/1d2438a20a6b06e9.mp3",
-   "public/G11_mydo/f": "audio/hi/d769c9a16a3ea1a0.mp3"
+   "public/G11_mydo/f": "audio/hi/d769c9a16a3ea1a0.mp3",
+   "youth/Y1_age/q": "audio/hi/e08d886a6cf287a2.mp3",
+   "youth/Y2_gender/q": "audio/hi/a5c381ba1034d3d2.mp3",
+   "youth/Y3_state/q": "audio/hi/292fe06aaecb87db.mp3",
+   "youth/Y4_district/q": "audio/hi/fcdf89acd6962751.mp3",
+   "youth/Y5/q": "audio/hi/90d74498df924a5c.mp3",
+   "youth/Y6_class/q": "audio/hi/e5b5de67e27d3a12.mp3",
+   "youth/Y7_institution/q": "audio/hi/30ddeda99d968393.mp3",
+   "youth/Y8_income/q": "audio/hi/a84a754cdbca53dc.mp3",
+   "youth/Y9_disability/q": "audio/hi/c2827b372ba478a4.mp3",
+   "youth/Y11a_work/q": "audio/hi/99bd59a3c01cd1ed.mp3",
+   "youth/Y11a_work/f": "audio/hi/c68aeff0d7496393.mp3",
+   "youth/Y11b_life/q": "audio/hi/03949b0dd48abc88.mp3",
+   "youth/Y11b_life/f": "audio/hi/63c89ccf3c551260.mp3",
+   "youth/Y12_sure/q": "audio/hi/1e248ff374a44745.mp3",
+   "youth/Y12_reason/q": "audio/hi/e505539f2a1d61e1.mp3",
+   "youth/Y12_reason/f": "audio/hi/76f0827cf21fa85c.mp3",
+   "youth/Y13_skills/q": "audio/hi/4071e351605866ac.mp3",
+   "youth/Y13_skills/f": "audio/hi/0d95d670b0eade16.mp3",
+   "youth/Y14_now/q": "audio/hi/53a3123253f7f53b.mp3",
+   "youth/Y14_where/q": "audio/hi/9924df06ed3395b6.mp3",
+   "youth/Y14_where/f": "audio/hi/39b1acfb702aec4f.mp3",
+   "youth/Y14_stop/q": "audio/hi/681e94522b782828.mp3",
+   "youth/Y14_stop/f": "audio/hi/be801a41916fbcd4.mp3",
+   "youth/Y15_helped/q": "audio/hi/6d7de9e8b49faaa2.mp3",
+   "youth/Y15_helped/f": "audio/hi/019ba03c138b1b40.mp3",
+   "youth/Y16_onething/q": "audio/hi/d0c75794967069cd.mp3",
+   "youth/Y16_onething/f": "audio/hi/ec823810aa0d23c7.mp3",
+   "youth/Y17_asked/q": "audio/hi/c64ab67d94584de7.mp3",
+   "youth/Y17_asked/f": "audio/hi/7a535e083695f2bc.mp3",
+   "youth/Y18_mydo/q": "audio/hi/c1c8eb659fc370cb.mp3",
+   "youth/Y18_mydo/f": "audio/hi/d769c9a16a3ea1a0.mp3"
   },
   "mr": {
-   "youth/Y1_age/q": "audio/mr/de750f79ef75d8c5.mp3",
-   "youth/Y2_gender/q": "audio/mr/9227c5a07e446864.mp3",
-   "youth/Y3_state/q": "audio/mr/8ce1f0a18036d737.mp3",
-   "youth/Y4_district/q": "audio/mr/ce2fbe942c6959f1.mp3",
-   "youth/Y5/q": "audio/mr/1346f97a7a2c70b2.mp3",
-   "youth/Y6_class/q": "audio/mr/fd18599351914470.mp3",
-   "youth/Y7_institution/q": "audio/mr/1f6427698f997af0.mp3",
-   "youth/Y8_income/q": "audio/mr/27c7b570b80e934e.mp3",
-   "youth/Y9_disability/q": "audio/mr/1ed0d52827506b3b.mp3",
-   "youth/Y11a_work/q": "audio/mr/a3bea29b9f1f3136.mp3",
-   "youth/Y11a_work/f": "audio/mr/dc176ca380f30b5d.mp3",
-   "youth/Y11b_life/q": "audio/mr/dbd49c04e9cde8af.mp3",
-   "youth/Y11b_life/f": "audio/mr/2f7ab9b2f8b5d5cd.mp3",
-   "youth/Y12_sure/q": "audio/mr/6aa84e8097eebf88.mp3",
-   "youth/Y12_reason/q": "audio/mr/cd7d0e8808f206fb.mp3",
-   "youth/Y12_reason/f": "audio/mr/ea7bd5503f1d7d2e.mp3",
-   "youth/Y13_skills/q": "audio/mr/4ffaf0bca965110b.mp3",
-   "youth/Y13_skills/f": "audio/mr/39e52a0c66ddca3e.mp3",
-   "youth/Y14_now/q": "audio/mr/ebdebdc798ca5038.mp3",
-   "youth/Y14_where/q": "audio/mr/f0acf504ea945fef.mp3",
-   "youth/Y14_where/f": "audio/mr/8ce37cee8f388dc5.mp3",
-   "youth/Y14_stop/q": "audio/mr/bd423cbdf5d309cc.mp3",
-   "youth/Y14_stop/f": "audio/mr/925959a18232f5c0.mp3",
-   "youth/Y15_helped/q": "audio/mr/0a21ab1d10e8cc9f.mp3",
-   "youth/Y15_helped/f": "audio/mr/b4a3cfce5bf58e32.mp3",
-   "youth/Y16_onething/q": "audio/mr/68b54202461b5766.mp3",
-   "youth/Y16_onething/f": "audio/mr/c4a12fe89f37624a.mp3",
-   "youth/Y17_asked/q": "audio/mr/8235ad630854d7c4.mp3",
-   "youth/Y17_asked/f": "audio/mr/7c36a8d9bce3f91c.mp3",
-   "youth/Y18_mydo/q": "audio/mr/8de1befc0dc0bc4d.mp3",
-   "youth/Y18_mydo/f": "audio/mr/a2c8a309b30ba9fd.mp3",
    "parent/P1_state/q": "audio/mr/8ce1f0a18036d737.mp3",
    "parent/P2_district/q": "audio/mr/b4d9467802b80766.mp3",
    "parent/P3_relation/q": "audio/mr/631d7cf7f376732a.mp3",
@@ -3666,7 +2867,38 @@
    "public/G10_worry/q": "audio/mr/ee317c2ad2ddbec7.mp3",
    "public/G10_worry/f": "audio/mr/bae54851c8a1cb7c.mp3",
    "public/G11_mydo/q": "audio/mr/16f5d266f7d2621c.mp3",
-   "public/G11_mydo/f": "audio/mr/a2c8a309b30ba9fd.mp3"
+   "public/G11_mydo/f": "audio/mr/a2c8a309b30ba9fd.mp3",
+   "youth/Y1_age/q": "audio/mr/de750f79ef75d8c5.mp3",
+   "youth/Y2_gender/q": "audio/mr/9227c5a07e446864.mp3",
+   "youth/Y3_state/q": "audio/mr/8ce1f0a18036d737.mp3",
+   "youth/Y4_district/q": "audio/mr/ce2fbe942c6959f1.mp3",
+   "youth/Y5/q": "audio/mr/1346f97a7a2c70b2.mp3",
+   "youth/Y6_class/q": "audio/mr/fd18599351914470.mp3",
+   "youth/Y7_institution/q": "audio/mr/1f6427698f997af0.mp3",
+   "youth/Y8_income/q": "audio/mr/27c7b570b80e934e.mp3",
+   "youth/Y9_disability/q": "audio/mr/1ed0d52827506b3b.mp3",
+   "youth/Y11a_work/q": "audio/mr/a3bea29b9f1f3136.mp3",
+   "youth/Y11a_work/f": "audio/mr/dc176ca380f30b5d.mp3",
+   "youth/Y11b_life/q": "audio/mr/dbd49c04e9cde8af.mp3",
+   "youth/Y11b_life/f": "audio/mr/2f7ab9b2f8b5d5cd.mp3",
+   "youth/Y12_sure/q": "audio/mr/6aa84e8097eebf88.mp3",
+   "youth/Y12_reason/q": "audio/mr/cd7d0e8808f206fb.mp3",
+   "youth/Y12_reason/f": "audio/mr/ea7bd5503f1d7d2e.mp3",
+   "youth/Y13_skills/q": "audio/mr/4ffaf0bca965110b.mp3",
+   "youth/Y13_skills/f": "audio/mr/39e52a0c66ddca3e.mp3",
+   "youth/Y14_now/q": "audio/mr/ebdebdc798ca5038.mp3",
+   "youth/Y14_where/q": "audio/mr/f0acf504ea945fef.mp3",
+   "youth/Y14_where/f": "audio/mr/8ce37cee8f388dc5.mp3",
+   "youth/Y14_stop/q": "audio/mr/bd423cbdf5d309cc.mp3",
+   "youth/Y14_stop/f": "audio/mr/925959a18232f5c0.mp3",
+   "youth/Y15_helped/q": "audio/mr/0a21ab1d10e8cc9f.mp3",
+   "youth/Y15_helped/f": "audio/mr/b4a3cfce5bf58e32.mp3",
+   "youth/Y16_onething/q": "audio/mr/68b54202461b5766.mp3",
+   "youth/Y16_onething/f": "audio/mr/c4a12fe89f37624a.mp3",
+   "youth/Y17_asked/q": "audio/mr/8235ad630854d7c4.mp3",
+   "youth/Y17_asked/f": "audio/mr/7c36a8d9bce3f91c.mp3",
+   "youth/Y18_mydo/q": "audio/mr/8de1befc0dc0bc4d.mp3",
+   "youth/Y18_mydo/f": "audio/mr/a2c8a309b30ba9fd.mp3"
   }
  }
 }

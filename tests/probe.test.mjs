@@ -26,20 +26,20 @@ check("Y12_reason", "aaaaaa", "unclear");
 
 // Too short
 check("Y11a_work", "Teacher", "short");
-check("Y13_skills", "skills", "vague");
+check("Y13_skills", "skills", "short");
 check("Y15_helped", "teacher", "short");
 
-// Vague words only (pilot: "Peaceful", "Good job", "Hard work", "study hard", "Support")
-check("Y11b_life", "Peaceful and happy life", "vague");
-check("Y11a_work", "a good job", "vague");
-check("Y13_skills", "Hard work and continuous learning", "vague");
-check("Y16_onething", "Give more support and guidance", "vague");
-check("P11_change", "Good study", "vague");
-check("P11_change", "Better education and good teaching", "vague");
+// Word count only (16 Oct decision: follow-up depends on the number of words)
+check("Y11b_life", "Peaceful and happy life", "short");   // 4 words, needs 5
+check("Y11a_work", "a good job", "short");
+check("Y13_skills", "Hard work and continuous learning", null);   // 5 words ≥ 3: word count only
+check("Y16_onething", "Give more support and guidance", null);
+check("P11_change", "Good study", "short");
+check("P11_change", "Better education and good teaching", null);
 
 // Good answers pass
 check("Y11a_work", "Running my own tailoring shop with two helpers", null);
-check("Y11a_work", "Nurse in AIIMS", null);
+check("Y11a_work", "Nurse in AIIMS", "short");   // 3 words, needs 4
 check("Y11b_life", "In my own house in Gaya near my parents", null);
 check("Y12_reason", "My family supports me but fees are a worry", null);
 check("Y13_skills", "Spoken English and typing", null);
@@ -58,7 +58,7 @@ check("P10_work", "jo bachcha chahe", null);
 // Marathi
 check("Y12_reason", "हो", "nonanswer");
 check("P15_onething", "माहीत नाही", "nonanswer");
-check("Y11b_life", "आनंदी आयुष्य", "vague");
+check("Y11b_life", "आनंदी आयुष्य", "short");
 check("Y13_skills", "इंग्रजी बोलणे आणि टायपिंग", null);
 check("Y17_asked", "कोणालाच नाही", null);
 check("P10_work", "मूल स्वतः ठरवेल ते", null);

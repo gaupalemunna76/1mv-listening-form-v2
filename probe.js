@@ -62,8 +62,8 @@ export function assess(text, probe = {}) {
   const content = meaningful.filter(x => !vague.has(x));
   // Only general words such as "good", "peaceful", "hard work".
   if (vague.size && meaningful.length && !content.length) return "vague";
-  // Too short — unless it still has two real content words (e.g. "Nurse in AIIMS").
-  if (w.length < (probe.minWords ?? 3) && content.length < 2) return "short";
+  // Too short: fewer words than the question's "Follow-up if fewer than (words)" setting in the Master tab.
+  if (w.length < (probe.minWords ?? 3)) return "short";
   return null;
 }
 

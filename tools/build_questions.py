@@ -1,206 +1,217 @@
-"""Build content/questions.json from the "Questions (source)" Google Sheet, after checking everything.
+"""Build content/questions.json from the Questions Sheet, after checking everything.
 
-  python tools/build_questions.py --sheet-id <GOOGLE_SHEET_ID>      (what the Publish button runs)
-  python tools/build_questions.py --xlsx tools/1MV_Listening_Form_V2_Questions.xlsx   (local copy)
+  python tools/build_questions.py --sheet-id <GOOGLE_SHEET_ID>     (what the Publish button runs)
+  python tools/build_questions.py --json tests/out/sheet_tabs.json  (tests: a saved copy of the tabs)
 
-The Sheet must be viewable by anyone with the link (questions are not private). Each tab is read as CSV.
-If anything is wrong the script prints every problem and exits with an error, and nothing is written,
-so the live form keeps running on the last good questions.
+Sheet layout (made by google_sheet/QuestionsSheet.gs → menu 1MV → Set up):
+  Languages          Language · Code · Name shown in form · Voice · On?
+  Master (English)   one row per question, with all details, in English
+  Questions, Examples, Follow-ups, Options, Form text, Screen text
+                     ID · English (base) · one column per language (named as in Languages) · Needs update
+The Sheet must be viewable by anyone with the link. If anything is wrong the script lists every problem, exits with
+an error and writes nothing, so the live form keeps the last good questions.
 """
-import argparse, csv, hashlib, io, json, os, pathlib, re, sys, urllib.parse, urllib.request
+import argparse, csv, hashlib, io, json, pathlib, re, sys, urllib.parse, urllib.request
 
 sys.stdout.reconfigure(encoding="utf-8")
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "content" / "questions.json"
-TABS = ["Languages", "Forms", "Sections", "Questions", "Options", "General words", "Answer checks", "Screen text"]
-TYPES = {"short", "para", "number", "choice", "multi", "dropdown"}
-CHOICE_TYPES = {"choice", "multi", "dropdown"}
+MASTER = "Master (English)"
+TR_TABS = ["Questions", "Examples", "Follow-ups", "Options", "Form text", "Screen text"]
+TABS = ["Languages", MASTER] + TR_TABS
+OPT_COL = "Options (English)  code: label | code: label"
+TYPES = {"short text": "short", "long text": "para", "number": "number", "one choice": "choice", "many choices": "multi", "dropdown": "dropdown"}
 problems, notes = [], []
 
 
 def read_sheet(sheet_id):
-    tabs = {}
-    for tab in TABS:
-        url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={urllib.parse.quote(tab)}"
-        try:
-            with urllib.request.urlopen(url, timeout=60) as r:
-                text = r.read().decode("utf-8")
-        except Exception as e:
-            sys.exit(f"Could not read tab '{tab}' ({e}). Is the Sheet shared as 'Anyone with the link: Viewer'?")
-        if text.lstrip().startswith("<"):
-            sys.exit(f"Could not read tab '{tab}': Google returned a web page. Share the Sheet as 'Anyone with the link: Viewer'.")
-        tabs[tab] = list(csv.DictReader(io.StringIO(text)))
-    return tabs
-
-
-def read_xlsx(path):
+    """Download the whole Sheet as .xlsx (exact cell values; CSV export can drop numbers in mixed columns)."""
+    url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=xlsx"
+    try:
+        with urllib.request.urlopen(url, timeout=120) as r:
+            data = r.read()
+    except Exception as e:
+        sys.exit(f"Could not download the Questions Sheet ({e}). Is it shared as 'Anyone with the link: Viewer'?")
+    if not data.startswith(b"PK"):
+        sys.exit("Could not download the Questions Sheet: Google returned a web page. Share it as 'Anyone with the link: Viewer'.")
     from openpyxl import load_workbook
-    wb = load_workbook(path, read_only=True, data_only=True)
-    tabs = {}
-    for tab in TABS:
-        if tab not in wb.sheetnames:
-            sys.exit(f"Tab '{tab}' is missing.")
-        rows = list(wb[tab].iter_rows(values_only=True))
-        head = [str(h or "").strip() for h in rows[0]]
-        tabs[tab] = [{head[i]: ("" if v is None else str(v)) for i, v in enumerate(r) if i < len(head)} for r in rows[1:]]
-    return tabs
+    wb = load_workbook(io.BytesIO(data), read_only=True, data_only=True)
+    cell = lambda v: "" if v is None else str(int(v)) if isinstance(v, float) and v.is_integer() else str(v)
+    return {t: [[cell(v) for v in row] for row in wb[t].iter_rows(values_only=True)] if t in wb.sheetnames else [] for t in TABS}
 
 
-def clean(rows):
-    out = []
-    for r in rows:
-        r = {str(k).strip(): ("" if v is None else str(v)).strip() for k, v in r.items() if k is not None}
+def read_json(path):
+    d = json.loads(pathlib.Path(path).read_text(encoding="utf-8"))
+    return {t: d.get(t, []) for t in TABS}
+
+
+def records(grid, where):
+    if not grid:
+        problems.append(f"Tab '{where}' is missing or empty"); return [], []
+    head = [str(h or "").strip() for h in grid[0]]
+    rows = []
+    for g in grid[1:]:
+        r = {head[i]: ("" if v is None else str(v)).strip() for i, v in enumerate(g) if i < len(head) and head[i]}
         if any(r.values()):
-            out.append(r)
+            rows.append(r)
+    return head, rows
+
+
+def yes(v): return str(v).strip().lower() in ("yes", "y", "true", "1", "✓")
+def num(v, where):
+    if str(v).strip() == "": return None
+    try:
+        f = float(v); return int(f) if f.is_integer() else f
+    except ValueError:
+        problems.append(f"{where}: '{v}' should be a number")
+def split_list(v): return [w.strip() for w in re.split(r"[,\n]", v or "") if w.strip()]
+
+
+def parse_options(text):
+    out = []
+    for part in [p.strip() for p in str(text).split("|") if p.strip()]:
+        if ":" in part:
+            code, label = part.split(":", 1)
+            out.append((code.strip(), label.strip()))
+        else:
+            out.append((re.sub(r"[^a-z0-9]+", "_", part.lower()).strip("_"), part))
     return out
 
 
-def num(v, where):
-    if v == "":
-        return None
-    try:
-        f = float(v)
-        return int(f) if f.is_integer() else f
-    except ValueError:
-        problems.append(f"{where}: '{v}' should be a number")
-
-
-def words(v):
-    return [w.strip() for w in re.split(r"[,\n]", v or "") if w.strip()]
-
-
 def parse_condition(text, where, known):
-    """'Y5 in school, college' | 'Y14_now = notyet' | 'P7_visits != 0'  ->  {q, op, values}"""
-    m = re.fullmatch(r"\s*([A-Za-z0-9_]+)\s*(=|!=|in|not in)\s*(.+?)\s*", text or "")
+    """'Y5 in school, college' | 'Y14_now = notyet' | 'P7_visits not 0' | 'P7_visits != 0'"""
+    m = re.fullmatch(r"\s*([A-Za-z0-9_]+)\s*(=|!=|in|not in|not)\s*(.+?)\s*", text or "")
     if not m:
-        problems.append(f"{where}: show_if '{text}' — write it like 'Y5 in school, college' or 'Y14_now = notyet'")
+        problems.append(f"{where}: 'Show only if' = '{text}'. Write it like 'Y5 in school, college' or 'Y14_now = notyet' or 'P7_visits not 0'")
         return None
-    q, op, vals = m.group(1), m.group(2), words(m.group(3))
+    q, op, vals = m.group(1), m.group(2), split_list(m.group(3))
     if q not in known:
-        problems.append(f"{where}: show_if uses '{q}', which is not an earlier question in this form")
-        return None
-    codes = known[q]
+        problems.append(f"{where}: 'Show only if' uses {q}, which is not an earlier question in this form"); return None
     for v in vals:
-        if codes is not None and v not in codes:
-            problems.append(f"{where}: show_if value '{v}' is not an option code of {q} (codes: {', '.join(sorted(codes))})")
-    return {"q": q, "op": {"=": "in", "in": "in", "!=": "notin", "not in": "notin"}[op], "values": vals}
+        if known[q] is not None and v not in known[q]:
+            problems.append(f"{where}: 'Show only if' value '{v}' is not an option code of {q} ({', '.join(sorted(known[q]))})")
+    return {"q": q, "op": "in" if op in ("=", "in") else "notin", "values": vals}
 
 
 def build(tabs):
-    t = {k: clean(v) for k, v in tabs.items()}
-    langs = [l for l in t["Languages"] if l.get("enabled", "").lower() in ("yes", "y", "true", "1")]
-    if not langs or langs[0].get("code") != "en":
-        problems.append("Languages: English (code en) must be the first enabled language; other languages fall back to it")
-    codes = [l["code"] for l in langs]
+    _, langs = records(tabs["Languages"], "Languages")
+    langs = [l for l in langs if yes(l.get("On?", "yes")) and l.get("Code")]
+    if not langs or langs[0].get("Code") != "en":
+        problems.append("Languages: English (code en) must be the first row; other languages fall back to it")
+    code_of = {l["Language"]: l["Code"] for l in langs}            # "Hindi" → "hi"
+    other = [l for l in langs if l["Code"] != "en"]
 
-    def per(row, prefix, where, required_en=False):
-        d = {}
-        for c in codes:
-            v = row.get(f"{prefix}_{c}", "")
-            if v:
-                d[c] = v
-        if required_en and not d.get("en"):
-            problems.append(f"{where}: {prefix}_en is empty")
-        missing = [c for c in codes if c != "en" and not d.get(c)]
-        if d.get("en") and missing:
-            notes.append(f"{where}: no {prefix} in {', '.join(missing)} yet (English will show)")
+    # translation tabs: id → {lang code: text}, plus English base and needs-update marks
+    T = {}
+    for tab in TR_TABS:
+        head, rows = records(tabs[tab], tab)
+        for name in code_of:
+            if name != "English" and head and name not in head:
+                problems.append(f"Tab '{tab}': column '{name}' is missing (Languages says it is on)")
+        T[tab] = {}
+        for r in rows:
+            d = {"en": r.get("English (base)", "")}
+            for l in other:
+                if r.get(l["Language"]): d[l["Code"]] = r[l["Language"]]
+            T[tab][r.get("ID", "")] = d
+            if r.get("Needs update"):
+                notes.append(f"{tab} {r.get('ID')}: still marked 'Needs update' for {r['Needs update']} (old translation used)")
+
+    def text(tab, key, en, where, required=True):
+        d = {"en": en} if en else {}
+        d.update({k: v for k, v in T[tab].get(key, {}).items() if k != "en"})
+        if required and not d.get("en"):
+            problems.append(f"{where}: English text is empty")
+        miss = [l["Language"] for l in other if d.get("en") and not d.get(l["Code"])]
+        if miss:
+            notes.append(f"{where}: not yet in {', '.join(miss)} (English will show)")
         return d
 
-    # Options lists
-    lists = {}
-    for i, o in enumerate(t["Options"], 2):
-        lst, code = o.get("list", ""), o.get("code", "")
-        where = f"Options row {i}"
-        if not lst or not code:
-            problems.append(f"{where}: list and code are required"); continue
-        if code in lists.setdefault(lst, {}):
-            problems.append(f"{where}: code '{code}' appears twice in list {lst}")
-        lists[lst][code] = {"v": code, "order": num(o.get("order", ""), where) or 0, **per(o, "label", f"{where} ({lst}/{code})", True)}
-    general = {g["list"]: words(g.get("words", "")) for g in t["General words"] if g.get("list")}
-    checks = {c["check"]: words(c.get("words", "")) for c in t["Answer checks"] if c.get("check")}
-    for need in ("non_answer", "no_one", "childs_choice", "distress", "filler"):
-        if need not in checks:
-            problems.append(f"Answer checks: row '{need}' is missing")
-
-    forms = {}
-    for f in t["Forms"]:
-        forms[f["form"]] = {"key": f["form"], "title": per(f, "title", f"Forms/{f['form']}", True), "intro": per(f, "intro", f"Forms/{f['form']}", True), "sections": []}
-    secs = {}
-    for s in sorted(t["Sections"], key=lambda s: (s.get("form", ""), num(s.get("order", ""), "Sections") or 0)):
-        if s.get("form") not in forms:
-            problems.append(f"Sections: form '{s.get('form')}' is not in the Forms tab"); continue
-        sec = {"id": s["section"], "title": per(s, "title", f"Sections/{s['form']}/{s['section']}", True), "note": per(s, "note", f"Sections/{s['form']}/{s['section']}"), "items": []}
-        forms[s["form"]]["sections"].append(sec); secs[(s["form"], s["section"])] = sec
-
-    known = {}  # form -> {qid: option codes or None}
-    for i, q in enumerate(sorted(t["Questions"], key=lambda q: (q.get("form", ""), num(q.get("order", ""), "Questions") or 0)), 2):
-        form, qid, typ = q.get("form", ""), q.get("id", ""), q.get("type", "")
-        where = f"Questions {form}/{qid or '(no id)'}"
-        if form not in forms:
-            problems.append(f"{where}: form '{form}' is not in the Forms tab"); continue
+    head, master = records(tabs[MASTER], MASTER)
+    for col in ("Form", "ID", "Section", "Order", "Answer type", "Question (English)"):
+        if head and col not in head:
+            problems.append(f"{MASTER}: column '{col}' is missing")
+    forms, known, secs = {}, {}, {}
+    for r in sorted(master, key=lambda r: (r.get("Form", ""), num(r.get("Order", ""), "Order") or 0)):
+        fk, qid = r.get("Form", ""), r.get("ID", "")
+        where = f"{MASTER} {fk}/{qid or '(no ID)'}"
+        if not fk:
+            problems.append(f"{where}: Form is empty"); continue
         if not re.fullmatch(r"[A-Za-z][A-Za-z0-9_]*", qid):
-            problems.append(f"{where}: id must be letters, numbers and _ only"); continue
-        kf = known.setdefault(form, {})
+            problems.append(f"{where}: ID must be letters, numbers and _ only"); continue
+        typ = TYPES.get(r.get("Answer type", "").lower())
+        if not typ:
+            problems.append(f"{where}: Answer type '{r.get('Answer type')}' must be one of: Short text, Long text, Number, One choice, Many choices, Dropdown"); continue
+        if fk not in forms:
+            forms[fk] = {"key": fk, "title": text("Form text", f"{fk}.title", T["Form text"].get(f"{fk}.title", {}).get("en", ""), f"Form text {fk}.title"),
+                         "intro": text("Form text", f"{fk}.intro", T["Form text"].get(f"{fk}.intro", {}).get("en", ""), f"Form text {fk}.intro"), "sections": []}
+        kf = known.setdefault(fk, {})
         if qid in kf:
-            problems.append(f"{where}: id used twice in this form"); continue
-        if typ not in TYPES:
-            problems.append(f"{where}: type '{typ}' must be one of {', '.join(sorted(TYPES))}"); continue
-        sec = secs.get((form, q.get("section", "")))
-        if not sec:
-            problems.append(f"{where}: section '{q.get('section')}' is not in the Sections tab for {form}"); continue
-        item = {"id": qid, "type": typ, "label": per(q, "question", where, True)}
-        ex = per(q, "example", where)
-        if ex: item["hint"] = ex
-        if q.get("required", "").lower() in ("yes", "y", "true", "1"): item["required"] = True
+            problems.append(f"{where}: ID used twice in this form"); continue
+        sid = r.get("Section", "")
+        if (fk, sid) not in secs:
+            base = T["Form text"].get(f"{fk}.{sid}.title", {}).get("en", "")
+            note = T["Form text"].get(f"{fk}.{sid}.note", {})
+            sec = {"id": sid, "title": text("Form text", f"{fk}.{sid}.title", base, f"Form text {fk}.{sid}.title (section name)"),
+                   "note": text("Form text", f"{fk}.{sid}.note", note.get("en", ""), f"Form text {fk}.{sid}.note", required=False) if note.get("en") else {}, "items": []}
+            secs[(fk, sid)] = sec; forms[fk]["sections"].append(sec)
+        item = {"id": qid, "type": typ, "label": text("Questions", qid, r.get("Question (English)", ""), where)}
+        if r.get("Example (English)"):
+            item["hint"] = text("Examples", qid, r["Example (English)"], f"{where} example", required=False)
+        if yes(r.get("Required?", "")): item["required"] = True
         if typ == "number":
-            item["min"], item["max"] = num(q.get("number_min", ""), where), num(q.get("number_max", ""), where)
+            item["min"], item["max"] = num(r.get("Number min", ""), where), num(r.get("Number max", ""), where)
             if item["min"] is None or item["max"] is None:
-                problems.append(f"{where}: number questions need number_min and number_max")
-        codes_here = None
-        if typ in CHOICE_TYPES:
-            lst = q.get("options", "") or qid
-            if lst not in lists:
-                problems.append(f"{where}: options list '{lst}' has no rows in the Options tab")
+                problems.append(f"{where}: a Number question needs 'Number min' and 'Number max'")
+        codes = None
+        if typ in ("choice", "multi", "dropdown"):
+            spec = r.get(OPT_COL, "")
+            if spec.startswith("@"):
+                lst = [(k.split(".", 1)[1], v) for k, v in T["Options"].items() if k.startswith(spec + ".")]
+                pairs = [(c, v["en"]) for c, v in lst]
+                key_of = lambda c: f"{spec}.{c}"
             else:
-                item["options"] = [{k: v for k, v in o.items() if k != "order"} for o in sorted(lists[lst].values(), key=lambda o: o["order"])]
-                codes_here = set(lists[lst])
-            ex_codes = words(q.get("exclusive", ""))
-            if ex_codes:
-                item["exclusive"] = ex_codes
-                for c in ex_codes:
-                    if codes_here is not None and c not in codes_here:
-                        problems.append(f"{where}: exclusive code '{c}' is not an option")
-            if q.get("other_box", "").lower() in ("yes", "y", "true", "1"): item["other"] = True
-        if q.get("show_if"):
-            cond = parse_condition(q["show_if"], where, kf)
+                pairs = parse_options(spec); key_of = lambda c: f"{qid}.{c}"
+            if not pairs:
+                problems.append(f"{where}: this {r.get('Answer type')} question has no options")
+            seen = set()
+            item["options"] = []
+            for c, label in pairs:
+                if c in seen: problems.append(f"{where}: option code '{c}' appears twice")
+                seen.add(c)
+                o = text("Options", key_of(c), label, f"{where} option {c}")
+                item["options"].append({"v": c, **o})
+            codes = seen
+            ex = split_list(r.get("Unticks the others", ""))
+            if ex:
+                item["exclusive"] = ex
+                for c in ex:
+                    if c not in codes: problems.append(f"{where}: 'Unticks the others' code '{c}' is not an option")
+            if yes(r.get("Other box?", "")): item["other"] = True
+        if r.get("Show only if"):
+            cond = parse_condition(r["Show only if"], where, kf)
             if cond: item["showIf"] = cond
-        if q.get("followup", "").lower() in ("yes", "y", "true", "1"):
+        if yes(r.get("Ask follow-up?", "")):
             if typ not in ("short", "para"):
-                problems.append(f"{where}: follow-ups work only on short/para questions")
-            pr = {"minWords": num(q.get("followup_min_words", ""), where) or 3, "ask": per(q, "followup", where, True)}
-            gw = q.get("followup_general_words", "")
-            if gw:
-                if gw not in general:
-                    problems.append(f"{where}: general words list '{gw}' is not in the General words tab")
-                else:
-                    pr["vague"] = general[gw]
-            acc = q.get("followup_accepts", "").lower()
+                problems.append(f"{where}: follow-ups work only on Short text / Long text questions")
+            pr = {"minWords": num(r.get("Follow-up if fewer than (words)", ""), where) or 3,
+                  "ask": text("Follow-ups", qid, r.get("Follow-up question (English)", ""), f"{where} follow-up")}
+            acc = r.get("Also accept as a full answer", "").lower()
             if acc.startswith("no one"): pr["allowNoOne"] = True
             elif acc.startswith("child"): pr["allowChoice"] = True
-            elif acc: problems.append(f"{where}: followup_accepts must be 'no one', \"child's choice\" or empty")
+            elif acc: problems.append(f"{where}: 'Also accept as a full answer' must be 'no one', \"child's choice\" or empty")
             item["probe"] = pr
-        sec["items"].append(item)
-        kf[qid] = codes_here
-    for f in forms.values():
-        f["sections"] = [s for s in f["sections"] if s["items"]]
-        if not f["sections"]:
-            problems.append(f"Forms/{f['key']}: has no questions")
+        secs[(fk, sid)]["items"].append(item)
+        kf[qid] = codes
+    if not forms:
+        problems.append(f"{MASTER}: no questions found")
+
     ui = {}
-    for r in t["Screen text"]:
-        if r.get("key"):
-            ui[r["key"]] = {c: r[c] for c in codes if r.get(c)}
-    languages = [{"code": l["code"], "name": l.get("name") or l["code"], "speech": l.get("speech_code") or l["code"], "voice": l.get("voice", "")} for l in langs]
-    content = {"languages": languages, "forms": forms, "ui": ui, "checks": checks}
+    for key, d in T["Screen text"].items():
+        if key: ui[key] = {k: v for k, v in d.items() if v}
+    languages = [{"code": l["Code"], "name": l.get("Name shown in form") or l["Language"], "speech": f"{l['Code']}-IN" if len(l["Code"]) == 2 else l["Code"],
+                  "voice": l.get("Voice", "")} for l in langs]
+    content = {"languages": languages, "forms": forms, "ui": ui, "checks": {}}
     content["version"] = hashlib.sha1(json.dumps(content, sort_keys=True, ensure_ascii=False).encode()).hexdigest()[:10]
     return content
 
@@ -208,28 +219,24 @@ def build(tabs):
 def main():
     ap = argparse.ArgumentParser()
     g = ap.add_mutually_exclusive_group(required=True)
-    g.add_argument("--sheet-id")
-    g.add_argument("--xlsx")
-    ap.add_argument("--report", help="write a Markdown report here (GitHub step summary)")
+    g.add_argument("--sheet-id"); g.add_argument("--json")
+    ap.add_argument("--report")
+    ap.add_argument("--out", default=str(OUT))
     a = ap.parse_args()
-    tabs = read_sheet(a.sheet_id) if a.sheet_id else read_xlsx(a.xlsx)
-    content = build(tabs)
-    lines = []
+    content = build(read_sheet(a.sheet_id) if a.sheet_id else read_json(a.json))
     if problems:
-        lines += ["## ❌ Publish stopped — please fix these in the Questions Sheet", ""] + [f"- {p}" for p in problems]
-        lines += ["", "The live form was not changed."]
+        lines = ["## ❌ Publish stopped — please fix these in the Questions Sheet", ""] + [f"- {p}" for p in problems] + ["", "The live form was not changed."]
     else:
         n = sum(len(s["items"]) for f in content["forms"].values() for s in f["sections"])
-        lines += [f"## ✅ Questions checked: {len(content['forms'])} forms, {n} questions, languages: {', '.join(l['code'] for l in content['languages'])}"]
-        OUT.parent.mkdir(exist_ok=True)
-        OUT.write_text(json.dumps(content, ensure_ascii=False, indent=1), encoding="utf-8")
-        lines += [f"Written content/questions.json (version {content['version']})."]
+        out = pathlib.Path(a.out); out.parent.mkdir(exist_ok=True)
+        out.write_text(json.dumps(content, ensure_ascii=False, indent=1), encoding="utf-8")
+        lines = [f"## ✅ Questions checked: {len(content['forms'])} forms, {n} questions, languages: {', '.join(l['code'] for l in content['languages'])}",
+                 f"Written {out.name} (version {content['version']})."]
     if notes:
-        lines += ["", "### Notes (not errors)", ""] + [f"- {n}" for n in notes[:200]]
+        lines += ["", "### Notes (not errors)", ""] + [f"- {x}" for x in notes[:200]]
     report = "\n".join(lines)
     print(report)
-    if a.report:
-        pathlib.Path(a.report).write_text(report + "\n", encoding="utf-8")
+    if a.report: pathlib.Path(a.report).write_text(report + "\n", encoding="utf-8")
     sys.exit(1 if problems else 0)
 
 
