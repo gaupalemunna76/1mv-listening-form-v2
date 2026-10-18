@@ -85,11 +85,12 @@ await step(`T.next()`);
 ok(await ev(`T.q()`) === "Y11a_work", "future section starts");
 
 // Optional speech
-await ev(`window.SAID = []; speechSynthesis.speak = u => { if (u.text.trim()) SAID.push(u.text); setTimeout(() => u.onend && u.onend(), 50); }; true`);
+await ev(`window.SAID = []; window.PLAYED = []; speechSynthesis.speak = u => { if (u.text.trim()) SAID.push(u.text); setTimeout(() => u.onend && u.onend(), 50); };
+  HTMLMediaElement.prototype.play = function () { PLAYED.push(this.src); setTimeout(() => this.onended && this.onended(), 50); return Promise.resolve(); }; true`);
 ok(await ev(`!!document.getElementById('say') && !!document.querySelector('[data-mic]')`) === true, "Listen and mic buttons shown");
-ok(await ev(`SAID.length`) === 0, "nothing is read aloud by default");
+ok(await ev(`SAID.length + PLAYED.length`) === 0, "nothing is read aloud by default");
 await step(`document.getElementById('say').click()`, 1200);
-ok((await ev(`SAID.join('|')`)).includes("When you are 30, what work"), "Listen reads the question and its example");
+ok((await ev(`PLAYED.join('|')`)).includes("/audio/en/") && (await ev(`SAID.length`)) === 0, "Listen plays the pre-made Neerja audio (not the phone voice)");
 await step(`document.querySelector('[data-mic]').click()`, 2500);
 ok(await ev(`!document.getElementById('m_f_Y11a_work').hidden`) === true, "mic shows a status or error (no real mic here)");
 await ev(`document.querySelector('.mic.listening')?.click(); true`);

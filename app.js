@@ -1,10 +1,10 @@
 // 1MV Listening Form — one question per screen (Youth Voice look), with follow-ups, conditions,
 // optional 🔊 listen and 🎤 speak, three languages, offline save and Google Sheet sync.
-import { loadContent, toTools } from "./content.js?v=20261018-1557";
-import { LANGS, UI, t } from "./i18n.js?v=20261018-1557";
-import { assess, isDistress, configureChecks } from "./probe.js?v=20261018-1557";
-import { SHEET_URL as CONFIG_SHEET_URL } from "./config.js?v=20261018-1557";
-import { canSpeak, canListen, loadVoices, pickVoice, speak, stopSpeaking, unlockSpeech, listen, isMobile, browserName, speechBlocked } from "./speech.js?v=20261018-1557";
+import { loadContent, toTools } from "./content.js?v=20261018-1603";
+import { LANGS, UI, t } from "./i18n.js?v=20261018-1603";
+import { assess, isDistress, configureChecks } from "./probe.js?v=20261018-1603";
+import { SHEET_URL as CONFIG_SHEET_URL } from "./config.js?v=20261018-1603";
+import { canSpeak, canListen, loadVoices, pickVoice, speak, stopSpeaking, unlockSpeech, listen, isMobile, browserName, speechBlocked } from "./speech.js?v=20261018-1603";
 
 // Questions, languages, screen text and answer checks come from the published Questions Sheet (content/questions.json).
 const CONTENT = await loadContent(new URL(import.meta.url).searchParams.get("v"));
@@ -17,7 +17,7 @@ const params0 = new URLSearchParams(location.search);
 // Local test copies (localhost) never send to the real Sheet unless ?sync is added; ?sheet=<url> points at a test receiver.
 const LOCAL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
 const SHEET_URL = LOCAL ? (params0.get("sheet") || (params0.has("sync") ? CONFIG_SHEET_URL : "")) : CONFIG_SHEET_URL;
-const VERSION = "20261018-1557";
+const VERSION = "20261018-1603";
 // Version 2 lives on the same domain as Version 1 (gaupalemunna76.github.io), and browser storage is shared per
 // domain, so V2 uses its own storage names. Otherwise each version would pick up and send the other's responses.
 const DRAFT = "lf2.draft";
@@ -304,11 +304,29 @@ function sayText(q, followup) {
 }
 
 let saying = null;
+// 🔊 plays the pre-made audio (Swara / Aarohi / Neerja, made by the Publish button) when there is one for this
+// question and language; otherwise the phone's own voice reads it.
+const player = new Audio();
+function stopAudio() { try { player.pause(); player.currentTime = 0; } catch {} }
+function playFile(url) {
+  return new Promise(resolve => {
+    stopAudio();
+    player.src = url;
+    player.onended = () => resolve(true);
+    player.onerror = () => resolve(false);
+    player.onpause = () => resolve(true);
+    player.play().catch(() => resolve(false));
+  });
+}
+
 async function onSay(btn, q, followup) {
   stopMic();
-  if (saying) { stopSpeaking(); saying.classList.remove("on"); const was = saying; saying = null; if (was === btn) return; }
+  if (saying) { stopSpeaking(); stopAudio(); saying.classList.remove("on"); const was = saying; saying = null; if (was === btn) return; }
   unlockSpeech();
   saying = btn; btn.classList.add("on");
+  const file = CONTENT.audio?.[S.lang]?.[`${S.tool.key}/${q.id}/${followup ? "f" : "q"}`];
+  if (file && await playFile(file)) { btn.classList.remove("on"); if (saying === btn) saying = null; return; }
+  if (saying !== btn) return;
   await loadVoices();
   const voice = pickVoice(speechLang());
   const r = await speak(sayText(q, followup), { voice, lang: speechLang(), rate: S.lang === "en" ? 1 : 0.95 });
@@ -319,11 +337,11 @@ async function onSay(btn, q, followup) {
 
 let mic = null; // { btn, field, handle }
 function stopMic() { if (mic) mic.handle.cancel(); }
-function stopVoice() { stopMic(); if (saying) { stopSpeaking(); saying.classList.remove("on"); saying = null; } }
+function stopVoice() { stopMic(); if (saying) { stopSpeaking(); stopAudio(); saying.classList.remove("on"); saying = null; } }
 
 function onMic(btn) {
   if (mic) { const same = mic.btn === btn; stopMic(); if (same) return; }
-  if (saying) { stopSpeaking(); saying.classList.remove("on"); saying = null; }
+  if (saying) { stopSpeaking(); stopAudio(); saying.classList.remove("on"); saying = null; }
   const field = document.getElementById(btn.dataset.mic);
   const msg = document.getElementById("m_" + btn.dataset.mic);
   if (speechBlocked) { msg.hidden = false; msg.textContent = t(UI.micBrowser, S.lang, { browser: browserName() }); return; }

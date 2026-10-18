@@ -1,0 +1,74 @@
+# "Publish questions" button: GitHub → Actions → Publish questions → Run workflow.
+# Reads the Questions (source) Google Sheet, checks it, makes audio for new/changed text, and updates the live form.
+# If the Sheet has a problem, the run stops with a list of what to fix and the live form is not changed.
+name: Publish questions
+
+on:
+  workflow_dispatch:
+    inputs:
+      note:
+        description: "What changed? (optional, saved in the history)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-questions
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install tools
+        run: pip install --quiet edge-tts==7.3.1 openpyxl
+
+      - name: Read and check the Questions Sheet
+        env:
+          SHEET_ID: ${{ vars.QUESTIONS_SHEET_ID }}
+        run: |
+          set +e
+          if [ -z "$SHEET_ID" ]; then
+            echo "## ❌ The Questions Sheet is not connected yet" >> "$GITHUB_STEP_SUMMARY"
+            echo "Add a repository variable QUESTIONS_SHEET_ID (Settings → Secrets and variables → Actions → Variables)." >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+          python tools/build_questions.py --sheet-id "$SHEET_ID" --report report.md
+          status=$?
+          cat report.md >> "$GITHUB_STEP_SUMMARY"
+          exit $status
+
+      - name: Make audio for new or changed text
+        env:
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ vars.AZURE_SPEECH_REGION }}
+        run: |
+          python tools/make_audio.py | tee audio.txt
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "### Audio" >> "$GITHUB_STEP_SUMMARY"
+          sed 's/^/- /' audio.txt >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Update the live form
+        run: |
+          if git diff --quiet -- content audio; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Nothing changed in the Sheet since the last Publish." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          python set_version.py
+          git config user.name "1MV Publish bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A content audio app.js index.html
+          git commit -m "Publish questions from the Sheet${{ github.event.inputs.note && format(': {0}', github.event.inputs.note) || '' }}"
+          git push
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "✅ Published. The live form updates in about a minute: https://gaupalemunna76.github.io/1mv-listening-form-v2/" >> "$GITHUB_STEP_SUMMARY"

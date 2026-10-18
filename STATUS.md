@@ -14,6 +14,22 @@ https://gaupalemunna76.github.io/1mv-listening-form/ (repo gaupalemunna76/1mv-li
   - Mic on laptops: speech-service "network" errors retried twice; clearer message with (error · browser); mic always
     visible; in Brave/Opera tapping it explains that speaking needs Chrome or Edge.
   - `?debug`: live mic level and speech-service steps under the mic, for diagnosing mic problems.
+- **Questions come from a Google Sheet** ("1MV Listening Form V2 – Questions"; tabs Languages, Forms, Sections, Questions,
+  Options, General words, Answer checks, Screen text). Team and translators edit the Sheet; Munna presses
+  **GitHub → Actions → Publish questions → Run workflow**. The workflow (`.github/workflows/publish.yml`):
+  1. `tools/build_questions.py --sheet-id …` reads every tab as CSV (Sheet must be "Anyone with the link: Viewer"),
+     checks it, and writes `content/questions.json`. Any problem → run stops with a list; live form unchanged.
+  2. `tools/make_audio.py` makes 🔊 MP3s for new/changed text with edge-tts (free; female voices: hi-IN-SwaraNeural,
+     mr-IN-AarohiNeural, en-IN-NeerjaNeural; set per language in the Languages tab). Optional: AZURE_SPEECH_KEY secret +
+     AZURE_SPEECH_REGION variable switch to Azure's free tier. Missing audio → phone voice.
+  3. Stamps a version, commits, pushes; GitHub Pages updates in ~1 minute.
+  Repo variable needed: `QUESTIONS_SHEET_ID`.
+- **Never change a question ID or an option code** in the Sheet; wording, examples, follow-ups, languages can change.
+- **V2 responses Sheet**: row 1 = column IDs (e.g. `Y11a_work`, `Y11a_work_fup`), row 2 = English labels. Rewording
+  updates row 2; a new question adds a column. Use V2's own `google_sheet/Code.gs` (tool name "1MV Listening Form V2").
+- Seed workbook: `tools/1MV_Listening_Form_V2_Questions.xlsx` (today's questions, 3 languages). Regenerate with
+  `node tools/export_to_sheet.mjs && python tools/make_seed_xlsx.py`.
+- Tests: `python tests/build_check.py` (Publish refuses a broken Sheet) plus the earlier ones.
 - **Try locally:** double-click `START_LOCAL.bat` (http://localhost:8798, debug on, sends nothing).
 - Promote a V2 feature to V1 only when Munna approves.
 
