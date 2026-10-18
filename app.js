@@ -1,15 +1,17 @@
 // 1MV Listening Form — one question per screen (Youth Voice look), with follow-ups, conditions,
 // optional 🔊 listen and 🎤 speak, three languages, offline save and Google Sheet sync.
-import { TOOLS } from "./questions.js?v=20261017-0040";
-import { LANGS, UI, t } from "./i18n.js?v=20261017-0040";
-import { assess, isDistress } from "./probe.js?v=20261017-0040";
-import { SHEET_URL as CONFIG_SHEET_URL } from "./config.js?v=20261017-0040";
-import { canSpeak, canListen, loadVoices, pickVoice, speak, stopSpeaking, unlockSpeech, listen, isMobile } from "./speech.js?v=20261017-0040";
+import { TOOLS } from "./questions.js?v=20261018-1228";
+import { LANGS, UI, t } from "./i18n.js?v=20261018-1228";
+import { assess, isDistress } from "./probe.js?v=20261018-1228";
+import { SHEET_URL as CONFIG_SHEET_URL } from "./config.js?v=20261018-1228";
+import { canSpeak, canListen, loadVoices, pickVoice, speak, stopSpeaking, unlockSpeech, listen, isMobile } from "./speech.js?v=20261018-1228";
 
 const params0 = new URLSearchParams(location.search);
 // Local test copies (localhost) never send to the real Sheet unless ?sync is added.
-const SHEET_URL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) && !params0.has("sync") ? "" : CONFIG_SHEET_URL;
-const VERSION = "20261017-0040";
+// On localhost, ?sheet=<url> points at a test receiver (used by tests/queue test); nothing reaches the real Sheet.
+const LOCAL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+const SHEET_URL = LOCAL ? (params0.get("sheet") || (params0.has("sync") ? CONFIG_SHEET_URL : "")) : CONFIG_SHEET_URL;
+const VERSION = "20261018-1228";
 const DRAFT = "lf.draft.v2";
 const STORE = "lf.responses.v1";
 const TOOL_NAME = "1MV Listening Form";
@@ -387,8 +389,9 @@ async function submit() {
   if (!all.some(r => r.sid === S.sid)) { all.push(buildRecord()); save(STORE, all); }
   clearDraft();
   go("thanks");
+  // Spread out a crowd pressing Submit together (e.g. a classroom): wait a random 0–2 s before sending.
+  await new Promise(r => setTimeout(r, Math.random() * 2000));
   await syncWaiting();
-  if (S.screen === "thanks") renderThanks();
 }
 
 // Sheet lock: only responses submitted after the tabs were created (CUTOFF) and in today's column format
@@ -396,24 +399,47 @@ async function submit() {
 const CUTOFF = "2026-10-16T18:12:00Z";
 const sendable = r => r.saved >= CUTOFF && TOOLS[r.tool] && r.cols.join("") === columns(TOOLS[r.tool]).join("");
 
-let syncing = false;
+// Queue: every response stays on the phone until the Sheet replies "ok". If the Sheet is busy (Google allows
+// 30 at the same moment), offline, or errors, the response is retried later with a growing, random delay
+// (about 5–10 s, then 15–20 s, … up to ~10 min) so a crowd does not collide again. Sending the same response
+// twice is safe: the Sheet updates the row with the same session_id instead of adding a new one.
+// A reply starting with "rejected" (before the lock / old columns) is final and is not retried.
+const retryDelay = tries => Math.min(600000, 5000 * 2 ** (tries - 1)) + Math.random() * 5000;
+let syncing = false, retryTimer = 0;
 async function syncWaiting() {
-  if (!SHEET_URL || syncing || !navigator.onLine) return;
+  if (!SHEET_URL || syncing) return;
+  if (!navigator.onLine) return scheduleRetry();
   syncing = true;
+  clearTimeout(retryTimer);
   try {
     const waiting = load(STORE, []);
     let marked = false;
     for (const r of waiting) if (!r.sent && !r.skipped && !sendable(r)) { r.skipped = true; marked = true; }
     if (marked) save(STORE, waiting);
-    for (const r of waiting.filter(r => !r.sent && !r.skipped)) {
+    for (const r of waiting.filter(r => !r.sent && !r.skipped && !(r.nextTry > Date.now()))) {
+      let reply = "";
       try {
-        await fetch(SHEET_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" },
+        const res = await fetch(SHEET_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify({ tool: TOOL_NAME, persona: r.tool, columns: r.cols, values: r.values }) });
-      } catch { break; }
+        reply = res.ok ? (await res.text()).trim() : "http " + res.status;
+      } catch { reply = "network"; }
       const all = load(STORE, []);
-      const x = all.find(y => y.sid === r.sid); if (x) { x.sent = true; save(STORE, all); }
+      const x = all.find(y => y.sid === r.sid);
+      if (!x) continue;
+      if (reply === "ok") { x.sent = true; x.sentAt = new Date().toISOString(); delete x.nextTry; }
+      else if (reply.startsWith("rejected")) { x.skipped = true; x.reply = reply; }
+      else { x.tries = (x.tries || 0) + 1; x.reply = reply.slice(0, 80); x.nextTry = Date.now() + retryDelay(x.tries); }
+      save(STORE, all);
+      if (reply === "network") break;   // offline: stop and try the rest later
     }
   } finally { syncing = false; }
+  scheduleRetry();
+  if (S.screen === "thanks") renderThanks();
+}
+function scheduleRetry() {
+  clearTimeout(retryTimer);
+  const due = load(STORE, []).filter(r => !r.sent && !r.skipped).map(r => r.nextTry || Date.now() + 15000);
+  if (due.length) retryTimer = setTimeout(syncWaiting, Math.max(1000, Math.min(...due) - Date.now()));
 }
 
 function renderThanks() {
@@ -442,7 +468,7 @@ function renderAdmin() {
   const all = load(STORE, []);
   const rows = Object.values(TOOLS).map(tool => {
     const recs = all.filter(r => r.tool === tool.key);
-    return `<tr><td>${esc(tool.title.en)}</td><td>${recs.length}</td><td>${recs.filter(r => r.sent).length}</td><td>${recs.filter(r => !r.sent && !r.skipped).length}</td><td>${recs.filter(r => r.skipped).length}</td>
+    return `<tr><td>${esc(tool.title.en)}</td><td>${recs.length}</td><td>${recs.filter(r => r.sent).length}</td><td>${recs.filter(r => !r.sent && !r.skipped).length}${recs.some(r => !r.sent && !r.skipped && r.reply) ? ` <span class="small muted">(last: ${esc(recs.filter(r => !r.sent && !r.skipped && r.reply).pop().reply)})</span>` : ""}</td><td>${recs.filter(r => r.skipped).length}</td>
       <td><button class="btn" data-csv="${tool.key}" ${recs.length ? "" : "disabled"}>CSV</button></td></tr>`;
   }).join("");
   app.innerHTML = `<section class="screen">
