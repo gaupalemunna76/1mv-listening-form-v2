@@ -64,6 +64,12 @@ check("Y17_asked", "कोणालाच नाही", null);
 check("P10_work", "मूल स्वतः ठरवेल ते", null);
 assert.equal(isDistress("मला जगायचं नाही"), true); n++;
 
+// Bengali (ready before translators add the language)
+check("Y12_reason", "হ্যাঁ", "nonanswer");
+check("P15_onething", "জানি না", "nonanswer");
+check("Y17_asked", "কেউ না", null);
+assert.equal(isDistress("আমি মরতে চাই"), true); n++;
+
 // Distress detection (pilot had "Aatmhatya" in a Mitra parent answer)
 assert.equal(isDistress("Aatmhatya"), true); n++;
 assert.equal(isDistress("Sometimes I want to die"), true); n++;
