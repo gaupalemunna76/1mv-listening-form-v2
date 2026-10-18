@@ -2,7 +2,7 @@
 Questions Sheet script (tests/out/sheet_tabs.json, from questions_sheet.test.mjs) build too.
 Run: node tests/questions_sheet.test.mjs && python tests/build_check.py
 """
-import copy, json, pathlib, subprocess, sys, tempfile
+import copy, json, pathlib, re, subprocess, sys, tempfile
 sys.stdout.reconfigure(encoding="utf-8")
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 BUILD = ROOT / "tools" / "build_questions.py"
@@ -15,6 +15,7 @@ def grid(rows):
 tabs = {"Languages": grid(seed["languages"]), "Master (English)": grid(seed["master"])}
 for t, rows in seed["translations"].items():
     tabs[t] = [["ID", "English (base)"] + names + ["Needs update"]] + [[r["id"], r["en"]] + [r.get(n, "") for n in names] + [""] for r in rows]
+tabs["Answer words"] = grid(seed["answer_words"])
 
 tmp = pathlib.Path(tempfile.mkdtemp())
 def run(t, name):
@@ -28,6 +29,7 @@ code, out, res = run(tabs, "good")
 checks.append((code == 0, "the Sheet made from today's form builds"))
 c = json.loads(res.read_text(encoding="utf-8"))
 checks.append((sum(len(s["items"]) for f in c["forms"].values() for s in f["sections"]) == 52, "52 questions"))
+checks.append(("pata nahi" in c["checks"]["non_answer"] and "माहीत नाही" in c["checks"]["non_answer"] and "आत्महत्या" in c["checks"]["distress"], "answer words come from the Answer words tab (English, Hindi, Marathi)"))
 
 bad = copy.deepcopy(tabs)
 M = bad["Master (English)"]; h = M[0]; col = {k: i for i, k in enumerate(h)}
@@ -55,7 +57,8 @@ if dump.exists():
         (code == 0, "tabs written by the Questions Sheet script build"),
         ("G12_new" in ids and "kn" in [l["code"] for l in c.get("languages", [])], "includes the question and the language added in the Sheet"),
         (c.get("forms", {}).get("youth", {}).get("sections", [{}])[1].get("items", [{}])[0].get("label", {}).get("hi", "").startswith("30 साल की उम्र"), "includes the Hindi translator's update"),
-        ("not yet in Kannada" in out, "notes Kannada translations still to do (English shows meanwhile)"),
+        (re.search(r"Kannada: \d+ texts not translated yet", out) is not None, "notes Kannada translations still to do (English shows meanwhile)"),
+        ("Kannada has no safety words" in out, "warns that Kannada has no safety words yet"),
     ]
 checks.append((LIVE.read_bytes() == before, "live questions.json untouched by all of this"))
 for good, msg in checks:

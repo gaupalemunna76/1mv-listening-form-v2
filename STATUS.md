@@ -26,8 +26,15 @@ https://gaupalemunna76.github.io/1mv-listening-form/ (repo gaupalemunna76/1mv-li
   - Admin flow: edit Master → menu **1MV → Update translation tabs from Master** (only changed/new rows go to
     translators) → when ready, **GitHub → Actions → Publish questions → Run workflow**.
   - **Add a language:** menu **1MV → Add a language** (adds a column everywhere and a Tracker row).
-  - Follow-up rule = **word count only** (fewer words than the Master setting → one follow-up). Built-in, not in the
-    Sheet: non-answers (yes/ok/pata nahi…), "no one"/child's-choice phrases, safety (distress) words.
+  - Follow-up rule = **word count only** (fewer words than the Master setting → one follow-up).
+  - **Answer words** tab: one row per language, filled by that language's team — no-answer words (yes, ok, don't
+    know…), "no one" words, "child's choice" words, **safety words** (show the helpline, flag the response). Counted
+    in the Tracker. Publish warns (⚠️) if a language has no safety words.
+- **New language = Sheet work only, no code change:** 1MV → Add a language (name, code, name shown, voice, optional
+  font) → the team fills the translation tabs and its Answer words row → Publish. The form loads the right Google font
+  for the script automatically (Bengali, Tamil, Telugu, Kannada, Malayalam, Gujarati, Gurmukhi, Odia, Urdu, Ol Chiki,
+  Meetei Mayek…; or the "Font (optional)" in Languages) and flips to right-to-left for Urdu/Kashmiri/Sindhi; 🎤 uses
+  `<code>-IN`; 🔊 audio uses the Voice column (edge-tts voice name).
 - **Publish** (`.github/workflows/publish.yml`, repo variable `QUESTIONS_SHEET_ID`): downloads the Sheet as .xlsx
   (exact values), `tools/build_questions.py` checks it and writes `content/questions.json` (any problem → stops, live
   form unchanged), `tools/make_audio.py` makes MP3s for new/changed text (edge-tts, female voices Swara/Aarohi/Neerja;

@@ -53,8 +53,28 @@ sharedStates.forEach(o => T.Options.push({ id: `@states.${o.v}`, en: o.en, ...tr
 for (const [k, v] of Object.entries(UI)) if (v.en) T["Screen text"].push({ id: k, en: v.en, ...tr(v) });
 
 const languages = c.languages.map(l => ({ Language: l.code === "en" ? "English" : EN_NAME[l.code] || l.code, Code: l.code, "Name shown in form": l.name,
-  Voice: VOICE[l.code] || l.voice || "", "On?": "Yes" }));
+  Voice: VOICE[l.code] || l.voice || "", "Font (optional)": "", "On?": "Yes" }));
+// Answer words: given by each language's team. Comma-separated; matched inside the answer.
+const NOANS = "No-answer words (yes, ok, don't know…)", NOONE = "'No one' words", CHOICE = "'Child's choice' words", SAFE = "Safety words (self-harm)";
+const answer_words = [
+  { Language: "English",
+    [NOANS]: "yes, yess, yes yes, yeah, ya, yep, no, nope, ok, okay, k, fine, same, as above, nothing, none, nil, na, n a, dont know, do not know, i dont know, idk, no idea, not sure, maybe, good, nice, correct, right, all right, alright",
+    [NOONE]: "no one, noone, nobody, not anyone, myself, nothing this week",
+    [CHOICE]: "whatever my child, whatever the child, child chooses, his choice, her choice, their choice",
+    [SAFE]: "suicid, kill myself, kill my self, end my life, end this life, want to die, self harm, selfharm, no reason to live" },
+  { Language: "Hindi",
+    [NOANS]: "haan, han, ha, haa, ji, ji haan, nahi, nahin, nai, pata nahi, pata nhi, malum nahi, maloom nahi, kuch nahi, kuchh nahin, theek, thik, theek hai, thik hai, sahi, achha, accha, हाँ, हां, जी, जी हाँ, नहीं, ना, पता नहीं, मालूम नहीं, कुछ नहीं, ठीक, ठीक है, सही, अच्छा",
+    [NOONE]: "kisi se nahi, koi nahi, किसी से नहीं, कोई नहीं, खुद से, इस हफ़्ते कुछ नहीं",
+    [CHOICE]: "jo bachcha chahe, jo baccha chahe, jo bachcha chune, जो बच्चा, बच्चा खुद चुने, उसकी मर्ज़ी",
+    [SAFE]: "aatmhatya, atmhatya, khudkushi, marna chahta, marna chahti, jeena nahi chahta, jeena nahi chahti, आत्महत्या, ख़ुदकुशी, खुदकुशी, मरना चाहता, मरना चाहती, जीना नहीं चाहता, जीना नहीं चाहती" },
+  { Language: "Marathi",
+    [NOANS]: "हो, होय, नाही, माहीत नाही, माहिती नाही, काही नाही, काहीच नाही, ठीक आहे, बरं, बरोबर, चांगले, चांगलं, हो हो",
+    [NOONE]: "कोणालाच नाही, कोणालाही नाही, कोणी नाही, कोणीच नाही, स्वतःच, या आठवड्यात काही नाही",
+    [CHOICE]: "मूल स्वतः ठरवेल, त्याला हवे ते, तिला हवे ते, मुलाला हवे ते, त्याची इच्छा, तिची इच्छा",
+    [SAFE]: "आत्महत्या, मरायचे आहे, मरायचं आहे, जगायचे नाही, जगायचं नाही, जीव द्यायचा" },
+];
+
 mkdirSync(new URL("../seed/", import.meta.url), { recursive: true });
-const seed = { made: new Date().toISOString(), languages, master, translations: T };
+const seed = { made: new Date().toISOString(), languages, master, translations: T, answer_words };
 writeFileSync(new URL("../seed/questions_seed.json", import.meta.url), JSON.stringify(seed, null, 1));
 console.log("master rows", master.length, Object.fromEntries(Object.entries(T).map(([k, v]) => [k, v.length])));

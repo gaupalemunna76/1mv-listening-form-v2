@@ -1,10 +1,10 @@
 // 1MV Listening Form — one question per screen (Youth Voice look), with follow-ups, conditions,
 // optional 🔊 listen and 🎤 speak, three languages, offline save and Google Sheet sync.
-import { loadContent, toTools } from "./content.js?v=20261018-1722";
-import { LANGS, UI, t } from "./i18n.js?v=20261018-1722";
-import { assess, isDistress, configureChecks } from "./probe.js?v=20261018-1722";
-import { SHEET_URL as CONFIG_SHEET_URL } from "./config.js?v=20261018-1722";
-import { canSpeak, canListen, loadVoices, pickVoice, speak, stopSpeaking, unlockSpeech, listen, isMobile, browserName, speechBlocked } from "./speech.js?v=20261018-1722";
+import { loadContent, toTools } from "./content.js?v=20261018-1727";
+import { LANGS, UI, t } from "./i18n.js?v=20261018-1727";
+import { assess, isDistress, configureChecks } from "./probe.js?v=20261018-1727";
+import { SHEET_URL as CONFIG_SHEET_URL } from "./config.js?v=20261018-1727";
+import { canSpeak, canListen, loadVoices, pickVoice, speak, stopSpeaking, unlockSpeech, listen, isMobile, browserName, speechBlocked } from "./speech.js?v=20261018-1727";
 
 // Questions, languages, screen text and answer checks come from the published Questions Sheet (content/questions.json).
 const CONTENT = await loadContent(new URL(import.meta.url).searchParams.get("v"));
@@ -17,7 +17,7 @@ const params0 = new URLSearchParams(location.search);
 // Local test copies (localhost) never send to the real Sheet unless ?sync is added; ?sheet=<url> points at a test receiver.
 const LOCAL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
 const SHEET_URL = LOCAL ? (params0.get("sheet") || (params0.has("sync") ? CONFIG_SHEET_URL : "")) : CONFIG_SHEET_URL;
-const VERSION = "20261018-1722";
+const VERSION = "20261018-1727";
 // Version 2 lives on the same domain as Version 1 (gaupalemunna76.github.io), and browser storage is shared per
 // domain, so V2 uses its own storage names. Otherwise each version would pick up and send the other's responses.
 const DRAFT = "lf2.draft";
@@ -51,9 +51,34 @@ const speechLang = () => (LANGS.find(l => l.code === S.lang) || LANGS[0]).speech
 const go = (screen) => { S.screen = screen; render(); scrollTo(0, 0); };
 
 // ---------------- language ----------------
+// Any language in the Questions Sheet works without code changes: the right Google font is loaded for its script
+// (or the "Font (optional)" set in the Languages tab), and right-to-left scripts flip the page.
+const SCRIPT_FONT = { hi: "Noto Sans Devanagari", mr: "Noto Sans Devanagari", ne: "Noto Sans Devanagari", sa: "Noto Sans Devanagari",
+  kok: "Noto Sans Devanagari", mai: "Noto Sans Devanagari", doi: "Noto Sans Devanagari", bho: "Noto Sans Devanagari",
+  bn: "Noto Sans Bengali", as: "Noto Sans Bengali", pa: "Noto Sans Gurmukhi", gu: "Noto Sans Gujarati", or: "Noto Sans Oriya",
+  ta: "Noto Sans Tamil", te: "Noto Sans Telugu", kn: "Noto Sans Kannada", ml: "Noto Sans Malayalam", ur: "Noto Nastaliq Urdu",
+  ks: "Noto Nastaliq Urdu", sd: "Noto Naskh Arabic", sat: "Noto Sans Ol Chiki", mni: "Noto Sans Meetei Mayek" };
+const RTL = new Set(["ur", "ks", "sd", "ar", "fa", "ps", "he"]);
+function applyScript(code) {
+  const root = document.documentElement, lang = LANGS.find(l => l.code === code) || {};
+  const family = code === "en" ? "" : lang.font || SCRIPT_FONT[code] || "";
+  root.lang = code;
+  root.dir = RTL.has(code) ? "rtl" : "ltr";
+  if (!family) { delete root.dataset.script; root.style.removeProperty("--lang-font"); return; }
+  const id = "font-" + family.replace(/\W+/g, "-");
+  if (!document.getElementById(id)) {
+    const link = document.createElement("link");
+    link.id = id; link.rel = "stylesheet";
+    link.href = `https://fonts.googleapis.com/css2?family=${family.trim().replace(/ +/g, "+")}&display=swap`;
+    document.head.appendChild(link);
+  }
+  root.style.setProperty("--lang-font", `"${family}"`);
+  root.dataset.script = code;
+}
+
 function setLang(code) {
   S.lang = LANGS.some(l => l.code === code) ? code : "en";
-  document.documentElement.lang = S.lang;
+  applyScript(S.lang);
   renderTop();
   saveDraft();
   render();
@@ -545,7 +570,7 @@ function renderAdmin() {
 $("#ver").textContent = "v " + VERSION;
 const qlang = params.get("lang");
 S.lang = qlang && LANGS.some(l => l.code === qlang) ? qlang : "en";
-document.documentElement.lang = S.lang;
+applyScript(S.lang);
 renderTop();
 render();
 syncWaiting();

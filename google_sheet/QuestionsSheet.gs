@@ -11,6 +11,8 @@
  *   Master (English)   ONLY for the admin: every question with all its details, in English
  *   Questions, Examples, Follow-ups, Options, Form text, Screen text
  *                      translation tabs: ID · English (base) · one column per language · Needs update
+ *   Answer words       one row per language, given by that language's team: words that mean "no real answer"
+ *                      (yes, ok, don't know…), "no one", "child's choice", and safety (self-harm) words
  *
  * When English changes, that row's existing translations are marked "Needs update" (orange) until a translator
  * edits them. Empty translations are yellow. The Tracker counts both.
@@ -21,6 +23,8 @@ const TR_TABS = ["Questions", "Examples", "Follow-ups", "Options", "Form text", 
 const FROM_MASTER = ["Questions", "Examples", "Follow-ups", "Options"];   // English comes from the Master
 const EN = "English (base)", NEEDS = "Needs update";
 const OPT_COL = "Options (English)  code: label | code: label";
+const AW = "Answer words";
+const AW_COLS = ["No-answer words (yes, ok, don't know…)", "'No one' words", "'Child's choice' words", "Safety words (self-harm)"];
 const C = { head: "#1F5F8B", headText: "#FFFFFF", base: "#EEF2F7", empty: "#FFF4C2", stale: "#FBD3A8", done: "#D9F2E3", todo: "#FBE3D6" };
 
 function onOpen() {
@@ -99,8 +103,22 @@ function buildFromSeed_(seed) {
     if (rows.length) sh.getRange(2, 1, rows.length, head.length).setValues(rows);
     formatTab_(sh, head);
   });
+  const A = sheet_(AW, true), ah = ["Language"].concat(AW_COLS);
+  header_(A, ah);
+  const aw = (seed.answer_words || []).filter(r => seed.languages.some(l => l.Language === r.Language));
+  if (aw.length) A.getRange(2, 1, aw.length, ah.length).setValues(aw.map(r => ah.map(k => r[k] || "")));
+  A.setColumnWidth(1, 120); for (let c = 2; c <= ah.length; c++) A.setColumnWidth(c, 380);
+  A.getRange(2, 1, Math.max(1, aw.length), ah.length).setWrap(true).setVerticalAlignment("top");
+  colourAW_(A);
   ss.setActiveSheet(ss.getSheetByName("Tracker"));
   refreshTracker();
+}
+
+function colourAW_(sh) {
+  const last = sh.getLastRow(), w = sh.getLastColumn();
+  if (last < 2) return;
+  const v = sh.getRange(2, 1, last - 1, w).getValues();
+  sh.getRange(2, 1, v.length, w).setBackgrounds(v.map(r => r.map((x, c) => c === 0 ? C.base : String(x).trim() ? "#FFFFFF" : C.empty)));
 }
 
 function formatTab_(sh, head) {
@@ -194,6 +212,7 @@ function onEdit(e) {
   if (!e || !e.range) return;
   const sh = e.range.getSheet(), name = sh.getName();
   if (name === MASTER) { setMasterFlag_(true); refreshTracker(); return; }
+  if (name === AW) { colourAW_(sh); refreshTracker(); return; }
   if (TR_TABS.indexOf(name) === -1 || e.range.getRow() < 2) return;
   const width = sh.getLastColumn(), head = sh.getRange(1, 1, 1, width).getValues()[0].map(String), ni = head.indexOf(NEEDS);
   const names = langs_(), r0 = e.range.getRow(), nr = e.range.getNumRows(), c0 = e.range.getColumn(), nc = e.range.getNumColumns();
@@ -235,8 +254,15 @@ function refreshTracker() {
       counts[tab][n] = { missing, stale };
     });
   });
+  const aw = table_(AW);
+  counts[AW] = {};
+  names.forEach(n => {
+    const row = aw.rows.find(r => String(r[0]).trim() === n);
+    counts[AW][n] = { missing: row ? AW_COLS.filter(k => !String(row[aw.head.indexOf(k)] || "").trim()).length : AW_COLS.length, stale: 0 };
+  });
   const sh = sheet_("Tracker", true);
-  const head = ["Language"].concat(TR_TABS, ["Status"]);
+  const COLS = TR_TABS.concat([AW]);
+  const head = ["Language"].concat(COLS, ["Status"]);
   sh.getRange(1, 1).setValue("Translation tracker — a language turns green when every tab is complete").setFontWeight("bold").setFontSize(13);
   const flag = PropertiesService.getDocumentProperties().getProperty("masterChanged");
   sh.getRange(2, 1).setValue(flag ? "⚠️ The Master tab was edited. Admin: run menu 1MV → Update translation tabs from Master." : "Last updated: " + new Date().toLocaleString())
@@ -245,7 +271,7 @@ function refreshTracker() {
   const rows = [], bgs = [];
   names.forEach(n => {
     const todo = [];
-    const cells = TR_TABS.map(tab => {
+    const cells = COLS.map(tab => {
       const { missing, stale } = counts[tab][n];
       if (!missing && !stale) return "✅";
       todo.push(tab);
@@ -284,8 +310,10 @@ function addLanguage() {
     sh.setColumnWidth(ni + 1, 340);
     colour_(sh);
   });
+  const A = ss_().getSheetByName(AW);
+  if (A && !table_(AW).rows.some(r => String(r[0]).trim() === name)) { A.appendRow([name].concat(AW_COLS.map(() => ""))); colourAW_(A); }
   refreshTracker();
-  ui.alert("Added", name + " is added to every translation tab and to the Tracker. Translators can start filling the yellow cells.", ui.ButtonSet.OK);
+  ui.alert("Added", name + " is added to every translation tab, to Answer words and to the Tracker. The " + name + " team can start filling the yellow cells.", ui.ButtonSet.OK);
 }
 
 // ---------------------------------------------------------------- read me
@@ -305,7 +333,7 @@ function readMe_(sh) {
     ["• Never change an ID or an option code (the part before ':' in Options, e.g. school: In school).", false],
     ["• Follow-up: Ask follow-up? = Yes, and it is asked once if the answer has fewer words than 'Follow-up if fewer than (words)'.", false],
     ["• Show only if: e.g. 'Y5 in school, college' or 'Y14_now = notyet' or 'P7_visits not 0'.", false],
-    ["• New language: menu 1MV → Add a language.", false],
+    ["• New language: menu 1MV → Add a language. Its team fills the translation tabs and its row in Answer words (words for 'yes / don't know', 'no one', 'child's choice' and safety words). No code change is needed.", false],
     ["• When the Tracker is green (or when you are ready), press Publish on GitHub: Actions → Publish questions → Run workflow.", false],
   ];
   sh.getRange(1, 1, lines.length, 1).setValues(lines.map(l => [l[0]])).setWrap(true);

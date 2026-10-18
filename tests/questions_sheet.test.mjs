@@ -61,7 +61,8 @@ let n = 0; const ok = (c, m) => { assert.ok(c, m); console.log("ok   " + m); n++
 
 // 1. Set up from the live form's questions
 api.setupFromSeed();
-ok(["Read me", "Tracker", "Languages", "Master (English)", "Questions", "Examples", "Follow-ups", "Options", "Form text", "Screen text"].every(t => sheets.has(t)), "set-up creates all 10 tabs");
+ok(["Read me", "Tracker", "Languages", "Master (English)", "Questions", "Examples", "Follow-ups", "Options", "Form text", "Screen text", "Answer words"].every(t => sheets.has(t)), "set-up creates all 11 tabs");
+ok(tab("Answer words").rows.length === 3 && tracker("Hindi")["Answer words"] === "✅", "Answer words: a filled row per language; tracker counts it");
 ok(tab("Questions").head.join("|") === "ID|English (base)|Hindi|Marathi|Needs update", "translation tab columns: ID · English (base) · Hindi · Marathi · Needs update");
 ok(tab("Master (English)").rows.length === 52 && tab("Options").rows.length === 144, "52 questions in the Master, 144 options");
 ok(tracker("Hindi").Status === "✅ All done" && tracker("Marathi").Status === "✅ All done", "tracker: both languages green after set-up");
@@ -98,6 +99,8 @@ prompts.push("Kannada", "kn", "ಕನ್ನಡ", "");
 api.addLanguage();
 ok(tab("Questions").head.join("|") === "ID|English (base)|Hindi|Marathi|Kannada|Needs update", "Kannada column added before 'Needs update' in every tab");
 ok(tracker("Kannada") && tracker("Kannada").Questions === "53 empty" && tracker("Kannada").Status.startsWith("Check:"), "tracker: Kannada row with everything to do");
+ok(tab("Answer words").rows.some(r => r[0] === "Kannada") && tracker("Kannada")["Answer words"] === "4 empty", "Kannada gets an empty Answer words row (4 empty in the tracker)");
+ok(tab("Languages").head.includes("Font (optional)") && tab("Languages").rows.some(r => r[0] === "Kannada"), "Kannada added to Languages");
 
 // Save the fake Sheet for the build test (Kannada and the test question removed again)
 mkdirSync(new URL("./out/", import.meta.url), { recursive: true });

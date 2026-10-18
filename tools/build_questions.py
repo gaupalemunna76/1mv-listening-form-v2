@@ -18,7 +18,10 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "content" / "questions.json"
 MASTER = "Master (English)"
 TR_TABS = ["Questions", "Examples", "Follow-ups", "Options", "Form text", "Screen text"]
-TABS = ["Languages", MASTER] + TR_TABS
+AW = "Answer words"
+AW_COLS = {"non_answer": "No-answer words (yes, ok, don't know…)", "no_one": "'No one' words",
+           "childs_choice": "'Child's choice' words", "distress": "Safety words (self-harm)"}
+TABS = ["Languages", MASTER] + TR_TABS + [AW]
 OPT_COL = "Options (English)  code: label | code: label"
 TYPES = {"short text": "short", "long text": "para", "number": "number", "one choice": "choice", "many choices": "multi", "dropdown": "dropdown"}
 problems, notes = [], []
@@ -206,12 +209,32 @@ def build(tabs):
     if not forms:
         problems.append(f"{MASTER}: no questions found")
 
+    # Answer words: each language's team gives words that mean "no real answer", "no one", "child's choice", and safety words.
+    checks = {k: [] for k in AW_COLS}
+    _, aw = records(tabs.get(AW, []), AW) if tabs.get(AW) else ([], [])
+    have = {r.get("Language", "") for r in aw}
+    for r in aw:
+        if r.get("Language") not in code_of:
+            continue
+        for k, col in AW_COLS.items():
+            checks[k] += split_list(r.get(col, ""))
+    for l in langs:
+        row = next((r for r in aw if r.get("Language") == l["Language"]), None)
+        if not row:
+            notes.append(f"{AW}: no row for {l['Language']} yet")
+        else:
+            empty = [col for col in AW_COLS.values() if not row.get(col)]
+            if AW_COLS["distress"] in empty:
+                notes.append(f"⚠️ {AW}: {l['Language']} has no safety words — the helpline will not show for answers in {l['Language']}")
+            elif empty:
+                notes.append(f"{AW}: {l['Language']} still empty: {', '.join(empty)}")
+
     ui = {}
     for key, d in T["Screen text"].items():
         if key: ui[key] = {k: v for k, v in d.items() if v}
     languages = [{"code": l["Code"], "name": l.get("Name shown in form") or l["Language"], "speech": f"{l['Code']}-IN" if len(l["Code"]) == 2 else l["Code"],
-                  "voice": l.get("Voice", "")} for l in langs]
-    content = {"languages": languages, "forms": forms, "ui": ui, "checks": {}}
+                  "voice": l.get("Voice", ""), **({"font": l["Font (optional)"]} if l.get("Font (optional)") else {})} for l in langs]
+    content = {"languages": languages, "forms": forms, "ui": ui, "checks": checks}
     content["version"] = hashlib.sha1(json.dumps(content, sort_keys=True, ensure_ascii=False).encode()).hexdigest()[:10]
     return content
 
@@ -233,7 +256,17 @@ def main():
         lines = [f"## ✅ Questions checked: {len(content['forms'])} forms, {n} questions, languages: {', '.join(l['code'] for l in content['languages'])}",
                  f"Written {out.name} (version {content['version']})."]
     if notes:
-        lines += ["", "### Notes (not errors)", ""] + [f"- {x}" for x in notes[:200]]
+        warn = [x for x in notes if x.startswith("⚠️")]
+        pending = {}
+        for x in notes:
+            m = re.search(r"not yet in (.+?) \(English will show\)", x)
+            if m:
+                for lang in m.group(1).split(", "):
+                    pending[lang] = pending.get(lang, 0) + 1
+        other_notes = [x for x in notes if not x.startswith("⚠️") and "not yet in" not in x]
+        lines += ["", "### Notes (not errors)", ""] + [f"- {x}" for x in warn]
+        lines += [f"- {lang}: {n} texts not translated yet (English shows until they are)" for lang, n in pending.items()]
+        lines += [f"- {x}" for x in other_notes[:100]]
     report = "\n".join(lines)
     print(report)
     if a.report: pathlib.Path(a.report).write_text(report + "\n", encoding="utf-8")

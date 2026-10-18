@@ -112,3 +112,8 @@ th{font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mu
 
 .micdebug{white-space:pre-wrap;font:12px/1.45 ui-monospace,Consolas,monospace;background:var(--soft);border:1px dashed var(--rule);border-radius:8px;padding:8px 10px;margin:0;max-height:240px;overflow:auto}
 .v2tag{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.06em;background:var(--voice);color:#fff;border-radius:6px;padding:2px 7px;margin-left:2px}
+/* Any language from the Questions Sheet: app.js sets --lang-font (its script's Google font) and dir="rtl" when needed. */
+html[data-script] body, html[data-script] h1, html[data-script] h2, html[data-script] h3, html[data-script] .qtext,
+html[data-script] .brand, html[data-script] button, html[data-script] textarea, html[data-script] select { font-family: var(--lang-font), var(--body) }
+[dir="rtl"] .controls, [dir="rtl"] .type, [dir="rtl"] .row { direction: rtl }
+[dir="rtl"] .example, [dir="rtl"] .fu { border-left: 0; padding-left: 0; border-right: 3px solid var(--rule); padding-right: 10px }

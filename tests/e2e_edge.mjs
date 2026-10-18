@@ -100,6 +100,7 @@ await step(`T.txt('Teacher'); T.next()`);
 ok(await ev(`T.q()`) === "Y11a_work" && await ev(`T.fu()`) === true, "follow-up appears for 'Teacher' (too short)");
 await step(`document.querySelector('.toplangs [data-lang=hi]').click()`);
 ok((await ev(`T.text()`)).includes("30 साल"), "Hindi switch shows the question in Hindi");
+ok(await ev(`document.documentElement.dataset.script === "hi" && !!document.getElementById("font-Noto-Sans-Devanagari")`) === true, "the script's font is loaded for the chosen language");
 ok(await ev(`T.fu()`) === true && await ev(`document.getElementById('f_Y11a_work').value`) === "Teacher", "answer and follow-up kept after switch");
 await step(`document.querySelector('.toplangs [data-lang=mr]').click()`);
 ok((await ev(`T.text()`)).includes("३० वर्षांचे"), "Marathi switch shows the question in Marathi");
